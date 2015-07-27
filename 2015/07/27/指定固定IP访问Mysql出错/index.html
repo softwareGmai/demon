@@ -3,21 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hello World | Demon&#39;s Blog</title>
+  <title>指定固定IP访问Mysql出错 | Demon&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+  <meta name="description" content="一、Mysql权限管理1、允许root用户在任何地方进行远程登录，并具有所有库任何操作权限，具体操作如下：在本机先使用root用户登录mysql： mysql -u root -p”youpassword” 进行授权操作：1mysql&amp;gt;GRANT ALL PRIVILEGES ON *.* TO &apos;root&apos;@&apos;%&apos; IDENTIFIED BY &apos;youpassword&apos; WITH GRAN">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2015/07/27/hello-world/index.html">
+<meta property="og:title" content="指定固定IP访问Mysql出错">
+<meta property="og:url" content="http://yoursite.com/2015/07/27/指定固定IP访问Mysql出错/index.html">
 <meta property="og:site_name" content="Demon's Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2015-07-27T00:53:32.000Z">
+<meta property="og:description" content="一、Mysql权限管理1、允许root用户在任何地方进行远程登录，并具有所有库任何操作权限，具体操作如下：在本机先使用root用户登录mysql： mysql -u root -p”youpassword” 进行授权操作：1mysql&amp;gt;GRANT ALL PRIVILEGES ON *.* TO &apos;root&apos;@&apos;%&apos; IDENTIFIED BY &apos;youpassword&apos; WITH GRAN">
+<meta property="og:updated_time" content="2015-07-27T08:51:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="指定固定IP访问Mysql出错">
+<meta name="twitter:description" content="一、Mysql权限管理1、允许root用户在任何地方进行远程登录，并具有所有库任何操作权限，具体操作如下：在本机先使用root用户登录mysql： mysql -u root -p”youpassword” 进行授权操作：1mysql&amp;gt;GRANT ALL PRIVILEGES ON *.* TO &apos;root&apos;@&apos;%&apos; IDENTIFIED BY &apos;youpassword&apos; WITH GRAN">
   
     <link rel="alternative" href="/atom.xml" title="Demon&#39;s Blog" type="application/atom+xml">
   
@@ -202,11 +199,11 @@ Quick">
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-指定固定IP访问Mysql出错" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/07/27/hello-world/" class="article-date">
-  	<time datetime="2015-07-27T00:53:32.000Z" itemprop="datePublished">2015-07-27</time>
+      <a href="/2015/07/27/指定固定IP访问Mysql出错/" class="article-date">
+  	<time datetime="2015-07-27T08:48:24.000Z" itemprop="datePublished">2015-07-27</time>
 </a>
     </div>
   
@@ -219,7 +216,7 @@ Quick">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      指定固定IP访问Mysql出错
     </h1>
   
 
@@ -227,6 +224,10 @@ Quick">
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql权限管理/">mysql权限管理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/错误日志/">错误日志</a></li></ul>
+	</div>
+
         
 
         <div class="clearfix"></div>
@@ -235,15 +236,18 @@ Quick">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>一、Mysql权限管理<br>1、允许root用户在任何地方进行远程登录，并具有所有库任何操作权限，<br>具体操作如下：<br>在本机先使用root用户登录mysql： mysql -u root -p”youpassword” 进行授权操作：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'youpassword' WITH GRANT OPTION;</span><br></pre></td></tr></table></figure></p>
+<p>重载授权表：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure></p>
+<p>退出mysql数据库：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;exit</span><br></pre></td></tr></table></figure></p>
+<p>2、允许root用户在一个特定的IP进行远程登录，并具有所有库任何操作权限，<br>具体操作如下：<br>在本机先使用root用户登录mysql： mysql -u root -p”youpassword” 进行授权操作：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;GRANT ALL PRIVILEGES ON *.* TO root@"115.26.4.153" IDENTIFIED BY "youpassword" WITH GRANT OPTION;</span><br></pre></td></tr></table></figure></p>
+<p>重载授权表：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure></p>
+<p>退出mysql数据库：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;exit</span><br></pre></td></tr></table></figure></p>
+<p>3、允许root用户在一个特定的IP进行远程登录，并具有所有库特定操作权限，<br>具体操作如下：<br>在本机先使用root用户登录mysql： mysql -u root -p”youpassword” 进行授权操作：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;GRANT select，insert，update，delete ON *.* TO root@"115.26.4.153" IDENTIFIED BY "youpassword";</span><br></pre></td></tr></table></figure></p>
+<p>重载授权表：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure></p>
+<p>退出mysql数据库：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;exit</span><br></pre></td></tr></table></figure></p>
+<p>二、提出问题<br>服务器能正常启动，但是项目已启动，访问主页面就报错，报错信息如图所示：</p>
+<p>三、分析原因<br>因为创建视图使用的是root@%用户(目前已经被我删除)，然后登录用户使用的是root@ip用户，导致mysql认为现在的用户无权限访问该视图</p>
+<p>四、解决方案<br>在服务器端登陆Mysql，重新建立视图，则问题解决</p>
 
       
     </div>
@@ -253,15 +257,20 @@ Quick">
     
 <nav id="article-nav">
   
-    <a href="/2015/07/27/定时备份Mysql（windows）/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/07/27/Linux下tomcat日志文件的分割备份/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          定时备份Mysql（windows）
+          Linux下tomcat日志文件的分割备份
         
       </div>
     </a>
   
+  
+    <a href="/2015/07/27/Mysql安装时启动不了服务/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Mysql安装时启动不了服务</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -288,7 +297,7 @@ Quick">
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="hello-world" data-title="Hello World" data-url="http://yoursite.com/2015/07/27/hello-world/"></div>
+	<div class="ds-thread" data-thread-key="指定固定IP访问Mysql出错" data-title="指定固定IP访问Mysql出错" data-url="http://yoursite.com/2015/07/27/指定固定IP访问Mysql出错/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

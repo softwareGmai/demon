@@ -3,21 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hello World | Demon&#39;s Blog</title>
+  <title>Mysql主从同步配置（Windows） | Demon&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+  <meta name="description" content="一、环境：主服务器：10.9.110.24从服务器：10.9.110.20Mysql：mysql_installer_community_V5.6.21.1_setup.1418020972.msi
+二、主服务器（master）配置1、修改MySQL配置文件my.ini  （D:/mysql/mysql_data/my.ini）123456789101112&amp;#123;% codeblock la">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2015/07/27/hello-world/index.html">
+<meta property="og:title" content="Mysql主从同步配置（Windows）">
+<meta property="og:url" content="http://yoursite.com/2015/07/27/Mysql主从同步配置（Windows）/index.html">
 <meta property="og:site_name" content="Demon's Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2015-07-27T00:53:32.000Z">
+<meta property="og:description" content="一、环境：主服务器：10.9.110.24从服务器：10.9.110.20Mysql：mysql_installer_community_V5.6.21.1_setup.1418020972.msi
+二、主服务器（master）配置1、修改MySQL配置文件my.ini  （D:/mysql/mysql_data/my.ini）123456789101112&amp;#123;% codeblock la">
+<meta property="og:image" content="http://yoursite.com/img/mysql/7.jpg">
+<meta property="og:image" content="http://yoursite.com/img/mysql/8.png">
+<meta property="og:updated_time" content="2015-07-27T08:40:25.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="Mysql主从同步配置（Windows）">
+<meta name="twitter:description" content="一、环境：主服务器：10.9.110.24从服务器：10.9.110.20Mysql：mysql_installer_community_V5.6.21.1_setup.1418020972.msi
+二、主服务器（master）配置1、修改MySQL配置文件my.ini  （D:/mysql/mysql_data/my.ini）123456789101112&amp;#123;% codeblock la">
   
     <link rel="alternative" href="/atom.xml" title="Demon&#39;s Blog" type="application/atom+xml">
   
@@ -202,11 +204,11 @@ Quick">
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Mysql主从同步配置（Windows）" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/07/27/hello-world/" class="article-date">
-  	<time datetime="2015-07-27T00:53:32.000Z" itemprop="datePublished">2015-07-27</time>
+      <a href="/2015/07/27/Mysql主从同步配置（Windows）/" class="article-date">
+  	<time datetime="2015-07-27T08:35:20.000Z" itemprop="datePublished">2015-07-27</time>
 </a>
     </div>
   
@@ -219,7 +221,7 @@ Quick">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      Mysql主从同步配置（Windows）
     </h1>
   
 
@@ -227,6 +229,10 @@ Quick">
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/主从同步/">主从同步</a></li></ul>
+	</div>
+
         
 
         <div class="clearfix"></div>
@@ -235,15 +241,14 @@ Quick">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>一、环境：<br>主服务器：10.9.110.24<br>从服务器：10.9.110.20<br>Mysql：mysql_installer_community_V5.6.21.1_setup.1418020972.msi</p>
+<p>二、主服务器（master）配置<br>1、修改MySQL配置文件my.ini  （D:/mysql/mysql_data/my.ini）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;% codeblock lang:java %&#125;</span><br><span class="line">[mysqld]</span><br><span class="line"><span class="built_in">log</span>-bin=mysql-bin</span><br><span class="line"><span class="built_in">log</span>-bin-index=mysql-bin.index</span><br><span class="line">server-id=<span class="number">24</span></span><br><span class="line">sync_binlog=<span class="number">1</span></span><br><span class="line">binlog_format=mixed</span><br><span class="line">binlog-do-db=<span class="built_in">test</span></span><br><span class="line">binlog-ignore-db=mysql</span><br><span class="line">binlog-ignore-db=performance_schema</span><br><span class="line">binlog-ignore-db=information_schema</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure></p>
+<p>配置完成后重启MySQL服务。</p>
+<p>2、授权给从服务器（slave）同步数据的账号密码<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">GRANT</span> REPLICATION <span class="keyword">SLAVE</span> <span class="keyword">ON</span> *.*<span class="keyword">TO</span> <span class="string">'root'</span>@<span class="string">'10.9.110.20'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'123456'</span>;</span></span><br></pre></td></tr></table></figure></p>
+<p>参数说明：<br>•   root：slave连接master使用的账号<br>•   IDENTIFIED BY ‘123456’ ：slave连接master使用的密码<br>•   10.9.110.20：slave IP<br>执行命令show master status;<br>注意结果中的File和Position，配置从服务器（slave）时会用到。<br><img src="/img/mysql/7.jpg" alt="主服务器配置"><br>三、从服务器（slave）配置<br>1、修改MySQL配置文件my.ini  （D:/mysql/mysql_data/my.ini）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;% codeblock lang:java %&#125;</span><br><span class="line">[mysqld]</span><br><span class="line"><span class="built_in">log</span>-bin=mysql-bin</span><br><span class="line">server-id=<span class="number">20</span></span><br><span class="line">relay-log-index=slave-relay-bin.index</span><br><span class="line">relay-log=slave-relay-bin</span><br><span class="line">sync_master_info=<span class="number">1</span></span><br><span class="line">sync_relay_<span class="built_in">log</span>=<span class="number">1</span></span><br><span class="line">sync_relay_<span class="built_in">log</span>_info=<span class="number">1</span></span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure></p>
+<p>2、设置连接主服务器（master）的信息<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">change</span> <span class="keyword">master</span> <span class="keyword">to</span> master_host=<span class="string">'10.9.110.24'</span>,master_user=<span class="string">'root'</span>,master_port=<span class="number">3306</span>,master_password=<span class="string">'Jiuru2014bada'</span>,master_log_file=<span class="string">'mysql-bin.000001'</span>,master_log_pos=<span class="number">328</span></span></span><br></pre></td></tr></table></figure></p>
+<p>参数说明：<br>•   master_host：master IP<br>•   master_user：master数据库通过GRANT授权的账号<br>•   master_port：master数据库使用的端口号<br>•   master_password：master数据库通过GRANT授权的密码<br>•   master_log_file：master数据库中通过show master status显示的File名称<br>•   master_log_pos：master数据库中通过show master status显示的Position数据<br>重启MySql服务。<br>执行命令：start slave。<br>执行命令：show slave status。<br>当Slave_IO_Running与Slave_SQL_Running都为Yes时才算配置成功。<br>此时，master服务器上test数据库里的数据就能同步到slave服务器上的test数据库中。<br><img src="/img/mysql/8.png" alt="从服务器配置成功"></p>
+<p>【注意】第一次配置失败，原因是因为password输错了，导致Slave_IO_Running的值为connecting（配置错误的）<br>【拓展】导致lave_IO_Running 为connecting 的原因主要有以下 3 个方面：<br>        1、网络不通<br>        2、密码不对<br>        3、pos不对  </p>
 
       
     </div>
@@ -253,15 +258,20 @@ Quick">
     
 <nav id="article-nav">
   
-    <a href="/2015/07/27/定时备份Mysql（windows）/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/07/27/Mysql安装时启动不了服务/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          定时备份Mysql（windows）
+          Mysql安装时启动不了服务
         
       </div>
     </a>
   
+  
+    <a href="/2015/07/27/定时备份Mysql（Linux）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">定时备份Mysql（Linux）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -288,7 +298,7 @@ Quick">
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="hello-world" data-title="Hello World" data-url="http://yoursite.com/2015/07/27/hello-world/"></div>
+	<div class="ds-thread" data-thread-key="Mysql主从同步配置（Windows）" data-title="Mysql主从同步配置（Windows）" data-url="http://yoursite.com/2015/07/27/Mysql主从同步配置（Windows）/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
