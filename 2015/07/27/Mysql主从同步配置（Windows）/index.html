@@ -6,20 +6,20 @@
   <title>Mysql主从同步配置（Windows） | Demon&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="一、环境：主服务器：10.9.110.24从服务器：10.9.110.20Mysql：mysql_installer_community_V5.6.21.1_setup.1418020972.msi
-二、主服务器（master）配置1、修改MySQL配置文件my.ini  （D:/mysql/mysql_data/my.ini）123456789101112&amp;#123;% codeblock la">
+二、主服务器（master）配置1、修改MySQL配置文件my.ini  （D:/mysql/mysql_data/my.ini）12345678910[mysqld]log-bin=mysql-bi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mysql主从同步配置（Windows）">
 <meta property="og:url" content="http://yoursite.com/2015/07/27/Mysql主从同步配置（Windows）/index.html">
 <meta property="og:site_name" content="Demon's Blog">
 <meta property="og:description" content="一、环境：主服务器：10.9.110.24从服务器：10.9.110.20Mysql：mysql_installer_community_V5.6.21.1_setup.1418020972.msi
-二、主服务器（master）配置1、修改MySQL配置文件my.ini  （D:/mysql/mysql_data/my.ini）123456789101112&amp;#123;% codeblock la">
+二、主服务器（master）配置1、修改MySQL配置文件my.ini  （D:/mysql/mysql_data/my.ini）12345678910[mysqld]log-bin=mysql-bi">
 <meta property="og:image" content="http://yoursite.com/img/mysql/7.jpg">
 <meta property="og:image" content="http://yoursite.com/img/mysql/8.png">
-<meta property="og:updated_time" content="2015-07-27T08:40:25.000Z">
+<meta property="og:updated_time" content="2015-07-31T13:53:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mysql主从同步配置（Windows）">
 <meta name="twitter:description" content="一、环境：主服务器：10.9.110.24从服务器：10.9.110.20Mysql：mysql_installer_community_V5.6.21.1_setup.1418020972.msi
-二、主服务器（master）配置1、修改MySQL配置文件my.ini  （D:/mysql/mysql_data/my.ini）123456789101112&amp;#123;% codeblock la">
+二、主服务器（master）配置1、修改MySQL配置文件my.ini  （D:/mysql/mysql_data/my.ini）12345678910[mysqld]log-bin=mysql-bi">
   
     <link rel="alternative" href="/atom.xml" title="Demon&#39;s Blog" type="application/atom+xml">
   
@@ -33,6 +33,11 @@
     <div class="left-col">
     <div class="overlay"></div>
 <div class="intrude-less">
+        <form class="search" method="get" accept-charset="utf-8">
+                <label>Search</label>
+                <input type="text" id="demon-search-input"
+                        class="st-search-input_my" maxlength="30" placeholder="和Demon一起搜一下" />
+        </form>
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
@@ -135,6 +140,7 @@
 		</div>
 	</header>				
 </div>
+
     </div>
     <div class="mid-col">
       <nav id="mobile-nav">
@@ -221,7 +227,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>一、环境：<br>主服务器：10.9.110.24<br>从服务器：10.9.110.20<br>Mysql：mysql_installer_community_V5.6.21.1_setup.1418020972.msi</p>
-<p>二、主服务器（master）配置<br>1、修改MySQL配置文件my.ini  （D:/mysql/mysql_data/my.ini）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;% codeblock lang:java %&#125;</span><br><span class="line">[mysqld]</span><br><span class="line"><span class="built_in">log</span>-bin=mysql-bin</span><br><span class="line"><span class="built_in">log</span>-bin-index=mysql-bin.index</span><br><span class="line">server-id=<span class="number">24</span></span><br><span class="line">sync_binlog=<span class="number">1</span></span><br><span class="line">binlog_format=mixed</span><br><span class="line">binlog-do-db=<span class="built_in">test</span></span><br><span class="line">binlog-ignore-db=mysql</span><br><span class="line">binlog-ignore-db=performance_schema</span><br><span class="line">binlog-ignore-db=information_schema</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure></p>
+<p>二、主服务器（master）配置<br>1、修改MySQL配置文件my.ini  （D:/mysql/mysql_data/my.ini）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line"><span class="built_in">log</span>-bin=mysql-bin</span><br><span class="line"><span class="built_in">log</span>-bin-index=mysql-bin.index</span><br><span class="line">server-id=<span class="number">24</span></span><br><span class="line">sync_binlog=<span class="number">1</span></span><br><span class="line">binlog_format=mixed</span><br><span class="line">binlog-do-db=<span class="built_in">test</span></span><br><span class="line">binlog-ignore-db=mysql</span><br><span class="line">binlog-ignore-db=performance_schema</span><br><span class="line">binlog-ignore-db=information_schema</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <p>配置完成后重启MySQL服务。</p>
 <p>2、授权给从服务器（slave）同步数据的账号密码<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">GRANT</span> REPLICATION <span class="keyword">SLAVE</span> <span class="keyword">ON</span> *.*<span class="keyword">TO</span> <span class="string">'root'</span>@<span class="string">'10.9.110.20'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'123456'</span>;</span></span><br></pre></td></tr></table></figure></p>
 <p>参数说明：<br>•   root：slave连接master使用的账号<br>•   IDENTIFIED BY ‘123456’ ：slave连接master使用的密码<br>•   10.9.110.20：slave IP<br>执行命令show master status;<br>注意结果中的File和Position，配置从服务器（slave）时会用到。<br><img src="/img/mysql/7.jpg" alt="主服务器配置"><br>三、从服务器（slave）配置<br>1、修改MySQL配置文件my.ini  （D:/mysql/mysql_data/my.ini）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;% codeblock lang:java %&#125;</span><br><span class="line">[mysqld]</span><br><span class="line"><span class="built_in">log</span>-bin=mysql-bin</span><br><span class="line">server-id=<span class="number">20</span></span><br><span class="line">relay-log-index=slave-relay-bin.index</span><br><span class="line">relay-log=slave-relay-bin</span><br><span class="line">sync_master_info=<span class="number">1</span></span><br><span class="line">sync_relay_<span class="built_in">log</span>=<span class="number">1</span></span><br><span class="line">sync_relay_<span class="built_in">log</span>_info=<span class="number">1</span></span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure></p>
@@ -308,8 +315,17 @@
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
       	</div>
     </div>
+    <script type="text/javascript">
+      (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+      (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+      e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+      })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+      _st('install','UynJht7T_EcyDZm3PnxB','2.0.0');
+    </script>
   </div>
 </footer>
+
     </div>
     
   <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">

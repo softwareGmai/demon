@@ -5,22 +5,16 @@
   
   <title>定时备份Mysql（Linux） | Demon&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、环境LinuxMysql安装目录：/var/lib/mysqlMysql备份目录：/bada_sql_backup （开始没有此目录）二、  步骤1、创建保存备份文件的路径/ bada_sql_backup1# mkdir / bada_sql_backup
-2、创建/usr/sbin/bakmysql文件1# vim /usr/sbin/bakmysql
-输入（注意下面日期的引号比较特殊，千">
+  <meta name="description" content="一、环境LinuxMysql安装目录：/var/lib/mysqlMysql备份目录：/bada_sql_backup （开始没有此目录）二、  步骤1、创建保存备份文件的路径/ bada_sql_backup1# mkdir / bada_sql_backup">
 <meta property="og:type" content="article">
 <meta property="og:title" content="定时备份Mysql（Linux）">
 <meta property="og:url" content="http://yoursite.com/2015/07/27/定时备份Mysql（Linux）/index.html">
 <meta property="og:site_name" content="Demon's Blog">
-<meta property="og:description" content="一、环境LinuxMysql安装目录：/var/lib/mysqlMysql备份目录：/bada_sql_backup （开始没有此目录）二、  步骤1、创建保存备份文件的路径/ bada_sql_backup1# mkdir / bada_sql_backup
-2、创建/usr/sbin/bakmysql文件1# vim /usr/sbin/bakmysql
-输入（注意下面日期的引号比较特殊，千">
-<meta property="og:updated_time" content="2015-07-27T08:31:37.000Z">
+<meta property="og:description" content="一、环境LinuxMysql安装目录：/var/lib/mysqlMysql备份目录：/bada_sql_backup （开始没有此目录）二、  步骤1、创建保存备份文件的路径/ bada_sql_backup1# mkdir / bada_sql_backup">
+<meta property="og:updated_time" content="2015-07-31T13:52:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="定时备份Mysql（Linux）">
-<meta name="twitter:description" content="一、环境LinuxMysql安装目录：/var/lib/mysqlMysql备份目录：/bada_sql_backup （开始没有此目录）二、  步骤1、创建保存备份文件的路径/ bada_sql_backup1# mkdir / bada_sql_backup
-2、创建/usr/sbin/bakmysql文件1# vim /usr/sbin/bakmysql
-输入（注意下面日期的引号比较特殊，千">
+<meta name="twitter:description" content="一、环境LinuxMysql安装目录：/var/lib/mysqlMysql备份目录：/bada_sql_backup （开始没有此目录）二、  步骤1、创建保存备份文件的路径/ bada_sql_backup1# mkdir / bada_sql_backup">
   
     <link rel="alternative" href="/atom.xml" title="Demon&#39;s Blog" type="application/atom+xml">
   
@@ -34,6 +28,11 @@
     <div class="left-col">
     <div class="overlay"></div>
 <div class="intrude-less">
+        <form class="search" method="get" accept-charset="utf-8">
+                <label>Search</label>
+                <input type="text" id="demon-search-input"
+                        class="st-search-input_my" maxlength="30" placeholder="和Demon一起搜一下" />
+        </form>
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
@@ -136,6 +135,7 @@
 		</div>
 	</header>				
 </div>
+
     </div>
     <div class="mid-col">
       <nav id="mobile-nav">
@@ -222,6 +222,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>一、环境<br>Linux<br>Mysql安装目录：/var/lib/mysql<br>Mysql备份目录：/bada_sql_backup （开始没有此目录）<br>二、  步骤<br>1、创建保存备份文件的路径/ bada_sql_backup<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># mkdir / bada_sql_backup</span></span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <p>2、创建/usr/sbin/bakmysql文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># vim /usr/sbin/bakmysql</span></span><br></pre></td></tr></table></figure></p>
 <p>输入（注意下面日期的引号比较特殊，千万不要输错）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rq=` date +%Y%m%d `</span><br><span class="line">tar zcvf /bada_sql_backup/bada<span class="variable">$rq</span>.tar.gz /var/lib/mysql</span><br></pre></td></tr></table></figure></p>
 <p>或者写成<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rq=` date +%Y%m%d `</span><br><span class="line">mysqldump --all-databases -u root -p密码 &gt; / bada_sql_backup/bada <span class="variable">$rq</span>.sql</span><br></pre></td></tr></table></figure></p>
@@ -310,8 +311,17 @@
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
       	</div>
     </div>
+    <script type="text/javascript">
+      (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+      (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+      e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+      })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+      _st('install','UynJht7T_EcyDZm3PnxB','2.0.0');
+    </script>
   </div>
 </footer>
+
     </div>
     
   <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">

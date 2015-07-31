@@ -17,7 +17,7 @@
 <meta property="og:image" content="http://yoursite.com/img/mysql/4.jpg">
 <meta property="og:image" content="http://yoursite.com/img/mysql/5.jpg">
 <meta property="og:image" content="http://yoursite.com/img/mysql/6.jpg">
-<meta property="og:updated_time" content="2015-07-27T08:24:25.000Z">
+<meta property="og:updated_time" content="2015-07-31T13:53:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="定时备份Mysql（windows）">
 <meta name="twitter:description" content="一、  环境Windows 64bitMysql安装目录: D:\mysql-5.6.20-win32\mysql-5.6.20-win32\数据库名称bada_db数据文件备份目录：D:\mysql_bak\badaSql文件备份目录：D:\mysql_bak\bada_sql_bak二、  步骤1.新建bat文件backup_db_sql.bat和db_bak.batbackup_db_sql">
@@ -34,6 +34,11 @@
     <div class="left-col">
     <div class="overlay"></div>
 <div class="intrude-less">
+        <form class="search" method="get" accept-charset="utf-8">
+                <label>Search</label>
+                <input type="text" id="demon-search-input"
+                        class="st-search-input_my" maxlength="30" placeholder="和Demon一起搜一下" />
+        </form>
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
@@ -136,6 +141,7 @@
 		</div>
 	</header>				
 </div>
+
     </div>
     <div class="mid-col">
       <nav id="mobile-nav">
@@ -222,6 +228,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>一、  环境<br>Windows 64bit<br>Mysql安装目录: D:\mysql-5.6.20-win32\mysql-5.6.20-win32\<br>数据库名称bada_db<br>数据文件备份目录：D:\mysql_bak\bada<br>Sql文件备份目录：D:\mysql_bak\bada_sql_bak<br>二、  步骤<br>1.新建bat文件backup_db_sql.bat和db_bak.bat<br>backup_db_sql.bat ：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">set</span> <span class="string">"Ymd=%date:~,4%%date:~5,2%%date:~8,2%"</span></span><br><span class="line">D:\mysql-<span class="number">5.6</span>.<span class="number">20</span>-win32\mysql-<span class="number">5.6</span>.<span class="number">20</span>-win32\bin\mysqldump --opt -u root --password=Jiuru2014bada bada_db &gt; D:\mysql_bak\bada_sql_bak\bada_%Ymd%.sql</span><br><span class="line">@<span class="built_in">echo</span> on</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <p>db_bak.bat ：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">net stop mysql</span><br><span class="line">xcopy D:\mysql-<span class="number">5.6</span>.<span class="number">20</span>-win32\mysql-<span class="number">5.6</span>.<span class="number">20</span>-win32\data\bada_db\*.* D:\mysql_bak\bada\%date:~<span class="number">0</span>,<span class="number">10</span>%\ /y</span><br><span class="line">net start mysql</span><br></pre></td></tr></table></figure></p>
 <p>2.附件—&gt;系统工具—&gt;任务计划程序<br> <img src="/img/mysql/1.jpg" alt="第1步"><br> <img src="/img/mysql/2.jpg" alt="第2步"><br> <img src="/img/mysql/3.jpg" alt="第3步"><br> <img src="/img/mysql/4.jpg" alt="第4步"><br> <img src="/img/mysql/5.jpg" alt="第5步"><br> <img src="/img/mysql/6.jpg" alt="第6步"></p>
 <p>另外一个文件也是一样操作，这样就Finish了~</p>
@@ -243,11 +250,6 @@
       </div>
     </a>
   
-  
-    <a href="/2015/07/27/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
   
 </nav>
 
@@ -305,8 +307,17 @@
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
       	</div>
     </div>
+    <script type="text/javascript">
+      (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+      (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+      e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+      })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+      _st('install','UynJht7T_EcyDZm3PnxB','2.0.0');
+    </script>
   </div>
 </footer>
+
     </div>
     
   <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
