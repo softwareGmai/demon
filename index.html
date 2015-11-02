@@ -62,7 +62,7 @@
 		</hgroup>
 
 		
-		<p class="header-subtitle">Demon的个人博客</p>
+		<p class="header-subtitle">知其然而知其所以然</p>
 		
 
 		
@@ -112,6 +112,8 @@
 				        
 							<li><a href="/tags/随笔">随笔</a></li>
 				        
+							<li><a href="/2015/10/06/实验室/">实验室</a></li>
+				        
 							<li><a href="/2015/07/29/关于我/">关于我</a></li>
 				        
 						</ul>
@@ -134,7 +136,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/Socket/" style="font-size: 10px;">Socket</a> <a href="/tags/TCP/" style="font-size: 10px;">TCP</a> <a href="/tags/flash/" style="font-size: 10px;">flash</a> <a href="/tags/mysql/" style="font-size: 20px;">mysql</a> <a href="/tags/mysql权限管理/" style="font-size: 10px;">mysql权限管理</a> <a href="/tags/pip/" style="font-size: 10px;">pip</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/主从同步/" style="font-size: 10px;">主从同步</a> <a href="/tags/关于我/" style="font-size: 10px;">关于我</a> <a href="/tags/备份/" style="font-size: 16.67px;">备份</a> <a href="/tags/错误日志/" style="font-size: 13.33px;">错误日志</a>
+						<a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/K-Means/" style="font-size: 10px;">K-Means</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/Socket/" style="font-size: 10px;">Socket</a> <a href="/tags/TCP/" style="font-size: 10px;">TCP</a> <a href="/tags/flash/" style="font-size: 10px;">flash</a> <a href="/tags/mysql/" style="font-size: 20px;">mysql</a> <a href="/tags/mysql权限管理/" style="font-size: 10px;">mysql权限管理</a> <a href="/tags/pip/" style="font-size: 10px;">pip</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/ubuntu/" style="font-size: 16.67px;">ubuntu</a> <a href="/tags/virtualbox/" style="font-size: 10px;">virtualbox</a> <a href="/tags/主从同步/" style="font-size: 10px;">主从同步</a> <a href="/tags/关于我/" style="font-size: 10px;">关于我</a> <a href="/tags/备份/" style="font-size: 16.67px;">备份</a> <a href="/tags/实验室/" style="font-size: 13.33px;">实验室</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/聚类/" style="font-size: 10px;">聚类</a> <a href="/tags/错误日志/" style="font-size: 13.33px;">错误日志</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
 					</div>
 				</section>
 				
@@ -145,7 +147,7 @@
 				
 				<section class="switch-part switch-part3">
 				
-					<div id="js-aboutme">我是天津工业大学的学生，再天津大学读研究生，喜欢篮球、旅行。</div>
+					<div id="js-aboutme">天津大学研究僧，喜欢篮球、旅行。</div>
 				</section>
 				
 			</div>
@@ -169,7 +171,7 @@
 			  <h1 class="header-author">Demon</h1>
 			</hgroup>
 			
-			<p class="header-subtitle">Demon的个人博客</p>
+			<p class="header-subtitle">知其然而知其所以然</p>
 			
 			<nav class="header-menu">
 				<ul>
@@ -179,6 +181,8 @@
 					<li><a href="/archives">所有文章</a></li>
 		        
 					<li><a href="/tags/随笔">随笔</a></li>
+		        
+					<li><a href="/2015/10/06/实验室/">实验室</a></li>
 		        
 					<li><a href="/2015/07/29/关于我/">关于我</a></li>
 		        
@@ -202,6 +206,533 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-K-Means算法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/02/K-Means算法/" class="article-date">
+  	<time datetime="2015-11-02T09:08:49.000Z" itemprop="datePublished">2015-11-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/02/K-Means算法/">K-Means算法</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近看论文，经常接触一些聚类算法，其中就有提到k-means算法，所以就自己归纳整理了一下。<br>首先搞清楚“聚类”（Clustering）和“分类”（Classfication）是不一样的。<br>分类是事先知道了有N类，你要把样本数据归类到这N类里面。比方说，有两个类别，苹果和梨，我们有一堆苹果和梨乱混合在那里，需要我们归类。这个就是分类问题。<br>而聚类呢，是你根本不知道样本数据是能分成什么类别的，只有通过自己学习自动归类，统一类别的样本数据就更相似。</p>
+<p>聚类的第一步呢，往往是将原始数据映射成N维的空间向量，然后做处理的。<br>怎么映射呢？<br>假设有m个样本集合，每个样本为(X1,X2,…,Xn)，即每个样本有n个特征。这样的话，每个Xi都是m维的向量。</p>
+<p>接下来，正式介绍下K-means算法。<br>K-means算法是一种聚类方法，主要的目的是将再给定分类组数k（k &lt; n）的情况下，将原始数据分成k类，表示为S={S1,S2,…,Sk}，即对以下表达式求最小值：</p>
+<p><img src="/img/latex/CodeCogsEqn.gif" alt="公式"></p>
+<p>其中ui是Si的平均值。</p>
+<p>具体算法步骤如下：<br>1、随机在图中取k个种子点（k是给定的分类组数）<br>2、计算图中所有点到k个种子点的距离。如果点A离种子点Si的距离最近，则点A属于点群Si。<br>3、根据聚类的结果，重新计算每个点群的中心<br>4、将图中所有点根据新的中心重新聚类<br>5、重复3、4两个步骤，知道中心点不再变化</p>
+<p>Example:<br>现有如下一些原始数据。A，B是数据的两个特征，请用k-means算法聚类。（设k=2）</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Subject</th>
+<th style="text-align:center">A</th>
+<th style="text-align:center">B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1.0</td>
+<td style="text-align:center">1.0</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">1.5</td>
+<td style="text-align:center">2.0</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">3.0</td>
+<td style="text-align:center">4.0</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">5.0</td>
+<td style="text-align:center">7.0</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">3.5</td>
+<td style="text-align:center">5.0</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">4.5</td>
+<td style="text-align:center">5.0</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">3.5</td>
+<td style="text-align:center">4.5</td>
+</tr>
+</tbody>
+</table>
+<p>1、我们随机取2个种子点</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">样本</th>
+<th style="text-align:center">中心点向量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Group 1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">(1.0,1.0)</td>
+</tr>
+<tr>
+<td style="text-align:center">Group 2</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">(5.0,7.0)</td>
+</tr>
+</tbody>
+</table>
+<p>2、计算其他点到中心点的距离，进行聚类</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">步骤</th>
+<th style="text-align:center">样本</th>
+<th style="text-align:center">中心点向量</th>
+<th style="text-align:center">样本</th>
+<th style="text-align:center">中心点向量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">(1.0,1.0)</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">(1.0,1.0)</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">1,2</td>
+<td style="text-align:center">(1.2,1.5)</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">(5.0,7.0)</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">1,2,3</td>
+<td style="text-align:center">(1.8,2.3)</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">(1.0,1.0)</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">1,2,3</td>
+<td style="text-align:center">(1.8,2.3)</td>
+<td style="text-align:center">4，5</td>
+<td style="text-align:center">(5.0,7.0)</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">1,2,3</td>
+<td style="text-align:center">(1.8,2.3)</td>
+<td style="text-align:center">4,5,6</td>
+<td style="text-align:center">(1.0,1.0)</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">1,2,3</td>
+<td style="text-align:center">(1.8,2.3)</td>
+<td style="text-align:center">4,5,6,7</td>
+<td style="text-align:center">(5.0,7.0)</td>
+</tr>
+</tbody>
+</table>
+<p>3、重新计算中心</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">样本</th>
+<th style="text-align:center">中心点向量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Cluster 1</td>
+<td style="text-align:center">1,2,3</td>
+<td style="text-align:center">(1.8,2.3)</td>
+</tr>
+<tr>
+<td style="text-align:center">Cluster 2</td>
+<td style="text-align:center">4,5,6,7</td>
+<td style="text-align:center">(4.1,5.4)</td>
+</tr>
+</tbody>
+</table>
+<p>4、计算各点距离</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">样本</th>
+<th style="text-align:center">中心到Cluster1的距离</th>
+<th style="text-align:center">中心到Cluster1的距离</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1.0</td>
+<td style="text-align:center">1.0</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">1.5</td>
+<td style="text-align:center">2.0</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">3.0</td>
+<td style="text-align:center">4.0</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">5.0</td>
+<td style="text-align:center">7.0</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">3.5</td>
+<td style="text-align:center">5.0</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">4.5</td>
+<td style="text-align:center">5.0</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">3.5</td>
+<td style="text-align:center">4.5</td>
+</tr>
+</tbody>
+</table>
+<p>5、重新聚类</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">样本</th>
+<th style="text-align:center">中心点向量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Cluster 1</td>
+<td style="text-align:center">1,2</td>
+<td style="text-align:center">(1.3,1.5)</td>
+</tr>
+<tr>
+<td style="text-align:center">Cluster 2</td>
+<td style="text-align:center">3,4,5,6,7</td>
+<td style="text-align:center">(3.9,5.1)</td>
+</tr>
+</tbody>
+</table>
+<p>6、就这样再重新计算中心，计算各点距离，重新聚类，直到中心点不再改变。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/K-Means/">K-Means</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/实验室/">实验室</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/聚类/">聚类</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-ubuntu安装virtualbox" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/26/ubuntu安装virtualbox/" class="article-date">
+  	<time datetime="2015-10-26T13:14:55.000Z" itemprop="datePublished">2015-10-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/26/ubuntu安装virtualbox/">ubuntu安装virtualbox</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>参考官方文档安装方法，安装步骤如下：<br>1、Ctrl + Alt + T 打开Terminal，增加源：<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo <span class="keyword">sh</span> -c 'echo <span class="string">"deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib"</span> &gt;&gt; /etc/apt/sources.<span class="keyword">list</span>.<span class="keyword">d</span>/virtualbox.<span class="keyword">list</span>'</span><br></pre></td></tr></table></figure></p>
+<p>2、Download &amp; import the keyring：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget -<span class="tag">q</span> https:<span class="comment">//www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -</span></span><br></pre></td></tr></table></figure></p>
+<p>3、Install the package：<br><figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-<span class="built_in">get</span> <span class="keyword">update</span></span><br><span class="line">$ sudo apt-<span class="built_in">get</span> install virtualbox-<span class="number">4.3</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/virtualbox/">virtualbox</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-实验室" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/06/实验室/" class="article-date">
+  	<time datetime="2015-10-06T10:44:41.000Z" itemprop="datePublished">2015-10-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/06/实验室/">实验室</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&#160; &#160; &#160; &#160;作为研究僧，自然会混在实验室搞研究。然而，我认为研究不能瞎研究。研究的目的，我个人认为，一方面是在对方法论的学习和总结；另一方面，则是对生活的观察和创新。所以，再研究生期间，我希望自己能将系统的学习方法论，并合理归纳总结，自己消化的同时也能分享给别人。初步概括如下：</p>
+<table><thead><tr><th>列1</th><th>列2</th></tr></thead><tbody><tr><td>生活需求</td><td>观察 + 创新</td></tr><tr><td>工具</td><td>方法论</td></tr></tbody></table>
+
+<h2 id="基础学科">基础学科</h2><ul>
+<li>线性代数</li>
+<li>高等数学</li>
+<li>离散数学</li>
+</ul>
+<h2 id="程序语言">程序语言</h2><ul>
+<li>Java</li>
+<li>Python</li>
+<li>C/C++</li>
+</ul>
+<h2 id="计算机原理">计算机原理</h2><ul>
+<li>Linux</li>
+<li>计算机网络</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/实验室/">实验室</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-写在校庆的那天深夜" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/03/写在校庆的那天深夜/" class="article-date">
+  	<time datetime="2015-10-02T19:26:30.000Z" itemprop="datePublished">2015-10-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/03/写在校庆的那天深夜/">写在校庆的那天深夜</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;打开手机，深夜时刻03:27，不是起得太早，而是久久没有睡去。耳朵里塞着何洁的《你一定要幸福》，感觉到这样的心，曾经寂寞过，也曾如此委屈过。每当听到这首歌，总会想起一个不错的朋友，看朋友圈的说说，这个时候估计应该是在台湾和妈妈在开心的旅游吧。真心为她高兴，因为我知道，微笑的她才是真的她。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;今天是10月3日，昨天是我校天津大学的120周年的校庆，盛大而又隆重。早上去老校区转悠了一会儿，又赶回新校区感受一下氛围，很可惜的是没有吃到校庆丰盛的免费午餐，也没有领到只属于天大校友的纪念品，然而心里还是很欢喜，很兴奋，因为这是一个普天同庆的日子。因为我知道，今天的天很蓝，蓝得怎么这么不合逻辑……</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;左手Ctrl和S的组合键习惯的保存了一下，眼神稍微走了下光，看到了金老师前几天给我的研究僧第一篇论文，叫《Learning Deep Representations for Graph Clustering》。这对于大学不曾跟老师做过学术研究，只是倒弄JavaEE项目的我来说，可能有点吃力，因为连翻译过来的一些专业名词我都不懂。然而，不管怎样，和伙伴们从1895咖啡厅玩完桌游回来，便静下心来看了Introduction部分。<br>满纸的注释和翻译，应该连鬼都能看出我的英语有多烂吧。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;桌上的钥匙，其中有两把是自己公司的钥匙。在我看来，这是我未来的事业，一个希望和曹共同经营的事业。我们约定过的，5年天津的打拼和经营，经营属于我们自己的事业。<br>只能说，在我们自己看来，我们还很稚嫩，不懂的东西太多，现在的我们最好的就是沉淀自己，保持一个永远好奇的心，掌握好自己的技能。总结为一句话就是，“人笨多读书，我们还是太年轻”。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;很喜欢曹曾经写给团队的一句话，他是这样说的：<br>    公司注册只是介绍词，拉开帷幕之前，我们必须编造一段美丽的故事结局，创业期间铭记故事结局，故事主人公都可以换，结局不能换，沉醉在故事插曲不可怕，可怕插曲过后咱们忘了故事美好的结局。<br>这句话是我们自我分析性格时，他思考出来的一句话。这句话很触动我，我感觉说得很实在，也说得很理性。我是经历过创业的，虽然我的年龄在别人眼里还是个一无用处的小屁孩。然而，不可否认的事，之前一年零三个月的创业经历让我兴奋过，失望过，绝望过……让我饱受了抉择的艰难和痛苦，也从中让我备受触动。<br>它教会了我什么叫浮躁，什么叫迷茫，什么叫诚信……一切的一切，刻在我的心里，只能说，感谢曾经遇到的你们，教会我成长，教会我自强，教会我在社会上摸爬滚打。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;看着到哪里都带着的照片，忽然感慨，一年半了，怎么能受得了我，怎么受得了坏毛病一身的我呢！嘿嘿，真的很感谢宝贝竟然还跟我这个在你眼里不大靠谱的小屁孩在一起。还记得，大约是年前团购的艺术照，收到之后就被我直接都“收藏”了，钱包里，桌面里…..随处看到了你的身影，把周围的狗狗们虐得嗷嗷叫，嘿嘿，应该说我感到了一种夫妻的感觉，现在的我，感到很幸福，因为现在的我，有你陪伴 O(∩_∩)O</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;2015年10月，研究僧生涯的开始。<br>&nbsp;&nbsp;&nbsp;&nbsp;为了家人的幸福，我，一直在努力……</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-安装java环境" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/29/安装java环境/" class="article-date">
+  	<time datetime="2015-09-29T11:10:00.000Z" itemprop="datePublished">2015-09-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/29/安装java环境/">安装java环境</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一、环境准备<br>1、Ubuntu 14.04<br>2、JDK 7：从Oracle官网下载，所有历史版本链接<a href="http://www.oracle.com/technetwork/java/javase/archive-139210.html" target="_blank" rel="external">http://www.oracle.com/technetwork/java/javase/archive-139210.html</a></p>
+<p>二、安装<br>1、解压。将下载的jdk-7u80-linux-x64.tar.gz移动到/usr/lib/jvm下（jvm目录要自己创建），并用tar命令解压<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sudo mkdir /usr/lib/jvm</span></span><br><span class="line"><span class="comment"># cd /usr/lib/jvm</span></span><br><span class="line"><span class="comment"># mv ~/Download/jdk-7u80-linux-x64.tar.gz .</span></span><br><span class="line"><span class="comment"># tar zxvf jdk-7u80-linux-x64.tar.gz</span></span><br></pre></td></tr></table></figure></p>
+<p>2、配置环境变量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># vim ~/.bashrc</span></span><br></pre></td></tr></table></figure></p>
+<p>在文件最后添加<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/lib/jvm/jdk1.<span class="number">7.0</span>_80</span><br><span class="line"><span class="built_in">export</span> JRE_HOME=<span class="variable">$&#123;JAVA_HOME&#125;</span>/jre</span><br><span class="line"><span class="built_in">export</span> CLASSPATH=.:<span class="variable">$&#123;JAVA_HOME&#125;</span>/lib:<span class="variable">$&#123;JRE_HOME&#125;</span>/lib</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$&#123;JAVA_HOME&#125;</span>/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure></p>
+<p>保存文件，退出，并使修改生效<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># source ~/.bashrc</span></span><br></pre></td></tr></table></figure></p>
+<p>3、测试验证<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">demon@Demon-WorkPad:~$ java -version</span><br><span class="line">java version <span class="string">"1.7.0_80"</span></span><br><span class="line">Java(TM) SE Runtime Environment (build <span class="number">1.7</span>.<span class="number">0</span>_80-b15)</span><br><span class="line">Java HotSpot(TM) <span class="number">64</span>-Bit Server VM (build <span class="number">24.80</span>-b11, mixed mode)</span><br></pre></td></tr></table></figure></p>
+<p>备注：如果还没有上述测试成功的结果，先退出当前窗口（Ctrl + D），再打开窗口重新测试一下即可。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-pip安装PIL" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -408,9 +939,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>大家好，我叫Demon，92年生，现在是天津大学的准研究生，本科就读于天津工业大学。期间和朋友有过一次一年多的创业经历，从2014年3月至2015年6月。现在也正在和朋友合伙开公司，有兴趣的朋友也可以和我联系，欢迎交流。</p>
-<p><h2>兴趣爱好</h2></p>
-<ul><br><li>篮球：狂热的“麦蜜”，crazy的球风，随时恭候约球。</li><li>编程：我不会告诉你敲键盘的感觉会如此有成就感。</li><li>文学：喜欢文字的东西，喜欢珍藏经典的书籍。</li><li>旅行：比较爱出去玩，喜欢户外运动，喜欢挑战和冒险。</li><li>哈韩：思密达的综艺的狂热追捧者，也爱看韩剧，喜欢吃韩料。</li><li>街舞：学过一小段时间街舞，深深迷恋，想重新学起来。</li></ul><br>
+        <p>&#160; &#160; &#160; &#160;大家好，我叫Demon，92年生，现在是天津大学的准研究生，本科就读于天津工业大学。期间和朋友有过一次一年多的创业经历，从2014年3月至2015年6月。现在也正在和朋友合伙开公司，有兴趣的朋友也可以和我联系，欢迎交流。</p>
+<h2 id="兴趣爱好">兴趣爱好</h2><ul>
+<li>篮球：狂热的“麦蜜”，crazy的球风，随时恭候约球</li>
+<li>编程：我不会告诉你敲键盘的感觉会如此有成就感</li>
+<li>文学：喜欢文字的东西，喜欢珍藏经典的书籍</li>
+<li>旅行：比较爱出去玩，喜欢户外运动，喜欢挑战和冒险</li>
+<li>哈韩：思密达的综艺的狂热追捧者，也爱看韩剧，喜欢吃韩料</li>
+<li>街舞：学过一小段时间街舞，深深迷恋，想重新学起来
       
     </div>
     
@@ -500,300 +1036,10 @@
 
 
   
-    <article id="post-指定固定IP访问Mysql出错" class="article article-type-post" itemscope itemprop="blogPost">
   
-    <div class="article-meta">
-      <a href="/2015/07/27/指定固定IP访问Mysql出错/" class="article-date">
-  	<time datetime="2015-07-27T08:48:24.000Z" itemprop="datePublished">2015-07-27</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/27/指定固定IP访问Mysql出错/">指定固定IP访问Mysql出错</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一、Mysql权限管理<br>1、允许root用户在任何地方进行远程登录，并具有所有库任何操作权限，<br>具体操作如下：<br>在本机先使用root用户登录mysql： mysql -u root -p”youpassword” 进行授权操作：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'youpassword' WITH GRANT OPTION;</span><br></pre></td></tr></table></figure></p>
-<p>重载授权表：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure></p>
-<p>退出mysql数据库：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;exit</span><br></pre></td></tr></table></figure></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql权限管理/">mysql权限管理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/错误日志/">错误日志</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/07/27/指定固定IP访问Mysql出错/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-Mysql安装时启动不了服务" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/07/27/Mysql安装时启动不了服务/" class="article-date">
-  	<time datetime="2015-07-27T08:43:42.000Z" itemprop="datePublished">2015-07-27</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/27/Mysql安装时启动不了服务/">Mysql安装时启动不了服务</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一、提出问题<br>重装Mysql时，已经很干净地卸载了Mysql（包括清理注册表等），但是重装时最后还是出现了问题，最后一步的“start server”一直启动不了，<br>我取消以后，手动启动mysql还是启动不了，报错信息如下图所示：</p>
-<p>之后，我再去Mysql的安装目录  D:\software\project\tool\mysql\mysql_data\data  下找到GM-PC.err文件，发现了比较准确的报错信息：<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/错误日志/">错误日志</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/07/27/Mysql安装时启动不了服务/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-Mysql主从同步配置（Windows）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/07/27/Mysql主从同步配置（Windows）/" class="article-date">
-  	<time datetime="2015-07-27T08:35:20.000Z" itemprop="datePublished">2015-07-27</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/27/Mysql主从同步配置（Windows）/">Mysql主从同步配置（Windows）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一、环境：<br>主服务器：10.9.110.24<br>从服务器：10.9.110.20<br>Mysql：mysql_installer_community_V5.6.21.1_setup.1418020972.msi</p>
-<p>二、主服务器（master）配置<br>1、修改MySQL配置文件my.ini  （D:/mysql/mysql_data/my.ini）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line"><span class="built_in">log</span>-bin=mysql-bin</span><br><span class="line"><span class="built_in">log</span>-bin-index=mysql-bin.index</span><br><span class="line">server-id=<span class="number">24</span></span><br><span class="line">sync_binlog=<span class="number">1</span></span><br><span class="line">binlog_format=mixed</span><br><span class="line">binlog-do-db=<span class="built_in">test</span></span><br><span class="line">binlog-ignore-db=mysql</span><br><span class="line">binlog-ignore-db=performance_schema</span><br><span class="line">binlog-ignore-db=information_schema</span><br></pre></td></tr></table></figure></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/主从同步/">主从同步</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/07/27/Mysql主从同步配置（Windows）/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-定时备份Mysql（Linux）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/07/27/定时备份Mysql（Linux）/" class="article-date">
-  	<time datetime="2015-07-27T08:25:26.000Z" itemprop="datePublished">2015-07-27</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/27/定时备份Mysql（Linux）/">定时备份Mysql（Linux）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一、环境<br>Linux<br>Mysql安装目录：/var/lib/mysql<br>Mysql备份目录：/bada_sql_backup （开始没有此目录）<br>二、  步骤<br>1、创建保存备份文件的路径/ bada_sql_backup<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># mkdir / bada_sql_backup</span></span><br></pre></td></tr></table></figure></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/备份/">备份</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/07/27/定时备份Mysql（Linux）/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-定时备份Mysql（windows）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/07/27/定时备份Mysql（windows）/" class="article-date">
-  	<time datetime="2015-07-27T08:15:50.000Z" itemprop="datePublished">2015-07-27</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/27/定时备份Mysql（windows）/">定时备份Mysql（windows）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一、  环境<br>Windows 64bit<br>Mysql安装目录: D:\mysql-5.6.20-win32\mysql-5.6.20-win32\<br>数据库名称bada_db<br>数据文件备份目录：D:\mysql_bak\bada<br>Sql文件备份目录：D:\mysql_bak\bada_sql_bak<br>二、  步骤<br>1.新建bat文件backup_db_sql.bat和db_bak.bat<br>backup_db_sql.bat ：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">set</span> <span class="string">"Ymd=%date:~,4%%date:~5,2%%date:~8,2%"</span></span><br><span class="line">D:\mysql-<span class="number">5.6</span>.<span class="number">20</span>-win32\mysql-<span class="number">5.6</span>.<span class="number">20</span>-win32\bin\mysqldump --opt -u root --password=Jiuru2014bada bada_db &gt; D:\mysql_bak\bada_sql_bak\bada_%Ymd%.sql</span><br><span class="line">@<span class="built_in">echo</span> on</span><br></pre></td></tr></table></figure></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/备份/">备份</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/07/27/定时备份Mysql（windows）/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 </div>
       <footer id="footer">
@@ -803,8 +1049,11 @@
     		&copy; 2015 Demon
     	</div>
       	<div class="footer-right">
+<!--
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
-      	</div>
+-->
+            简单不先于复杂，而在复杂之后   
+   	</div>
     </div>
     <script type="text/javascript">
       (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
