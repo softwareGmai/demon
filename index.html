@@ -136,7 +136,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/K-Means/" style="font-size: 10px;">K-Means</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/Socket/" style="font-size: 10px;">Socket</a> <a href="/tags/TCP/" style="font-size: 10px;">TCP</a> <a href="/tags/flash/" style="font-size: 10px;">flash</a> <a href="/tags/mysql/" style="font-size: 20px;">mysql</a> <a href="/tags/mysql权限管理/" style="font-size: 10px;">mysql权限管理</a> <a href="/tags/pip/" style="font-size: 10px;">pip</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/ubuntu/" style="font-size: 16.67px;">ubuntu</a> <a href="/tags/virtualbox/" style="font-size: 10px;">virtualbox</a> <a href="/tags/主从同步/" style="font-size: 10px;">主从同步</a> <a href="/tags/关于我/" style="font-size: 10px;">关于我</a> <a href="/tags/备份/" style="font-size: 16.67px;">备份</a> <a href="/tags/实验室/" style="font-size: 13.33px;">实验室</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/聚类/" style="font-size: 10px;">聚类</a> <a href="/tags/错误日志/" style="font-size: 13.33px;">错误日志</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+						<a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/K-Means/" style="font-size: 10px;">K-Means</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/Socket/" style="font-size: 10px;">Socket</a> <a href="/tags/TCP/" style="font-size: 10px;">TCP</a> <a href="/tags/community-detection/" style="font-size: 10px;">community detection</a> <a href="/tags/deep-learning/" style="font-size: 10px;">deep learning</a> <a href="/tags/flash/" style="font-size: 10px;">flash</a> <a href="/tags/mysql/" style="font-size: 20px;">mysql</a> <a href="/tags/mysql权限管理/" style="font-size: 10px;">mysql权限管理</a> <a href="/tags/paper/" style="font-size: 10px;">paper</a> <a href="/tags/pip/" style="font-size: 10px;">pip</a> <a href="/tags/python/" style="font-size: 13.33px;">python</a> <a href="/tags/theano/" style="font-size: 10px;">theano</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/ubuntu/" style="font-size: 16.67px;">ubuntu</a> <a href="/tags/virtualbox/" style="font-size: 10px;">virtualbox</a> <a href="/tags/主从同步/" style="font-size: 10px;">主从同步</a> <a href="/tags/关于我/" style="font-size: 10px;">关于我</a> <a href="/tags/备份/" style="font-size: 16.67px;">备份</a> <a href="/tags/实验室/" style="font-size: 13.33px;">实验室</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/聚类/" style="font-size: 10px;">聚类</a> <a href="/tags/错误日志/" style="font-size: 13.33px;">错误日志</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
 					</div>
 				</section>
 				
@@ -206,6 +206,123 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-Community-detection-with-deep-learning-Part-1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/30/Community-detection-with-deep-learning-Part-1/" class="article-date">
+  	<time datetime="2016-05-30T15:37:15.000Z" itemprop="datePublished">2016-05-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/30/Community-detection-with-deep-learning-Part-1/">Community detection with deep learning Part 1</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近利用深度学习对社团发现的问题尝试去寻找思路，大概看了七八篇文章，启发挺大，就想写博客来总结总结。<br>这几篇文章分别是：<br>《Multi-view Clustering via Deep Matrix Factorization》<br>《Modularity based Community Detection with Deep Learning》<br>《Learning Deep Representations for Graph Clustering》<br>《Image Representation Learning Using Graph Regularized Auto-Encoders》<br>《Utilizing Deep Learning for Content-based Community Detection》<br>《Deep Linear Coding for Fast Graph Clustering》<br>《Deep Learning with K-Means Applied to Community Detection in Networks》<br>《Greedy Deep Dictionary Learning》</p>
+<p>以下是自己总结的ppt截图：<br><img src="/img/research/1.png" alt="1"><br><img src="/img/research/2.png" alt="2"><br><img src="/img/research/3.png" alt="3"><br><img src="/img/research/4.png" alt="4"><br><img src="/img/research/5.png" alt="5"><br><img src="/img/research/6.png" alt="6"><br><img src="/img/research/7.png" alt="7"><br><img src="/img/research/8.png" alt="8"><br><img src="/img/research/9.png" alt="9"><br><img src="/img/research/10.png" alt="10"><br><img src="/img/research/11.png" alt="11"></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/community-detection/">community detection</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/deep-learning/">deep learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/paper/">paper</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-Theano-Start" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/30/Theano-Start/" class="article-date">
+  	<time datetime="2016-05-30T14:38:35.000Z" itemprop="datePublished">2016-05-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/30/Theano-Start/">Theano Start</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>好久没有写博客了，最近科研整理了些思路，要准备做实验了，就打算用python的框架Theano来实现。今天就开始看起来了，所以就过来写写，加深理解。<br>一、Theano安装<br>先查看一下我的本机环境，ok，我的是Ubuntu 14.04.2<br><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># cat /etc/issue</span></span><br></pre></td></tr></table></figure></p>
+<p>接着就安装吧，宝宝们，（本机自带python2.7版本，所以python不用安装了）<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># sudo apt-<span class="built_in">get</span> install <span class="keyword">python</span>-numpy <span class="keyword">python</span>-scipy <span class="keyword">python</span>-dev <span class="keyword">python</span>-pip <span class="keyword">python</span>-nose <span class="keyword">g</span>++  libopenblas git</span><br><span class="line"># sudo pip install Theano</span><br></pre></td></tr></table></figure></p>
+<p>然后，我们来测试一下Theano是否安装成功。在python命令行下操作（# python）<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;</span>&gt; import theano</span><br><span class="line"><span class="prompt">&gt;&gt;</span>&gt; theano.test()</span><br></pre></td></tr></table></figure></p>
+<p>此时，会显示Theano版本号等相关信息，如果显示，则表示安装成功。</p>
+<p>二、Theano学起来<br>1、标量（Scalar）<br><figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy</span><br><span class="line"><span class="keyword">import</span> theano.tensor as T</span><br><span class="line"><span class="keyword">from</span> theano <span class="keyword">import</span> <span class="keyword">function</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义两个变量</span></span><br><span class="line">x = T.dscalar(<span class="string">'x'</span>)</span><br><span class="line">y = T.dscalar(<span class="string">'y'</span>)</span><br><span class="line"></span><br><span class="line">z = x + y</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义函数，[x, y]是输入， z是输出</span></span><br><span class="line">f = <span class="keyword">function</span>([x, y], z)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> f(<span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line"><span class="built_in">print</span> numpy.allclose(f(<span class="number">16.3</span>, <span class="number">12.1</span>), <span class="number">28.4</span>)</span><br><span class="line"><span class="built_in">print</span> numpy.allclose(z.eval(&#123;<span class="attribute">x</span>: <span class="number">16.3</span>, <span class="attribute">y</span>: <span class="number">12.1</span>&#125;), <span class="number">28.4</span>)</span><br></pre></td></tr></table></figure></p>
+<p>2、矩阵（Matrix）<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python</span><br><span class="line"># -*- coding:utf-<span class="number">8</span> -*-</span><br><span class="line"></span><br><span class="line">import numpy</span><br><span class="line">import theano.tensor as T</span><br><span class="line">from theano import <span class="function"><span class="keyword">function</span></span><br><span class="line"><span class="title">x</span> = <span class="title">T.dmatrix</span><span class="params">('x')</span></span></span><br><span class="line">y = T.dmatrix(<span class="string">'y'</span>)</span><br><span class="line"></span><br><span class="line">z = x + y</span><br><span class="line">f = <span class="function"><span class="keyword">function</span><span class="params">([x, y], z)</span></span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> f(<span class="string">[[1, 2], [3, 4]]</span>, <span class="string">[[10, 20], [30, 40]]</span>)</span><br></pre></td></tr></table></figure></p>
+<p>三、尝试计算Logistic function<br>Logistic函数是我们在学习机器学习的时候经常用到的函数，特别是在神经网络或者深度学习的学习方面，常常用做激活函数。它的图像如下：<br><img src="/img/theano/logistic.png" alt="Logistic函数图像"><br>我们尝试使用Theano计算一下Logistic函数：<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python</span><br><span class="line"># -*- coding:utf-<span class="number">8</span> -*-</span><br><span class="line"></span><br><span class="line">import theano</span><br><span class="line">import theano.tensor as T</span><br><span class="line"></span><br><span class="line">x = T.dmatrix(<span class="string">'x'</span>)</span><br><span class="line"></span><br><span class="line"># Logistic Funtion</span><br><span class="line">s = <span class="number">1</span> / (<span class="number">1</span> + T.exp(-x))</span><br><span class="line"></span><br><span class="line">logistic = theano.function([x], s)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> logistic(<span class="string">[[0, 1], [-1, -2]]</span>)</span><br><span class="line"></span><br><span class="line">s2 = (<span class="number">1</span> + T.tanh(x / <span class="number">2</span>)) / <span class="number">2</span></span><br><span class="line"></span><br><span class="line">logistic2 = theano.function([x], s2)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> logistic2(<span class="string">[[0, 1], [-1, -2]]</span>)</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/theano/">theano</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-K-Means算法" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -913,129 +1030,6 @@
 
 
   
-    <article id="post-关于我" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/07/29/关于我/" class="article-date">
-  	<time datetime="2015-07-29T15:43:40.000Z" itemprop="datePublished">2015-07-29</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/29/关于我/">关于我</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&#160; &#160; &#160; &#160;大家好，我叫Demon，92年生，现在是天津大学的准研究生，本科就读于天津工业大学。期间和朋友有过一次一年多的创业经历，从2014年3月至2015年6月。现在也正在和朋友合伙开公司，有兴趣的朋友也可以和我联系，欢迎交流。</p>
-<h2 id="兴趣爱好">兴趣爱好</h2><ul>
-<li>篮球：狂热的“麦蜜”，crazy的球风，随时恭候约球</li>
-<li>编程：我不会告诉你敲键盘的感觉会如此有成就感</li>
-<li>文学：喜欢文字的东西，喜欢珍藏经典的书籍</li>
-<li>旅行：比较爱出去玩，喜欢户外运动，喜欢挑战和冒险</li>
-<li>哈韩：思密达的综艺的狂热追捧者，也爱看韩剧，喜欢吃韩料</li>
-<li>街舞：学过一小段时间街舞，深深迷恋，想重新学起来
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/关于我/">关于我</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/07/29/关于我/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-Linux下tomcat日志文件的分割备份" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/07/27/Linux下tomcat日志文件的分割备份/" class="article-date">
-  	<time datetime="2015-07-27T08:52:42.000Z" itemprop="datePublished">2015-07-27</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/27/Linux下tomcat日志文件的分割备份/">Linux下tomcat日志文件的分割备份</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>如果 catalina.out 日志达到 2GB 大小的时候，Tomcat 因为缓存问题，便没有办法继续输出日志了。<br>为了避免这种情况，你需要及时对 catalina.out  进行归档。<br>实际上 Tomcat 自身也会对日志内容进行归档，但是归档后，Tomcat 不会清理 catalina.out 的内容，这将会导致 catalina.out 越来越大。<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tomcat/">tomcat</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/备份/">备份</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/07/27/Linux下tomcat日志文件的分割备份/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1046,7 +1040,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2015 Demon
+    		&copy; 2016 Demon
     	</div>
       	<div class="footer-right">
 <!--
