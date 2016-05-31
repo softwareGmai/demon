@@ -136,7 +136,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Eclemma/" style="font-size: 10px;">Eclemma</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Junit/" style="font-size: 10px;">Junit</a> <a href="/tags/K-Means/" style="font-size: 10px;">K-Means</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/Socket/" style="font-size: 10px;">Socket</a> <a href="/tags/TCP/" style="font-size: 10px;">TCP</a> <a href="/tags/community-detection/" style="font-size: 10px;">community detection</a> <a href="/tags/deep-learning/" style="font-size: 10px;">deep learning</a> <a href="/tags/flash/" style="font-size: 10px;">flash</a> <a href="/tags/mysql/" style="font-size: 20px;">mysql</a> <a href="/tags/mysql权限管理/" style="font-size: 10px;">mysql权限管理</a> <a href="/tags/paper/" style="font-size: 10px;">paper</a> <a href="/tags/pip/" style="font-size: 10px;">pip</a> <a href="/tags/python/" style="font-size: 13.33px;">python</a> <a href="/tags/software-test/" style="font-size: 10px;">software test</a> <a href="/tags/theano/" style="font-size: 10px;">theano</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/ubuntu/" style="font-size: 16.67px;">ubuntu</a> <a href="/tags/virtualbox/" style="font-size: 10px;">virtualbox</a> <a href="/tags/主从同步/" style="font-size: 10px;">主从同步</a> <a href="/tags/关于我/" style="font-size: 10px;">关于我</a> <a href="/tags/备份/" style="font-size: 16.67px;">备份</a> <a href="/tags/实验室/" style="font-size: 13.33px;">实验室</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/聚类/" style="font-size: 10px;">聚类</a> <a href="/tags/错误日志/" style="font-size: 13.33px;">错误日志</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+						<a href="/tags/Eclemma/" style="font-size: 10px;">Eclemma</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Junit/" style="font-size: 10px;">Junit</a> <a href="/tags/K-Means/" style="font-size: 10px;">K-Means</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/Socket/" style="font-size: 10px;">Socket</a> <a href="/tags/TCP/" style="font-size: 10px;">TCP</a> <a href="/tags/WebDriver/" style="font-size: 10px;">WebDriver</a> <a href="/tags/community-detection/" style="font-size: 10px;">community detection</a> <a href="/tags/deep-learning/" style="font-size: 10px;">deep learning</a> <a href="/tags/flash/" style="font-size: 10px;">flash</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/mysql/" style="font-size: 20px;">mysql</a> <a href="/tags/mysql权限管理/" style="font-size: 10px;">mysql权限管理</a> <a href="/tags/paper/" style="font-size: 10px;">paper</a> <a href="/tags/pip/" style="font-size: 10px;">pip</a> <a href="/tags/python/" style="font-size: 13.33px;">python</a> <a href="/tags/selenium/" style="font-size: 10px;">selenium</a> <a href="/tags/software-test/" style="font-size: 13.33px;">software test</a> <a href="/tags/theano/" style="font-size: 10px;">theano</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/ubuntu/" style="font-size: 16.67px;">ubuntu</a> <a href="/tags/virtualbox/" style="font-size: 10px;">virtualbox</a> <a href="/tags/主从同步/" style="font-size: 10px;">主从同步</a> <a href="/tags/关于我/" style="font-size: 10px;">关于我</a> <a href="/tags/备份/" style="font-size: 16.67px;">备份</a> <a href="/tags/实验室/" style="font-size: 13.33px;">实验室</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/聚类/" style="font-size: 10px;">聚类</a> <a href="/tags/错误日志/" style="font-size: 13.33px;">错误日志</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
 					</div>
 				</section>
 				
@@ -206,6 +206,68 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-TCP-Socket" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/22/TCP-Socket/" class="article-date">
+  	<time datetime="2015-08-22T11:22:14.000Z" itemprop="datePublished">2015-08-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/22/TCP-Socket/">TCP Scoket</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天我们讨论的是关于TCP/IP网络中两个进程之间相互作用的主机模式，即Client/Server Model。<br>CLient和Server端典型场景如下：<br>    1、Server Startup<br>    2、Client Startup,then connects to the Server<br>    3、Client send a request to Server<br>    4、Server process the request,and sends a reply back to the Client<br>    5、Loop 3 and 4 steps…(data transmit)<br>    6、Client close its end of the connection,send a end-of-file notification to Server<br>    7、Server close its end of the connection (Terminate or Wait for a new Client connection)</p>
+<p>那么上述场景下，socket是怎么工作的呢？</p>
+<p>总体交互图示：<br><img src="/img/network/tcp_socket_process.png" alt="TCP总体交互图示"></p>
+<p><h2>1、socket()函数</h2><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;sys/socket.h&gt;</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">socket</span> <span class="params">(<span class="keyword">int</span> family, <span class="keyword">int</span> type, <span class="keyword">int</span> protocol)</span></span>;</span><br><span class="line">                        Returns: non-negative descriptor <span class="keyword">if</span> OK,-<span class="number">1</span> on error</span><br></pre></td></tr></table></figure></p>
+<p>作用：用于创建一个socket descriptor，唯一标识一个socket（这是active socket）。关于socket具体内容可以参考XXXXXX<br>描述：socket执行成功后，会返回一个socket descriptor，里面包含了protocal family(such as IPv4,IPv6)和socket type(such as stream,datagram)。socket descriptor存在于address family（AF_XXX）中，没有一个具体的地址，即没有protocol address，所以必须要调用bind()函数赋值地址，或者当调用connect()或者listen()函数时，kernel自动随机分配一个ephemeral port。</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Network/">Network</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Socket/">Socket</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TCP/">TCP</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/08/22/TCP-Socket/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-ubuntu安装flash" class="article article-type-post" itemscope itemprop="blogPost">
   
