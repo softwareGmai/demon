@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.demons.top/2016/05/31/%E4%BD%BF%E7%94%A8Junit%E5%92%8CEclemma%E8%BF%9B%E8%A1%8C%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/</loc>
+    <lastmod>2016-05-31T05:30:23.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.demons.top/2016/05/30/Community-detection-with-deep-learning-Part-1/</loc>
     <lastmod>2016-05-30T16:18:55.000Z</lastmod>
   </url>
