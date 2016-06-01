@@ -136,7 +136,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Eclemma/" style="font-size: 10px;">Eclemma</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Junit/" style="font-size: 10px;">Junit</a> <a href="/tags/K-Means/" style="font-size: 10px;">K-Means</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/Socket/" style="font-size: 10px;">Socket</a> <a href="/tags/TCP/" style="font-size: 10px;">TCP</a> <a href="/tags/WebDriver/" style="font-size: 10px;">WebDriver</a> <a href="/tags/community-detection/" style="font-size: 10px;">community detection</a> <a href="/tags/deep-learning/" style="font-size: 10px;">deep learning</a> <a href="/tags/flash/" style="font-size: 10px;">flash</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/mysql/" style="font-size: 20px;">mysql</a> <a href="/tags/mysql权限管理/" style="font-size: 10px;">mysql权限管理</a> <a href="/tags/paper/" style="font-size: 10px;">paper</a> <a href="/tags/pip/" style="font-size: 10px;">pip</a> <a href="/tags/python/" style="font-size: 13.33px;">python</a> <a href="/tags/selenium/" style="font-size: 10px;">selenium</a> <a href="/tags/software-test/" style="font-size: 13.33px;">software test</a> <a href="/tags/theano/" style="font-size: 10px;">theano</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/ubuntu/" style="font-size: 16.67px;">ubuntu</a> <a href="/tags/virtualbox/" style="font-size: 10px;">virtualbox</a> <a href="/tags/主从同步/" style="font-size: 10px;">主从同步</a> <a href="/tags/关于我/" style="font-size: 10px;">关于我</a> <a href="/tags/备份/" style="font-size: 16.67px;">备份</a> <a href="/tags/实验室/" style="font-size: 16.67px;">实验室</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/聚类/" style="font-size: 10px;">聚类</a> <a href="/tags/错误日志/" style="font-size: 13.33px;">错误日志</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+						<a href="/tags/EM算法/" style="font-size: 10px;">EM算法</a> <a href="/tags/Eclemma/" style="font-size: 10px;">Eclemma</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Junit/" style="font-size: 10px;">Junit</a> <a href="/tags/K-Means/" style="font-size: 10px;">K-Means</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/Socket/" style="font-size: 10px;">Socket</a> <a href="/tags/TCP/" style="font-size: 10px;">TCP</a> <a href="/tags/WebDriver/" style="font-size: 10px;">WebDriver</a> <a href="/tags/community-detection/" style="font-size: 10px;">community detection</a> <a href="/tags/deep-learning/" style="font-size: 10px;">deep learning</a> <a href="/tags/flash/" style="font-size: 10px;">flash</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/mysql/" style="font-size: 20px;">mysql</a> <a href="/tags/mysql权限管理/" style="font-size: 10px;">mysql权限管理</a> <a href="/tags/paper/" style="font-size: 10px;">paper</a> <a href="/tags/pip/" style="font-size: 10px;">pip</a> <a href="/tags/python/" style="font-size: 13.33px;">python</a> <a href="/tags/selenium/" style="font-size: 10px;">selenium</a> <a href="/tags/software-test/" style="font-size: 13.33px;">software test</a> <a href="/tags/theano/" style="font-size: 10px;">theano</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/ubuntu/" style="font-size: 16.67px;">ubuntu</a> <a href="/tags/virtualbox/" style="font-size: 10px;">virtualbox</a> <a href="/tags/主从同步/" style="font-size: 10px;">主从同步</a> <a href="/tags/关于我/" style="font-size: 10px;">关于我</a> <a href="/tags/备份/" style="font-size: 16.67px;">备份</a> <a href="/tags/实验室/" style="font-size: 16.67px;">实验室</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/混合高斯/" style="font-size: 10px;">混合高斯</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/聚类/" style="font-size: 10px;">聚类</a> <a href="/tags/错误日志/" style="font-size: 13.33px;">错误日志</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
 					</div>
 				</section>
 				
@@ -206,6 +206,71 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-机器学习：高斯混合与EM算法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/01/机器学习：高斯混合与EM算法/" class="article-date">
+  	<time datetime="2016-06-01T14:12:15.000Z" itemprop="datePublished">2016-06-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/01/机器学习：高斯混合与EM算法/">机器学习：高斯混合与EM算法</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EM算法，个人认为是机器学习中比较重要的一个算法，思想比较简单，但是公式推理以及证明又是比较复杂。所以，在此我将结合PRML，希望能深入浅出地整理下高斯混合模型以及EM算法。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首先，我们先来考虑下，我们平常求解一个参数估计的问题是怎么考虑的，一般我们会考虑两种方法求解：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="red">（1）最大似然  （2）最大后验</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对于这两种情况，如果参数中没有加先验信息，则一般会考虑使用最大似然方法进行处理，反之，可以采用最大后验进行处理。而对于EM算法，两种方法的参数学习都可以采用EM算法进行求解，这里我们讲的是最大似然。</p>
+<p></p><h2>一、最大似然</h2><br>目的：找出与样本的分布最接近的概率分布。<br>举例：<br>抛硬币，硬币正面向上的概率是q。现在对一个硬币抛10次，抛硬币的结果是：正正反正正正反反正正。那么正面向上的概率q最可能是多少？<br>求解：<br>对于这个问题，我们先写出出现这样结果的概率：<p></p>
+<p><img src="/img/research/code1.gif" alt="硬币似然函数计算"></p>
+<p>上面的这个概率定义就是似然函数。<br>那么，我们要使我们抛硬币出现的结果最有可能，则就是要让P的概率取值最大，也就是所谓的最大似然，即：</p>
+<p><img src="/img/research/code1.gif" alt="最大似然"></p>
+<p>那要怎么求解呢？<br>一般处理最大似然函数的基本步骤如下：<br>1、写出似然函数<br>2、对似然函数取对数，并整理<br>3、求（偏）导数，令（偏）导数等于0，得到似然方程<br>4、解似然方程，得到所求参数<br>所以根据以上步骤，很容易求得参数:&nbsp;&nbsp;<font color="red">q = 0.7</font></p>
+<p>是不是感觉最大似然求解理解起来还算简单。那我们就可以来攻克下一个关卡了。</p>
+<p></p><h2>二、高斯混合</h2><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;既然我们理解了最大似然的方法，那我们就着手用最大似然的方法去处理高斯混合问题吧。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首先我们来了解下什么是“高斯混合”。高斯混合，顾名思义，就是几个高斯分布混合（线性叠加）得到的。用图像来直观理解一下吧。<p></p>
+<p>二维情况下的高斯混合<br><img src="/img/research/code3.png" alt="二维情况下的高斯混合"></p>
+<p>三维情况下的高斯混合<br><img src="/img/research/code4.png" alt="三维情况下的高斯混合"></p>
+<p>根据图片应该比较“感性”地理解了高斯混合了吧，那么我们就开始“理性”地具体定义问题进行求解吧。<br>【问题】<br><img src="/img/research/code5.png" alt="完整数据的高斯混合"><br>【分析】<br>(未完待续，今天有点晚，明天继续写)</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/EM算法/">EM算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/混合高斯/">混合高斯</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-使用Selenium-Java-WebDriver自动化测试登录功能并验证信息" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -956,65 +1021,6 @@
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-pip安装PIL" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/05/pip安装PIL/" class="article-date">
-  	<time datetime="2015-09-05T14:25:31.000Z" itemprop="datePublished">2015-09-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/05/pip安装PIL/">pip安装PIL</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今天学习python时安装PIL遇到了一些问题，就记录下来了。<br>首先需要先安装pip<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sudo apt-get install python-pip</span></span><br></pre></td></tr></table></figure></p>
-<p>我直接使用 pip install PIL安装不了<br>根据报错信息，我执行如下<br>pip install PIL —allow-external PIL —allow-unverified PIL<br>还是不行，报错信息是：UnicodeDecodeError: ‘ascii’ codec can’t decode byte 0x?? in position 1: ordinal not in range(128)</p>
-<p>之后，我就只能通过源码安装了，安装步骤如下：<br>wget <a href="http://effbot.org/downloads/Imaging-1.1.7.tar.gz" target="_blank" rel="external">http://effbot.org/downloads/Imaging-1.1.7.tar.gz</a><br>tar xvfz Imaging-1.1.7.tar.gz</p>
-<p>修改setup.py<br>TCL_ROOT = “/usr/lib64/“<br>JPEG_ROOT = “/usr/lib64/“<br>ZLIB_ROOT = “/usr/lib64/“<br>TIFF_ROOT = “/usr/lib64/“<br>FREETYPE_ROOT = “/usr/lib64/“<br>LCMS_ROOT = “/usr/lib64/“</p>
-<p>安装检查<br>python /root/nowamagic_venv/Imaging-1.1.7/setup.py build_ext -i<br>安装<br>python /root/nowamagic_venv/Imaging-1.1.7/setup.py install</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pip/">pip</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
 	</div>
 
       
