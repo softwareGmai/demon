@@ -246,10 +246,8 @@
 <p><strong>二维情况下的高斯混合</strong>：下图中蓝色的三条线，表示三个不同的高斯分布，他们通过叠加混合，得到了高斯混合的分布，就是红色线所表示的部分。<br><img src="/img/research/code3.png" alt="二维情况下的高斯混合"></p>
 <p><strong>三维情况下的高斯混合</strong>：下图中红绿蓝三个高斯分布混合。<br><img src="/img/research/code4.png" alt="三维情况下的高斯混合"></p>
 <p>根据图片应该比较“感性”地理解了高斯混合了吧，那么我们就开始“理性”地具体定义问题进行求解吧。</p>
-<p><font color="blue;"><strong>【问题】</strong></font><br><img src="/img/research/code5.png" alt="完整数据的高斯混合"></p>
-<p><font color="blue;"><strong>【分析】</strong></font><br>这个参数求解问题，通过分析，参数上没有先验信息，我们可以首先考虑使用最大似然的方法进行处理。<br>所以根据最大似然求解的一般步骤开始求解：<br><strong>1. 写出似然函数</strong><br><img src="/img/research/code12.jpg" alt="写出似然函数的具体过程"><br><strong>2. 对似然函数取对数，并整理</strong></p>
-<p><center><img src="/img/research/code7.png" alt="对数似然函数"></center><br><strong>3. 求（偏）导数，令（偏）导数等于0，得到似然方程，并解似然方程，得到所求参数</strong></p>
-<p><center><img src="/img/research/code13.jpg" alt="求解过程"></center><br>（未完待续，明天继续写起来～）</p>
+<font color="blue;"><strong>【问题1】</strong></font><br><img src="/img/research/code5.png" alt="完整数据的高斯混合"><br><font color="blue;"><strong>【分析】</strong></font><br>这个参数求解问题，通过分析，参数上没有先验信息，我们可以首先考虑使用最大似然的方法进行处理。<br>所以根据最大似然求解的一般步骤开始求解：<br><strong>1. 写出似然函数</strong><br><img src="/img/research/code12.jpg" alt="写出似然函数的具体过程"><br><strong>2. 对似然函数取对数，并整理</strong><br><center><img src="/img/research/code7.png" alt="对数似然函数"></center><br><strong>3. 求（偏）导数，令（偏）导数等于0，得到似然方程，并解似然方程，得到所求参数</strong><br><center><img src="/img/research/code13.jpg" alt="求解过程"></center><br><center><img src="/img/research/code14.jpg" alt="求解过程"></center><br><center><img src="/img/research/code15.jpg" alt="求解过程"></center><br><br>到这里，这个问题就已经解决了。我们将问题转化成最大似然的求解问题，很容易求解出来这些参数。但是现实生活中的问题，往往又不是这么简单的，咱们接着看下面的问题。<br><br><font color="blue;"><strong>【问题2】</strong></font><br><img src="/img/research/code16.png" alt="不完整数据的高斯混合"><br><font color="blue;"><strong>【分析】</strong></font><br>我们惯性的思维就去考虑，难道这个问题就不能用最大似然方法去求解吗？这不是一样的吗。<br>那好，那我们就尝试用最大似然去求解看看：<br><strong>1. 写出似然函数</strong><br><img src="/img/research/code17.png" alt="不完整数据的似然函数"><br><strong>2. 对似然函数取对数，并整理</strong><br><img src="/img/research/code18.png" alt="不完整数据的对数似然函数"><br><font color="blue;">【注意】：此时我们发现ln()函数里有求和符号存在，这种情况下我们可以尝试求导一下，你会发现这种情况很难求偏导直接处理，这种情况下是很可能没有闭合解的。</font>
+
 
       
     </div>
