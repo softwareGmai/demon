@@ -234,16 +234,22 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EM算法，个人认为是机器学习中比较重要的一个算法，思想比较简单，但是公式推理以及证明又是比较复杂。所以，在此我将结合PRML，希望能深入浅出地整理下高斯混合模型以及EM算法。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首先，我们先来考虑下，我们平常求解一个参数估计的问题是怎么考虑的，一般我们会考虑两种方法求解：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="red">（1）最大似然  （2）最大后验</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对于这两种情况，如果参数中没有加先验信息，则一般会考虑使用最大似然方法进行处理，反之，可以采用最大后验进行处理。而对于EM算法，两种方法的参数学习都可以采用EM算法进行求解，这里我们讲的是最大似然。</p>
-<p></p><h2>一、最大似然</h2><br>目的：找出与样本的分布最接近的概率分布。<br>举例：<br>抛硬币，硬币正面向上的概率是q。现在对一个硬币抛10次，抛硬币的结果是：正正反正正正反反正正。那么正面向上的概率q最可能是多少？<br>求解：<br>对于这个问题，我们先写出出现这样结果的概率：<p></p>
-<p><img src="/img/research/code1.gif" alt="硬币似然函数计算"></p>
+<p></p><h2>一、最大似然</h2><br><strong>目的</strong>：找出与样本的分布最接近的概率分布。<br><strong>举例</strong>：抛硬币，硬币正面向上的概率是q。现在对一个硬币抛10次，抛硬币的结果是：正正反正正正反反正正。那么正面向上的概率q最可能是多少？<br><strong>求解</strong>：对于这个问题，我们先写出出现这样结果的概率：<p></p>
+<center><img src="/img/research/code1.gif" alt="硬币似然函数计算"></center>
+
 <p>上面的这个概率定义就是似然函数。<br>那么，我们要使我们抛硬币出现的结果最有可能，则就是要让P的概率取值最大，也就是所谓的最大似然，即：</p>
-<p><img src="/img/research/code1.gif" alt="最大似然"></p>
-<p>那要怎么求解呢？<br>一般处理最大似然函数的基本步骤如下：<br>1、写出似然函数<br>2、对似然函数取对数，并整理<br>3、求（偏）导数，令（偏）导数等于0，得到似然方程<br>4、解似然方程，得到所求参数<br>所以根据以上步骤，很容易求得参数:&nbsp;&nbsp;<font color="red">q = 0.7</font></p>
+<center><img src="/img/research/code2.gif" alt="最大似然"></center>
+
+<p>那要怎么求解呢？<br><strong>一般处理最大似然函数的基本步骤如下：</strong><br><strong>1. 写出似然函数</strong><br><strong>2. 对似然函数取对数，并整理</strong><br><strong>3. 求（偏）导数，令（偏）导数等于0，得到似然方程</strong><br><strong>4. 解似然方程，得到所求参数</strong><br>所以根据以上步骤，很容易求得参数:&nbsp;&nbsp;<font color="red">q = 0.7</font></p>
 <p>是不是感觉最大似然求解理解起来还算简单。那我们就可以来攻克下一个关卡了。</p>
 <p></p><h2>二、高斯混合</h2><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;既然我们理解了最大似然的方法，那我们就着手用最大似然的方法去处理高斯混合问题吧。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首先我们来了解下什么是“高斯混合”。高斯混合，顾名思义，就是几个高斯分布混合（线性叠加）得到的。用图像来直观理解一下吧。<p></p>
-<p>二维情况下的高斯混合<br><img src="/img/research/code3.png" alt="二维情况下的高斯混合"></p>
-<p>三维情况下的高斯混合<br><img src="/img/research/code4.png" alt="三维情况下的高斯混合"></p>
-<p>根据图片应该比较“感性”地理解了高斯混合了吧，那么我们就开始“理性”地具体定义问题进行求解吧。<br>【问题】<br><img src="/img/research/code5.png" alt="完整数据的高斯混合"><br>【分析】<br>(未完待续，今天有点晚，明天继续写)</p>
+<p><strong>二维情况下的高斯混合</strong>：下图中蓝色的三条线，表示三个不同的高斯分布，他们通过叠加混合，得到了高斯混合的分布，就是红色线所表示的部分。<br><img src="/img/research/code3.png" alt="二维情况下的高斯混合"></p>
+<p><strong>三维情况下的高斯混合</strong>：下图中红绿蓝三个高斯分布混合。<br><img src="/img/research/code4.png" alt="三维情况下的高斯混合"></p>
+<p>根据图片应该比较“感性”地理解了高斯混合了吧，那么我们就开始“理性”地具体定义问题进行求解吧。</p>
+<p><font color="blue;"><strong>【问题】</strong></font><br><img src="/img/research/code5.png" alt="完整数据的高斯混合"></p>
+<p><font color="blue;"><strong>【分析】</strong></font><br>这个参数求解问题，通过分析，参数上没有先验信息，我们可以首先考虑使用最大似然的方法进行处理。<br>所以根据最大似然求解的一般步骤开始求解：<br><strong>1. 写出似然函数</strong><br><img src="/img/research/code12.jpg" alt="写出似然函数的具体过程"><br><strong>2. 对似然函数取对数，并整理</strong></p>
+<p><center><img src="/img/research/code7.png" alt="对数似然函数"></center><br><strong>3. 求（偏）导数，令（偏）导数等于0，得到似然方程，并解似然方程，得到所求参数</strong></p>
+<p><center><img src="/img/research/code13.jpg" alt="求解过程"></center><br>（未完待续，明天继续写起来～）</p>
 
       
     </div>
