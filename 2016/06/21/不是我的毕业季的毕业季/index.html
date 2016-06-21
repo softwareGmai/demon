@@ -5,19 +5,18 @@
   <meta name="keywords" content="demon,博客,blog,天津工业大学" />
 
   
-  <title>K-Means算法 | Demon&#39;s Blog</title>
+  <title>不是我的毕业季的毕业季 | Demon&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近看论文，经常接触一些聚类算法，其中就有提到k-means算法，所以就自己归纳整理了一下。首先搞清楚“聚类”（Clustering）和“分类”（Classfication）是不一样的。分类是事先知道了有N类，你要把样本数据归类到这N类里面。比方说，有两个类别，苹果和梨，我们有一堆苹果和梨乱混合在那里，需要我们归类。这个就是分类问题。而聚类呢，是你根本不知道样本数据是能分成什么类别的，只有通过自己">
+  <meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;今天，2016年夏至，干热的空气五成熟，躲在实验室的空调间里，静静地整理着印象笔记，呆萌更像傻逼。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;印象笔记上六月的今天紧紧地排着实验室的几个任务，慵懒的我就是不想动脑子干受累，任由耳旁Eason的歌曲声骚扰着，看似安静地呆着，其实是综艺都看完了闲着蛋疼。&amp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="K-Means算法">
-<meta property="og:url" content="http://blog.demons.top/2015/11/02/K-Means算法/index.html">
+<meta property="og:title" content="不是我的毕业季的毕业季">
+<meta property="og:url" content="http://blog.demons.top/2016/06/21/不是我的毕业季的毕业季/index.html">
 <meta property="og:site_name" content="Demon's Blog">
-<meta property="og:description" content="最近看论文，经常接触一些聚类算法，其中就有提到k-means算法，所以就自己归纳整理了一下。首先搞清楚“聚类”（Clustering）和“分类”（Classfication）是不一样的。分类是事先知道了有N类，你要把样本数据归类到这N类里面。比方说，有两个类别，苹果和梨，我们有一堆苹果和梨乱混合在那里，需要我们归类。这个就是分类问题。而聚类呢，是你根本不知道样本数据是能分成什么类别的，只有通过自己">
-<meta property="og:image" content="http://blog.demons.top/img/latex/CodeCogsEqn.gif">
-<meta property="og:updated_time" content="2016-06-15T01:52:28.000Z">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;今天，2016年夏至，干热的空气五成熟，躲在实验室的空调间里，静静地整理着印象笔记，呆萌更像傻逼。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;印象笔记上六月的今天紧紧地排着实验室的几个任务，慵懒的我就是不想动脑子干受累，任由耳旁Eason的歌曲声骚扰着，看似安静地呆着，其实是综艺都看完了闲着蛋疼。&amp;">
+<meta property="og:updated_time" content="2016-06-21T12:53:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="K-Means算法">
-<meta name="twitter:description" content="最近看论文，经常接触一些聚类算法，其中就有提到k-means算法，所以就自己归纳整理了一下。首先搞清楚“聚类”（Clustering）和“分类”（Classfication）是不一样的。分类是事先知道了有N类，你要把样本数据归类到这N类里面。比方说，有两个类别，苹果和梨，我们有一堆苹果和梨乱混合在那里，需要我们归类。这个就是分类问题。而聚类呢，是你根本不知道样本数据是能分成什么类别的，只有通过自己">
+<meta name="twitter:title" content="不是我的毕业季的毕业季">
+<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;今天，2016年夏至，干热的空气五成熟，躲在实验室的空调间里，静静地整理着印象笔记，呆萌更像傻逼。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;印象笔记上六月的今天紧紧地排着实验室的几个任务，慵懒的我就是不想动脑子干受累，任由耳旁Eason的歌曲声骚扰着，看似安静地呆着，其实是综艺都看完了闲着蛋疼。&amp;">
   
     <link rel="alternative" href="/atom.xml" title="Demon&#39;s Blog" type="application/atom+xml">
   
@@ -207,11 +206,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-K-Means算法" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-不是我的毕业季的毕业季" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/11/02/K-Means算法/" class="article-date">
-  	<time datetime="2015-11-02T09:08:49.000Z" itemprop="datePublished">2015-11-02</time>
+      <a href="/2016/06/21/不是我的毕业季的毕业季/" class="article-date">
+  	<time datetime="2016-06-21T11:25:49.000Z" itemprop="datePublished">2016-06-21</time>
 </a>
     </div>
   
@@ -224,7 +223,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      K-Means算法
+      不是我的毕业季的毕业季
     </h1>
   
 
@@ -233,7 +232,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/K-Means/">K-Means</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/实验室/">实验室</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/聚类/">聚类</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
 	</div>
 
         
@@ -244,229 +243,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近看论文，经常接触一些聚类算法，其中就有提到k-means算法，所以就自己归纳整理了一下。<br>首先搞清楚“聚类”（Clustering）和“分类”（Classfication）是不一样的。<br>分类是事先知道了有N类，你要把样本数据归类到这N类里面。比方说，有两个类别，苹果和梨，我们有一堆苹果和梨乱混合在那里，需要我们归类。这个就是分类问题。<br>而聚类呢，是你根本不知道样本数据是能分成什么类别的，只有通过自己学习自动归类，统一类别的样本数据就更相似。</p>
-<p>聚类的第一步呢，往往是将原始数据映射成N维的空间向量，然后做处理的。<br>怎么映射呢？<br>假设有m个样本集合，每个样本为(X1,X2,…,Xn)，即每个样本有n个特征。这样的话，每个Xi都是m维的向量。</p>
-<p>接下来，正式介绍下K-means算法。<br>K-means算法是一种聚类方法，主要的目的是将再给定分类组数k（k &lt; n）的情况下，将原始数据分成k类，表示为S={S1,S2,…,Sk}，即对以下表达式求最小值：</p>
-<p><img src="/img/latex/CodeCogsEqn.gif" alt="公式"></p>
-<p>其中ui是Si的平均值。</p>
-<p>具体算法步骤如下：<br>1、随机在图中取k个种子点（k是给定的分类组数）<br>2、计算图中所有点到k个种子点的距离。如果点A离种子点Si的距离最近，则点A属于点群Si。<br>3、根据聚类的结果，重新计算每个点群的中心<br>4、将图中所有点根据新的中心重新聚类<br>5、重复3、4两个步骤，知道中心点不再变化</p>
-<p>Example:<br>现有如下一些原始数据。A，B是数据的两个特征，请用k-means算法聚类。（设k=2）</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Subject</th>
-<th style="text-align:center">A</th>
-<th style="text-align:center">B</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1.0</td>
-<td style="text-align:center">1.0</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">1.5</td>
-<td style="text-align:center">2.0</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">3.0</td>
-<td style="text-align:center">4.0</td>
-</tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">5.0</td>
-<td style="text-align:center">7.0</td>
-</tr>
-<tr>
-<td style="text-align:center">5</td>
-<td style="text-align:center">3.5</td>
-<td style="text-align:center">5.0</td>
-</tr>
-<tr>
-<td style="text-align:center">6</td>
-<td style="text-align:center">4.5</td>
-<td style="text-align:center">5.0</td>
-</tr>
-<tr>
-<td style="text-align:center">7</td>
-<td style="text-align:center">3.5</td>
-<td style="text-align:center">4.5</td>
-</tr>
-</tbody>
-</table>
-<p>1、我们随机取2个种子点</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center"></th>
-<th style="text-align:center">样本</th>
-<th style="text-align:center">中心点向量</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">Group 1</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">(1.0,1.0)</td>
-</tr>
-<tr>
-<td style="text-align:center">Group 2</td>
-<td style="text-align:center">4</td>
-<td style="text-align:center">(5.0,7.0)</td>
-</tr>
-</tbody>
-</table>
-<p>2、计算其他点到中心点的距离，进行聚类</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">步骤</th>
-<th style="text-align:center">样本</th>
-<th style="text-align:center">中心点向量</th>
-<th style="text-align:center">样本</th>
-<th style="text-align:center">中心点向量</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">(1.0,1.0)</td>
-<td style="text-align:center">4</td>
-<td style="text-align:center">(1.0,1.0)</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">1,2</td>
-<td style="text-align:center">(1.2,1.5)</td>
-<td style="text-align:center">4</td>
-<td style="text-align:center">(5.0,7.0)</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">1,2,3</td>
-<td style="text-align:center">(1.8,2.3)</td>
-<td style="text-align:center">4</td>
-<td style="text-align:center">(1.0,1.0)</td>
-</tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">1,2,3</td>
-<td style="text-align:center">(1.8,2.3)</td>
-<td style="text-align:center">4，5</td>
-<td style="text-align:center">(5.0,7.0)</td>
-</tr>
-<tr>
-<td style="text-align:center">5</td>
-<td style="text-align:center">1,2,3</td>
-<td style="text-align:center">(1.8,2.3)</td>
-<td style="text-align:center">4,5,6</td>
-<td style="text-align:center">(1.0,1.0)</td>
-</tr>
-<tr>
-<td style="text-align:center">6</td>
-<td style="text-align:center">1,2,3</td>
-<td style="text-align:center">(1.8,2.3)</td>
-<td style="text-align:center">4,5,6,7</td>
-<td style="text-align:center">(5.0,7.0)</td>
-</tr>
-</tbody>
-</table>
-<p>3、重新计算中心</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center"></th>
-<th style="text-align:center">样本</th>
-<th style="text-align:center">中心点向量</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">Cluster 1</td>
-<td style="text-align:center">1,2,3</td>
-<td style="text-align:center">(1.8,2.3)</td>
-</tr>
-<tr>
-<td style="text-align:center">Cluster 2</td>
-<td style="text-align:center">4,5,6,7</td>
-<td style="text-align:center">(4.1,5.4)</td>
-</tr>
-</tbody>
-</table>
-<p>4、计算各点距离</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">样本</th>
-<th style="text-align:center">中心到Cluster1的距离</th>
-<th style="text-align:center">中心到Cluster2的距离</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1.0</td>
-<td style="text-align:center">1.0</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">1.5</td>
-<td style="text-align:center">2.0</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">3.0</td>
-<td style="text-align:center">4.0</td>
-</tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">5.0</td>
-<td style="text-align:center">7.0</td>
-</tr>
-<tr>
-<td style="text-align:center">5</td>
-<td style="text-align:center">3.5</td>
-<td style="text-align:center">5.0</td>
-</tr>
-<tr>
-<td style="text-align:center">6</td>
-<td style="text-align:center">4.5</td>
-<td style="text-align:center">5.0</td>
-</tr>
-<tr>
-<td style="text-align:center">7</td>
-<td style="text-align:center">3.5</td>
-<td style="text-align:center">4.5</td>
-</tr>
-</tbody>
-</table>
-<p>5、重新聚类</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center"></th>
-<th style="text-align:center">样本</th>
-<th style="text-align:center">中心点向量</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">Cluster 1</td>
-<td style="text-align:center">1,2</td>
-<td style="text-align:center">(1.3,1.5)</td>
-</tr>
-<tr>
-<td style="text-align:center">Cluster 2</td>
-<td style="text-align:center">3,4,5,6,7</td>
-<td style="text-align:center">(3.9,5.1)</td>
-</tr>
-</tbody>
-</table>
-<p>6、就这样再重新计算中心，计算各点距离，重新聚类，直到中心点不再改变。</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;今天，2016年夏至，干热的空气五成熟，躲在实验室的空调间里，静静地整理着印象笔记，呆萌更像傻逼。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;印象笔记上六月的今天紧紧地排着实验室的几个任务，慵懒的我就是不想动脑子干受累，任由耳旁Eason的歌曲声骚扰着，看似安静地呆着，其实是综艺都看完了闲着蛋疼。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;随手翻翻朋友圈，前几天还因为毕业而如此躁动的孩子们，渐渐少了状态，可能是因为昨天勇士战败的噩耗，骑士的胜利刷屏，将毕业的躁动安抚了下去。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;是的，今年的夏天，又是一个毕业季，一个不是我毕业的毕业季。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;那年带过的大一的孩子们，他们这个夏天毕业了。说实话，很期待和他们的再聚首，期待和他们的合影，希望以后都能不错的回忆。但失望的是，孩子们没有聚在一起。可能是都太忙了，可能是都有约了，可能是他们也没有必要在乎我了。我不得不说我这个学生班主任是不是太失败了，是不是太没存在感了，连被记挂的回忆都感觉是奢侈的浪费。都说毕业后的大家，至少还有两次再聚的机会，一次是我结婚，一次是你结婚。等到我结婚时，我会叫上他们的，不知道他们结婚时会不会叫上不被记挂的自己。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这个毕业季，是排球队孩子们的毕业季。不得不说，大一的自己是不太愿意接触排球的，那时候的自己总觉得排球有啥好玩的，能有篮球好玩吗，真是的。然而，一切都是那么自然的被转变，我对排球队的感情已经不能用单纯的智商就能描述得出来的啦，何时何地我们总是相处得那么合适，真的是连所谓的尴尬别扭，一丁点都没有。就这样，我真的是爱上了排球，爱上了这帮排球队的伙伴们。除了这帮孩子，还有我们这一届的队员们，好兄弟好姐妹，当年也是一起吃苦慢慢走过来，总感觉很奇妙，很有意思。当年一起去北戴河玩，一起去水上公园野餐…一切一切都觉得跟排球队的兄弟姐妹们在一起，真心有意思，吵吵闹闹，叽叽喳喳的，这他妈的才是真的生活美好。然而，现在他们也都在各地奔波，联系也变得不太多了，真的挺希望再回来打一场球，吃一顿饭，好好唠唠近况。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这个毕业季，是宝贝的毕业季，30号宝贝就要毕业典礼了，时间太快了，都有点不太能接受，真想给宝贝一个浪漫的毕业瞬间，我也慢慢在准备，希望宝贝能满意，能开开心心的。然而，更心酸的是，30号以后就异地了，毕业后就要去香港大学读研了，异地的感受想必是孤独和难受的，挺不是滋味的。哎～希望吧！希望一切都好好的，我们肯定会好好在一起的。现在的我也就是好好学习，努力找个好工作，能以后美满地娶宝贝回家。家人在一起的感觉，我认为肯定是最美好的。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;夏天，总是那么躁动，又是那么安静。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;夜静了，夏风会吹散无情的热浪，留下美好的回忆。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2016，毕业，我们不散！</p>
 
       
     </div>
@@ -476,18 +253,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/05/30/Theano-Start/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Theano Start
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/10/26/ubuntu安装virtualbox/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">ubuntu安装virtualbox</div>
+    <a href="/2016/06/20/Ubuntu下安装QQ/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Ubuntu下安装QQ</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -516,7 +284,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="K-Means算法" data-title="K-Means算法" data-url="http://blog.demons.top/2015/11/02/K-Means算法/"></div>
+	<div class="ds-thread" data-thread-key="不是我的毕业季的毕业季" data-title="不是我的毕业季的毕业季" data-url="http://blog.demons.top/2016/06/21/不是我的毕业季的毕业季/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
