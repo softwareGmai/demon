@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.demons.top/2016/07/08/%E7%94%A8Python%E6%9D%A5%E5%88%B6%E4%BD%9C%E5%AD%97%E7%AC%A6%E7%94%BB/</loc>
+    <lastmod>2016-07-08T08:53:48.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.demons.top/2016/07/07/Theano%E6%9D%A5%E6%90%AD%E5%BB%BAAutoEncoder%E7%94%A8%E4%BA%8E%E7%A4%BE%E5%9B%A2%E5%8F%91%E7%8E%B0%EF%BC%88%E4%B8%80%EF%BC%89/</loc>
     <lastmod>2016-07-07T13:50:34.000Z</lastmod>
   </url>
