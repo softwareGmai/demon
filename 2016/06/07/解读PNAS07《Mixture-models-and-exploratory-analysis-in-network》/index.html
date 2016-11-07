@@ -17,7 +17,7 @@
 <meta property="og:image" content="http://blog.demons.top/img/research/code38.png">
 <meta property="og:image" content="http://blog.demons.top/img/research/code39.png">
 <meta property="og:image" content="http://blog.demons.top/img/research/code40.png">
-<meta property="og:updated_time" content="2016-11-07T10:59:38.000Z">
+<meta property="og:updated_time" content="2016-11-07T11:23:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="解读PNAS07《Mixture models and exploratory analysis in network》">
 <meta name="twitter:description" content="之前我们有比较详细地讲解了高斯混合模型和EM算法，从感性的角度去理解它，到理性地用公式一步步去推导它。我们对EM算法有了更进一步的理解。但是如何将EM算法和实际问题相结合，又可能有点不太熟知。我们就来剖析Newman的一篇经典论文，发表再PNAS07上的《Mixture models and exploratory analysis in network》。这篇文章运用EM算法解决Communit">
@@ -252,7 +252,7 @@
 <h2>一、问题</h2><br>Community Detection问题有很多侧重的问题，这篇论文侧重于能同时发现不同的结构，比如同配（社团内连接紧密，社团间连接稀疏）和异配（社团内连接稀疏，社团间连接紧密）结构等。<br><br><h2>二、本文符号</h2><br>本文的动机就暂时不明确说明了，本文适用于有向图和无向图，和文中意思相同，先来讲有向图。<br><br>网络:$n$个结点并且是由有向边连接.<br>$A<em>{i}$邻接矩阵，如果结点$i$有一条指向节点$j$的边，则为1；否则为0.<br>$g_i$:表示结点$i$属于社团$g$，总共有$c$个社团，$g$是隐变量(文中用的是missing data).<br>$\theta</em>{ri}$:表示社团$r$中的某一结点指向结点$i$的概率.<br>$\pi<em>r$:表示某一个结点落在社团$r$上的概率.<br><br>因为$\pi_r$和$\theta</em>{ri}$是概率，所以满足加和为1，表示如下：<br>$\sum<em>{r=1}^{c} \pi_r = 1$, $\sum</em>{i=1}^{n} \theta_{ri} = 1$<br><br><h2>三、模型</h2>
 
 <p>1、图模型<br>2、目标函数（此处是最大似然函数）: $P(\mathrm{A} | \pi, \theta) = \sum_{g} P(\mathrm{A}, g | \pi, \theta)$</p>
-<p>根据贝叶斯公式，可以得到$P(\mathrm{A}, g | \pi, \theta) = P(\mathrm{A} | g, \pi, \theta) P(g | \pi, \theta) = \prod \limits<em>{i} \left[ \pi</em>{g<em>i} \prod \limits</em>{j} \theta<em>{g_i,j}^{\mathrm{A}</em>{ij}} \right] $</p>
+<p>根据贝叶斯公式，可以得到<br>$P(\mathrm{A}, g | \pi, \theta) = P(\mathrm{A} | g, \pi, \theta) P(g | \pi, \theta) = \prod \limits<em>{i} \left[ \pi</em>{g<em>i} \prod \limits</em>{j} \theta<em>{g_i,j}^{\mathrm{A}</em>{ij}} \right]$</p>
 <p>其中，$P(\mathrm{A} | g, \pi, \theta) = \prod \limits<em>{ij} \theta</em>{g<em>i, j}^{\mathrm{A}</em>{ij}}$， $P(g | \pi, \theta) = \prod \limits<em>{i} \pi</em>{g_i}$。</p>
 <p>3、对于目标函数（最大似然函数）的求解，我们一般是取$log$似然函数，然后求（偏）导为0求参数。但是此处的$log$似然函数同样出现了“$log$中有求和”的情况，这种情况一般可以用EM算法来求解，此篇文章也是如此，步骤如下：</p>
 <p>（1）$E$步：求隐变量的后验概率$P(g_i = r | \mathrm{A}, \pi, \theta)$</p>
