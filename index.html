@@ -645,12 +645,32 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;之前我们有比较详细地讲解了高斯混合模型和EM算法，从感性的角度去理解它，到理性地用公式一步步去推导它。我们对EM算法有了更进一步的理解。但是如何将EM算法和实际问题相结合，又可能有点不太熟知。我们就来剖析Newman的一篇经典论文，发表再PNAS07上的《Mixture models and exploratory analysis in network》。这篇文章运用EM算法解决Community Detection（社团发现）问题，其中的推导和讲解部分真心和《PRML》里面的很符合，所以很有助于对EM算法的理解和运用。<br>因为博主我也是搞Community Detection方向的，所以感觉这篇文章还是相当经典的。废话不多说，咱们来好好看看吧。</p>
-<p></p><h2>一、问题</h2><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Community Detection问题，问题本身比较简单，但至今也没有一个很标准的定义，我们就拿最平常的定义来讲解吧。问题定义描述如下：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;由很多节点和边组成的网络，我们要将其聚类成多个社团，聚类后的社团要满足：“社团内部连接紧密，社团之间连接稀疏”。<p></p>
-<p></p><h2>二、本文符号</h2><br>本文的动机就暂时不明确说明了，本文适用于有向图和无向图，和文中意思相同，先来讲有向图。<p></p>
-<center><img src="/img/research/code36.png" alt="符号"></center>
+        <pre><code>之前我们有比较详细地讲解了高斯混合模型和EM算法，从感性的角度去理解它，到理性地用公式一步步去推导它。我们对EM算法有了更进一步的理解。但是如何将EM算法和实际问题相结合，又可能有点不太熟知。我们就来剖析Newman的一篇经典论文，发表再PNAS07上的《Mixture models <span class="keyword">and</span> exploratory analysis <span class="keyword">in</span> network》。这篇文章运用EM算法解决Community Detection（社团发现）问题，其中的推导和讲解部分真心和《PRML》里面的很符合，所以很有助于对EM算法的理解和运用。
+</code></pre><p>因为博主我也是搞Community Detection方向的，所以感觉这篇文章还是相当经典的。废话不多说，咱们来好好看看吧。</p>
+<h2>一、问题</h2><br>Community Detection问题有很多侧重的问题，这篇论文侧重于能同时发现不同的结构，比如同配（社团内连接紧密，社团间连接稀疏）和异配（社团内连接稀疏，社团间连接紧密）结构等。<br><br><h2>二、本文符号</h2><br>本文的动机就暂时不明确说明了，本文适用于有向图和无向图，和文中意思相同，先来讲有向图。<br><br>网络:$n$个结点并且是由有向边连接.<br>$A<em>{i}$邻接矩阵，如果结点$i$有一条指向节点$j$的边，则为1；否则为0.<br>$g_i$:表示结点$i$属于社团$g$，总共有$c$个社团，$g$是隐变量(文中用的是missing data).<br>$\theta</em>{ri}$:表示社团$r$中的某一结点指向结点$i$的概率.<br>$\pi<em>r$:表示某一个结点落在社团$r$上的概率.<br><br>因为$\pi_r$和$\theta</em>{ri}$是概率，所以满足加和为1，表示如下：<br>$\sum<em>{r=1}^{c} \pi_r = 1$, $\sum</em>{i=1}^{n} \theta_{ri} = 1$<br><br><h2>三、模型</h2>
 
-<p></p><h2>三、模型</h2><br>1、目标函数<br>2、EM算法求解<br>（1）完全数据的似然函数<br>完全数据的似然函数，根据贝叶斯公式，能很轻松得到下面公式：<p></p>
+<p>1、图模型<br>2、目标函数（此处是最大似然函数）: $P(\mathrm{A} | \pi, \theta) = \sum_{g} P(\mathrm{A}, g | \pi, \theta)$</p>
+<p>根据贝叶斯公式，可以得到$P(\mathrm{A}, g | \pi, \theta) = P(\mathrm{A} | g, \pi, \theta) P(g | \pi, \theta) = \prod \limits<em>{i} \left[ \pi</em>{g<em>i} \prod \limits</em>{j} \theta<em>{g_i,j}^{\mathrm{A}</em>{ij}} \right] $</p>
+<p>其中，$P(\mathrm{A} | g, \pi, \theta) = \prod \limits<em>{ij} \theta</em>{g<em>i, j}^{\mathrm{A}</em>{ij}}$， $P(g | \pi, \theta) = \prod \limits<em>{i} \pi</em>{g_i}$。</p>
+<p>3、对于目标函数（最大似然函数）的求解，我们一般是取$log$似然函数，然后求（偏）导为0求参数。但是此处的$log$似然函数同样出现了“$log$中有求和”的情况，这种情况一般可以用EM算法来求解，此篇文章也是如此，步骤如下：</p>
+<p>（1）$E$步：求隐变量的后验概率$P(g_i = r | \mathrm{A}, \pi, \theta)$</p>
+<p>因为根据贝叶斯公式，我们可以得到：</p>
+<p>$$q_{ir} = P(g_i = r | \mathrm{A}, \pi, \theta) = \frac{P(\mathrm{A}, g_i =r | \pi, \theta)}{P(\mathrm{A} | \pi, \theta)}$$</p>
+<p>其中，分子如下：</p>
+<p>$P(\mathrm{A}, g<em>i = r | \pi, \theta) \ = \sum \limits</em>{g1 = 1}^{c} \dots \sum \limits<em>{g_n = 1}^{c} \delta</em>{g<em>i, r} P(\mathrm{A}, g | \pi, \theta) \ = \sum \limits</em>{g<em>1=1}^c \dots \sum \limits</em>{g<em>n=1}^{c} \delta</em>{g<em>i, r} \prod \limits</em>{k} \left[ \pi<em>{g_k} \prod \limits</em>{j} \theta<em>{g_k, j}^{\mathrm{A}</em>{kj}} \right]  \ = \sum \limits<em>{g_1=1}^c \dots \sum \limits</em>{g<em>n=1}^{c} \delta</em>{g<em>i, r} \left[ \pi</em>{g<em>1} \prod \limits</em>{j} \theta<em>{g_1, j}^{\mathrm{A}</em>{1j}} \right] \dots \left[ \pi<em>{g_n} \prod \limits</em>{j} \theta<em>{g_n, j}^{\mathrm{A}</em>{nj}} \right] \ = \left[ \sum \limits<em>{g_1=1}^{c} \pi</em>{g<em>1} \prod \limits</em>{j} \theta<em>{g_1, j}^{\mathrm{A}</em>{1j}} \right] \dots \left[\delta<em>{g_i,r} \sum \limits</em>{g<em>i=1}^{c} \pi</em>{g<em>i} \prod \limits</em>{j} \theta<em>{g_i, j}^{\mathrm{A}</em>{ij}} \right] \dots \left[ \sum \limits<em>{g_n=1}^{c} \pi</em>{g<em>n} \prod \limits</em>{j} \theta<em>{g_n, j}^{\mathrm{A}</em>{nj}} \right] \ = \left[ \pi<em>{r} \prod \limits</em>{j} \theta<em>{rj}^{\mathrm{A}</em>{ij}} \right] \left[ \prod \limits<em>{k \not= i} \sum \limits</em>{s=1}^{c} \pi<em>{s} \prod \limits</em>{j} \theta_{sj}^{\mathrm{A}_kj} \right]$</p>
+<p>分母如下：</p>
+<p>$P(\mathrm{A} | \pi, \theta) = \sum \limits<em>{g1 = 1}^{c} \dots \sum \limits</em>{g<em>n = 1}^{c} P(\mathrm{A}, g | \pi, \theta) = \prod \limits</em>{k} \sum \limits<em>{s=1}^{c} \pi</em>{s} \prod \limits<em>{j} \theta</em>{sj}^{\mathrm{A}_{kj}}$</p>
+<p>所以得到隐变量的后验概率为：</p>
+<p>$q<em>{ir} = \frac{\pi</em>{r} \prod<em>{j} \theta</em>{rj}^{\mathrm{A}<em>{ij}}}{\sum</em>{s} \pi<em>{s} \prod</em>{j} \theta<em>{sj}^{\mathrm{A}</em>{ij}}}$</p>
+<p>（2）$M$步：</p>
+<p>根据Json不等式可以得到$\mathcal{L}$:</p>
+<p>$ln P(\mathrm{A} | \pi, \theta) \ = ln \sum_g P(\mathrm{A}, g | \pi, \theta) \ = ln \sum_g q(g) \frac{P(\mathrm{A,g} | \pi, \theta)}{q(g)} \ \ge \sum_g q(g) ln \frac{P(\mathrm{A,g} | \pi, \theta)}{q(g)} = \mathcal{L} $</p>
+<p>要达到$ln P(\mathrm{A} | \pi, \theta) = \mathcal{L}$，当且仅当$q(g) = P(g | \mathrm{A}, \pi, \theta) $，其中</p>
+<p>$\mathcal{L} = \sum_g q(g) ln \frac{P(\mathrm{A,g} | \pi, \theta)}{q(g)} = \sum_g q(g) ln P(\mathrm{A},g | \pi,\theta) - \sum_g q(g) ln q(g) = \mathcal{Q} + const$</p>
+<p>所以</p>
+<p>$\mathcal{Q} = \sum<em>g q(g) ln P(\mathrm{A},g | \pi,\theta) \ = \sum \limits</em>{g<em>1 = 1}^{c} \dots \sum \limits</em>{g<em>n=1}^{c} P(g | \mathrm{A}, \pi, \theta) ln P(\mathrm{A},g | \pi,\theta) \ = \sum \limits</em>{g<em>1 = 1}^{c} \dots \sum \limits</em>{g<em>n=1}^{c} P(g_1,g_2,\dots, g_n | \mathrm{A}, \pi, \theta) ln \prod \limits</em>{i} \left[ \pi<em>{g_i} \prod \limits</em>{j} \theta<em>{g_i,j}^{\mathrm{A}</em>{ij}} \right] \ = \sum \limits<em>{g_1 = 1}^{c} \dots \sum \limits</em>{g<em>n=1}^{c} P(g_1,g_2,\dots, g_n | \mathrm{A}, \pi, \theta) \sum \limits</em>{i} \left[ ln \pi<em>{g_i} + \sum \limits</em>{j} \mathrm{A}<em>{ij} ln \theta</em>{g<em>i,j} \right] \ = \sum \limits</em>{ir} P(g<em>i = r | \mathrm{A}, \pi, \theta) \left[ ln \pi</em>{r} + \sum \limits<em>{j} \mathrm{A}</em>{ij} ln \theta<em>{r,j} \right] \ = \sum \limits</em>{ir} q<em>{ir} \left[ ln \pi</em>{r} + \sum \limits<em>{j} \mathrm{A}</em>{ij} ln \theta_{r,j} \right]$</p>
+<p>在$M$步中就是固定$q<em>{ir}$的值，最大化$\mathcal{Q}$来更新参数$\pi$和$\theta$（可以用求偏导的方式求得），最后得到参数更新公式如下：$\pi_r = \frac{1}{n} \sum \limits</em>{i} q<em>{ir}$,  $\theta</em>{rj} = \frac{\sum<em>{i} \mathrm{A}</em>{ij}q<em>{ir}}{\sum</em>{i} k<em>i q</em>{ir}}$</p>
+<p>2、EM算法求解<br>（1）完全数据的似然函数<br>完全数据的似然函数，根据贝叶斯公式，能很轻松得到下面公式：</p>
 <center><img src="/img/research/code37.png" alt="完全数据的似然函数"></center><br>根据题意，能写出两个的值：<br><center><img src="/img/research/code38.png" alt="各因子具体表示"></center><br>综上所述，就能得到完全似然函数的具体表示：<br><center><img src="/img/research/code39.png" alt="完全似然函数的具体表示"></center><br>（2）隐变量后验概率<br>隐变量的后验概率根据贝叶斯公式计算如下：<br><center><img src="/img/research/code40.png" alt="隐变量的后验概率计算"></center>
 
 <p>（未完待续，今天有点晚了，明天继续奋斗）</p>

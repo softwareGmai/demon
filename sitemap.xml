@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.demons.top/2016/06/07/%E8%A7%A3%E8%AF%BBPNAS07%E3%80%8AMixture-models-and-exploratory-analysis-in-network%E3%80%8B/</loc>
+    <lastmod>2016-11-07T10:59:38.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.demons.top/2016/08/23/Ubuntu%E4%B8%8BTheano%E9%85%8D%E7%BD%AEGPU%E5%8A%A0%E9%80%9F/</loc>
     <lastmod>2016-08-23T09:16:38.000Z</lastmod>
   </url>
@@ -34,11 +39,6 @@
   <url>
     <loc>http://blog.demons.top/2015/11/02/K-Means%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2016-06-15T01:52:28.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.demons.top/2016/06/07/%E8%A7%A3%E8%AF%BBPNAS07%E3%80%8AMixture-models-and-exploratory-analysis-in-network%E3%80%8B/</loc>
-    <lastmod>2016-06-07T14:51:04.000Z</lastmod>
   </url>
   
   <url>
