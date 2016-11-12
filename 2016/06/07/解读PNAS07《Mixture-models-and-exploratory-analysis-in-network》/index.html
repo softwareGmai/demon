@@ -13,11 +13,12 @@
 <meta property="og:url" content="http://blog.demons.top/2016/06/07/解读PNAS07《Mixture-models-and-exploratory-analysis-in-network》/index.html">
 <meta property="og:site_name" content="Demon's Blog">
 <meta property="og:description" content="之前我们有比较详细地讲解了高斯混合模型和EM算法，从感性的角度去理解它，到理性地用公式一步步去推导它。我们对EM算法有了更进一步的理解。但是如何将EM算法和实际问题相结合，又可能有点不太熟知。我们就来剖析Newman的一篇经典论文，发表再PNAS07上的《Mixture models and exploratory analysis in network》。这篇文章运用EM算法解决Communit">
-<meta property="og:image" content="http://blog.demons.top/img/research/code37.png">
-<meta property="og:image" content="http://blog.demons.top/img/research/code38.png">
-<meta property="og:image" content="http://blog.demons.top/img/research/code39.png">
-<meta property="og:image" content="http://blog.demons.top/img/research/code40.png">
-<meta property="og:updated_time" content="2016-11-12T06:48:43.000Z">
+<meta property="og:image" content="http://7xkxqa.com1.z0.glb.clouddn.com/pnas07_graph.png">
+<meta property="og:image" content="http://7xkxqa.com1.z0.glb.clouddn.com/pnas07_1.png">
+<meta property="og:image" content="http://7xkxqa.com1.z0.glb.clouddn.com/pnas07_2.png">
+<meta property="og:image" content="http://7xkxqa.com1.z0.glb.clouddn.com/pnas07_3.png">
+<meta property="og:image" content="http://7xkxqa.com1.z0.glb.clouddn.com/pnas07_4.png">
+<meta property="og:updated_time" content="2016-11-12T14:08:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="解读PNAS07《Mixture models and exploratory analysis in network》">
 <meta name="twitter:description" content="之前我们有比较详细地讲解了高斯混合模型和EM算法，从感性的角度去理解它，到理性地用公式一步步去推导它。我们对EM算法有了更进一步的理解。但是如何将EM算法和实际问题相结合，又可能有点不太熟知。我们就来剖析Newman的一篇经典论文，发表再PNAS07上的《Mixture models and exploratory analysis in network》。这篇文章运用EM算法解决Communit">
@@ -247,23 +248,27 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>之前我们有比较详细地讲解了高斯混合模型和EM算法，从感性的角度去理解它，到理性地用公式一步步去推导它。我们对EM算法有了更进一步的理解。但是如何将EM算法和实际问题相结合，又可能有点不太熟知。我们就来剖析Newman的一篇经典论文，发表再PNAS07上的《Mixture models and exploratory analysis in network》。这篇文章运用EM算法解决Community Detection（社团发现）问题，其中的推导和讲解部分真心和《PRML》里面的很符合，所以很有助于对EM算法的理解和运用。 因为博主我也是搞Community Detection方向的，所以感觉这篇文章还是相当经典的。废话不多说，咱们来好好看看吧。</p>
-<h2>
-一、问题
-</h2>
+        <blockquote>
+<p>之前我们有比较详细地讲解了高斯混合模型和EM算法，从感性的角度去理解它，到理性地用公式一步步去推导它。我们对EM算法有了更进一步的理解。但是如何将EM算法和实际问题相结合，又可能有点不太熟知。我们就来剖析Newman的一篇经典论文，发表再PNAS07上的《Mixture models and exploratory analysis in network》。这篇文章运用EM算法解决Community Detection（社团发现）问题，其中的推导和讲解部分真心和《PRML》里面的很符合，所以很有助于对EM算法的理解和运用。因为博主我也是搞Community Detection方向的，所以感觉这篇文章还是相当经典的。废话不多说，咱们来好好看看吧。</p>
+</blockquote>
+<h1 id="一问题">一、问题</h1>
 <p>Community Detection问题有很多侧重的问题，这篇论文侧重于能同时发现不同的结构，比如同配（社团内连接紧密，社团间连接稀疏）和异配（社团内连接稀疏，社团间连接紧密）结构等。</p>
-<h2>
-二、本文符号
-</h2>
+<h1 id="二本文符号">二、本文符号</h1>
 <p>本文的动机就暂时不明确说明了，本文适用于有向图和无向图，和文中意思相同，先来讲有向图。</p>
-<p>网络:<span class="math inline">\(n\)</span>个结点并且是由有向边连接.<span class="math inline">\(A_{i}\)</span>邻接矩阵，如果结点<span class="math inline">\(i\)</span>有一条指向节点<span class="math inline">\(j\)</span>的边，则为1.否则为0.<span class="math inline">\(g_i\)</span>:表示结点<span class="math inline">\(i\)</span>属于社团<span class="math inline">\(g\)</span>，总共有<span class="math inline">\(c\)</span>个社团，<span class="math inline">\(g\)</span>是隐变量(文中用的是missing data).<span class="math inline">\(\theta_{ri}\)</span>:表示社团<span class="math inline">\(r\)</span>中的某一结点指向结点<span class="math inline">\(i\)</span>的概率.<span class="math inline">\(\pi_r\)</span>:表示某一个结点落在社团<span class="math inline">\(r\)</span>上的概率.</p>
-<p>因为<span class="math inline">\(\pi_r\)</span>和<span class="math inline">\(\theta_{ri}\)</span>是概率，所以满足加和为1，表示如下： <span class="math inline">\(\sum_{r=1}^{c} \pi_r = 1\)</span>, <span class="math inline">\(\sum_{i=1}^{n} \theta_{ri} = 1\)</span></p>
-<h2>
-三、模型
-</h2>
-<p>1、图模型 2、目标函数（此处是最大似然函数）: <span class="math inline">\(P(\mathrm{A} | \pi, \theta) = \sum_{g} P(\mathrm{A}, g | \pi, \theta)\)</span></p>
-<p>根据贝叶斯公式，可以得到 <span class="math inline">\(P(\mathrm{A}, g | \pi, \theta) = P(\mathrm{A} | g, \pi, \theta) P(g | \pi, \theta) = \prod \limits_{i} \left[ \pi_{g_i} \prod \limits_{j} \theta_{g_i,j}^{\mathrm{A}_{ij}} \right]\)</span></p>
-<p>其中，<span class="math inline">\(P(\mathrm{A} | g, \pi, \theta) = \prod \limits_{ij} \theta_{g_i, j}^{\mathrm{A}_{ij}}\)</span>， <span class="math inline">\(P(g | \pi, \theta) = \prod \limits_{i} \pi_{g_i}\)</span>。</p>
+<p>网络:<span class="math inline">\(n\)</span>个结点并且是由有向边连接.<span class="math inline">\(A_{i}\)</span>邻接矩阵，如果结点<span class="math inline">\(i\)</span>有一条指向节点<span class="math inline">\(j\)</span>的边，则为1.否则为0。</p>
+<p><span class="math inline">\(g_i\)</span>:表示结点<span class="math inline">\(i\)</span>属于社团<span class="math inline">\(g\)</span>，总共有<span class="math inline">\(c\)</span>个社团，<span class="math inline">\(g\)</span>是隐变量(文中用的是missing data)。</p>
+<p><span class="math inline">\(\theta_{ri}\)</span>:表示社团<span class="math inline">\(r\)</span>中的某一结点指向结点<span class="math inline">\(i\)</span>的概率。</p>
+<p><span class="math inline">\(\pi_r\)</span>:表示某一个结点落在社团<span class="math inline">\(r\)</span>上的概率。</p>
+<p>因为<span class="math inline">\(\pi_r\)</span>和<span class="math inline">\(\theta_{ri}\)</span>是概率，所以满足加和为1，表示如下： <span class="math display">\[\sum_{r=1}^{c} \pi_r = 1, \sum_{i=1}^{n} \theta_{ri} = 1\]</span></p>
+<h1 id="三模型">三、模型</h1>
+<p>1、图模型</p>
+<div class="figure">
+<img src="http://7xkxqa.com1.z0.glb.clouddn.com/pnas07_graph.png">
+
+</div>
+<p>2、目标函数（此处是最大似然函数）: <span class="math inline">\(P(\mathrm{A} | \pi, \theta) = \sum_{g} P(\mathrm{A}, g | \pi, \theta)\)</span></p>
+<p>根据贝叶斯公式，可以得到 <span class="math display">\[P(\mathrm{A}, g | \pi, \theta) = P(\mathrm{A} | g, \pi, \theta) P(g | \pi, \theta) = \prod \limits_{i} \left[ \pi_{g_i} \prod \limits_{j} \theta_{g_i,j}^{\mathrm{A}_{ij}} \right]\]</span></p>
+<p>其中，<span class="math display">\[P(\mathrm{A} | g, \pi, \theta) = \prod \limits_{ij} \theta_{g_i, j}^{\mathrm{A}_{ij}},P(g | \pi, \theta) = \prod \limits_{i} \pi_{g_i}\]</span></p>
 <p>3、对于目标函数（最大似然函数）的求解，我们一般是取<span class="math inline">\(log\)</span>似然函数，然后求（偏）导为0求参数。但是此处的<span class="math inline">\(log\)</span>似然函数同样出现了“<span class="math inline">\(log\)</span>中有求和”的情况，这种情况一般可以用EM算法来求解，此篇文章也是如此，步骤如下：</p>
 <p>（1）<span class="math inline">\(E\)</span>步：求隐变量的后验概率<span class="math inline">\(P(g_i = r | \mathrm{A}, \pi, \theta)\)</span></p>
 <p>因为根据贝叶斯公式，我们可以得到：</p>
@@ -271,34 +276,48 @@
 <p>其中，分子如下：</p>
 <p><span class="math inline">\(P(\mathrm{A}, g_i = r | \pi, \theta) \\ = \sum \limits_{g1 = 1}^{c} \dots \sum \limits_{g_n = 1}^{c} \delta_{g_i, r} P(\mathrm{A}, g | \pi, \theta) \\ = \sum \limits_{g_1=1}^c \dots \sum \limits_{g_n=1}^{c} \delta_{g_i, r} \prod \limits_{k} \left[ \pi_{g_k} \prod \limits_{j} \theta_{g_k, j}^{\mathrm{A}_{kj}} \right] \\ = \sum \limits_{g_1=1}^c \dots \sum \limits_{g_n=1}^{c} \delta_{g_i, r} \left[ \pi_{g_1} \prod \limits_{j} \theta_{g_1, j}^{\mathrm{A}_{1j}} \right] \dots \left[ \pi_{g_n} \prod \limits_{j} \theta_{g_n, j}^{\mathrm{A}_{nj}} \right] \\ = \left[ \sum \limits_{g_1=1}^{c} \pi_{g_1} \prod \limits_{j} \theta_{g_1, j}^{\mathrm{A}_{1j}} \right] \dots \left[\delta_{g_i,r} \sum \limits_{g_i=1}^{c} \pi_{g_i} \prod \limits_{j} \theta_{g_i, j}^{\mathrm{A}_{ij}} \right] \dots \left[ \sum \limits_{g_n=1}^{c} \pi_{g_n} \prod \limits_{j} \theta_{g_n, j}^{\mathrm{A}_{nj}} \right] \\ = \left[ \pi_{r} \prod \limits_{j} \theta_{rj}^{\mathrm{A}_{ij}} \right] \left[ \prod \limits_{k \not= i} \sum \limits_{s=1}^{c} \pi_{s} \prod \limits_{j} \theta_{sj}^{\mathrm{A}_kj} \right]\)</span></p>
 <p>分母如下：</p>
-<p><span class="math inline">\(P(\mathrm{A} | \pi, \theta) = \sum \limits_{g1 = 1}^{c} \dots \sum \limits_{g_n = 1}^{c} P(\mathrm{A}, g | \pi, \theta) = \prod \limits_{k} \sum \limits_{s=1}^{c} \pi_{s} \prod \limits_{j} \theta_{sj}^{\mathrm{A}_{kj}}\)</span></p>
+<p><span class="math display">\[P(\mathrm{A} | \pi, \theta) = \sum \limits_{g1 = 1}^{c} \dots \sum \limits_{g_n = 1}^{c} P(\mathrm{A}, g | \pi, \theta) = \prod \limits_{k} \sum \limits_{s=1}^{c} \pi_{s} \prod \limits_{j} \theta_{sj}^{\mathrm{A}_{kj}}\]</span></p>
 <p>所以得到隐变量的后验概率为：</p>
-<p><span class="math inline">\(q_{ir} = \frac{\pi_{r} \prod_{j} \theta_{rj}^{\mathrm{A}_{ij}}}{\sum_{s} \pi_{s} \prod_{j} \theta_{sj}^{\mathrm{A}_{ij}}}\)</span></p>
+<p><span class="math display">\[q_{ir} = \frac{\pi_{r} \prod_{j} \theta_{rj}^{\mathrm{A}_{ij}}}{\sum_{s} \pi_{s} \prod_{j} \theta_{sj}^{\mathrm{A}_{ij}}}\]</span></p>
 <p>（2）<span class="math inline">\(M\)</span>步：</p>
 <p>根据Json不等式可以得到<span class="math inline">\(\mathcal{L}\)</span>:</p>
-<p>$ln P( | , ) \ = ln _g P(, g | , ) \ = ln _g q(g)  \ _g q(g) ln  =  $</p>
-<p>要达到<span class="math inline">\(ln P(\mathrm{A} | \pi, \theta) = \mathcal{L}\)</span>，当且仅当$q(g) = P(g | , , ) $，其中</p>
-<p><span class="math inline">\(\mathcal{L} = \sum_g q(g) ln \frac{P(\mathrm{A,g} | \pi, \theta)}{q(g)} = \sum_g q(g) ln P(\mathrm{A},g | \pi,\theta) - \sum_g q(g) ln q(g) = \mathcal{Q} + const\)</span></p>
+<p><span class="math inline">\(\ln P(\mathrm{A} | \pi, \theta) \\ = \ln \sum_g P(\mathrm{A}, g | \pi, \theta) \\ = \ln \sum_g q(g) \frac{P(\mathrm{A,g} | \pi, \theta)}{q(g)} \\ \ge \sum_g q(g) \ln \frac{P(\mathrm{A,g} | \pi, \theta)}{q(g)} = \mathcal{L}\)</span></p>
+<p>要达到<span class="math inline">\(\ln P(\mathrm{A} | \pi, \theta) = \mathcal{L}\)</span>，当且仅当<span class="math inline">\(q(g) = P(g|\mathrm{A}, \pi, \theta)\)</span>，其中</p>
+<p><span class="math inline">\(\mathcal{L} = \sum_g q(g) \ln \frac{P(\mathrm{A,g} | \pi, \theta)}{q(g)} = \sum_g q(g) \ln P(\mathrm{A},g | \pi,\theta) - \sum_g q(g) \ln q(g) = \mathcal{Q} + const\)</span></p>
 <p>所以</p>
-<p><span class="math inline">\(\mathcal{Q} = \sum_g q(g) ln P(\mathrm{A},g | \pi,\theta) \\ = \sum \limits_{g_1 = 1}^{c} \dots \sum \limits_{g_n=1}^{c} P(g | \mathrm{A}, \pi, \theta) ln P(\mathrm{A},g | \pi,\theta) \\ = \sum \limits_{g_1 = 1}^{c} \dots \sum \limits_{g_n=1}^{c} P(g_1,g_2,\dots, g_n | \mathrm{A}, \pi, \theta) ln \prod \limits_{i} \left[ \pi_{g_i} \prod \limits_{j} \theta_{g_i,j}^{\mathrm{A}_{ij}} \right] \\ = \sum \limits_{g_1 = 1}^{c} \dots \sum \limits_{g_n=1}^{c} P(g_1,g_2,\dots, g_n | \mathrm{A}, \pi, \theta) \sum \limits_{i} \left[ ln \pi_{g_i} + \sum \limits_{j} \mathrm{A}_{ij} ln \theta_{g_i,j} \right] \\ = \sum \limits_{ir} P(g_i = r | \mathrm{A}, \pi, \theta) \left[ ln \pi_{r} + \sum \limits_{j} \mathrm{A}_{ij} ln \theta_{r,j} \right] \\ = \sum \limits_{ir} q_{ir} \left[ ln \pi_{r} + \sum \limits_{j} \mathrm{A}_{ij} ln \theta_{r,j} \right]\)</span></p>
-<p>在<span class="math inline">\(M\)</span>步中就是固定<span class="math inline">\(q_{ir}\)</span>的值，最大化<span class="math inline">\(\mathcal{Q}\)</span>来更新参数<span class="math inline">\(\pi\)</span>和<span class="math inline">\(\theta\)</span>（可以用求偏导的方式求得），最后得到参数更新公式如下：<span class="math inline">\(\pi_r = \frac{1}{n} \sum \limits_{i} q_{ir}\)</span>, <span class="math inline">\(\theta_{rj} = \frac{\sum_{i} \mathrm{A}_{ij}q_{ir}}{\sum_{i} k_i q_{ir}}\)</span></p>
-2、EM算法求解 （1）完全数据的似然函数 完全数据的似然函数，根据贝叶斯公式，能很轻松得到下面公式：
-<center>
-<img src="/img/research/code37.png" alt="完全数据的似然函数">
-</center>
-根据题意，能写出两个的值：
-<center>
-<img src="/img/research/code38.png" alt="各因子具体表示">
-</center>
-综上所述，就能得到完全似然函数的具体表示：
-<center>
-<img src="/img/research/code39.png" alt="完全似然函数的具体表示">
-</center>
-（2）隐变量后验概率 隐变量的后验概率根据贝叶斯公式计算如下：
-<center>
-<img src="/img/research/code40.png" alt="隐变量的后验概率计算">
-</center>
-<p>（未完待续，今天有点晚了，明天继续奋斗）</p>
+<p><span class="math inline">\(\mathcal{Q} = \sum_g q(g) \ln P(\mathrm{A},g | \pi,\theta) \\ = \sum \limits_{g_1 = 1}^{c} \dots \sum \limits_{g_n=1}^{c} P(g | \mathrm{A}, \pi, \theta) \ln P(\mathrm{A},g | \pi,\theta) \\ = \sum \limits_{g_1 = 1}^{c} \dots \sum \limits_{g_n=1}^{c} P(g_1,g_2,\dots, g_n | \mathrm{A}, \pi, \theta) \ln \prod \limits_{i} \left[ \pi_{g_i} \prod \limits_{j} \theta_{g_i,j}^{\mathrm{A}_{ij}} \right] \\ = \sum \limits_{g_1 = 1}^{c} \dots \sum \limits_{g_n=1}^{c} P(g_1,g_2,\dots, g_n | \mathrm{A}, \pi, \theta) \sum \limits_{i} \left[ \ln \pi_{g_i} + \sum \limits_{j} \mathrm{A}_{ij} \ln \theta_{g_i,j} \right] \\ = \sum \limits_{ir} P(g_i = r | \mathrm{A}, \pi, \theta) \left[ \ln \pi_{r} + \sum \limits_{j} \mathrm{A}_{ij} \ln \theta_{r,j} \right] \\ = \sum \limits_{ir} q_{ir} \left[ \ln \pi_{r} + \sum \limits_{j} \mathrm{A}_{ij} \ln \theta_{r,j} \right]\)</span></p>
+<p>在<span class="math inline">\(M\)</span>步中就是固定<span class="math inline">\(q_{ir}\)</span>的值，最大化<span class="math inline">\(\mathcal{Q}\)</span>来更新参数<span class="math inline">\(\pi\)</span>和<span class="math inline">\(\theta\)</span>（可以用求偏导的方式求得），最后得到参数更新公式如下：<span class="math display">\[\pi_r = \frac{1}{n} \sum \limits_{i} q_{ir},  \theta_{rj} = \frac{\sum_{i} \mathrm{A}_{ij}q_{ir}}{\sum_{i} k_i q_{ir}}\]</span></p>
+<p>至此，此模型优化过程就可以简单的通过<span class="math inline">\(E\)</span>步和<span class="math inline">\(M\)</span>步不断迭代直到收敛，就可以完成。</p>
+<p>4、无向图情况考虑</p>
+<p>之前我们讲述的都是有向图情况下，对于有向图我们对<span class="math inline">\(link\)</span>的定义是社团<span class="math inline">\(r\)</span>里的一个顶点选择一个顶点<span class="math inline">\(i\)</span>的概率，我们表示为<span class="math inline">\(\theta_{ri}\)</span>。那么对于无向图而言，我们将在顶点<span class="math inline">\(i\)</span>（属于社团<span class="math inline">\(s\)</span>）和顶点<span class="math inline">\(j\)</span>（属于社团<span class="math inline">\(r\)</span>）之间产生，我们可以表示为<span class="math inline">\(\theta_{ri} \theta_{sj}\)</span>。其中<span class="math inline">\(\sum_{ij} \theta_{ri} \theta_{sj} = 1\)</span>。</p>
+<p>如果我们设置<span class="math inline">\(r=s\)</span>，则</p>
+<p><span class="math display">\[\sum \limits_{ij} \theta_{ri} \theta_{sj} = \left[ \sum \limits_i  \theta_{ri} \right]^{2} = 1\]</span></p>
+<p>其中，<span class="math inline">\(\sum_i \theta_{ri} = 1\)</span>。</p>
+<p>所以，概率<span class="math inline">\(P(\mathrm{A}|g,\pi,\theta)\)</span>为</p>
+<p><span class="math display">\[P(\mathrm{A}|g,\pi,\theta)=\prod \limits_{i &gt; j} \left[ \theta_{g_i,j} \theta_{g_j,i} \right]^{\mathrm{A}_{ij}} = \prod \limits_{ij} \theta_{g_i,j}^{\mathrm{A}_{ij}}\]</span></p>
+<p>观察公式，跟有向图的情况一对比一模一样，所以也就说明了此模型有向图和无向图都适用。</p>
+<h1 id="四举例">四、举例</h1>
+<p>1、下图（图1）是karate club网络，是个同配的小网络。它只有两个社团，即<span class="math inline">\(c=2\)</span>，并且对每个结点<span class="math inline">\(i\)</span>都应该满足<span class="math inline">\(q_{i1}+q_{i2}=1\)</span>。同时，因为我们的模型参数中有<span class="math inline">\(\theta_{ri}\)</span>，可以通过模型优化求得，也就是说我们可以用这个参数的值来知道哪些结点的中心度比较大（就是度比较大），在图中的表现就是结点的圆圈比较大。</p>
+<div class="figure">
+<img src="http://7xkxqa.com1.z0.glb.clouddn.com/pnas07_1.png" alt="图1">
+<p class="caption">图1</p>
+</div>
+<p>2、下图（图2）是个英语单词构成的网络，是个异配的小网络。通俗点理解，就是我们平常背四六级单词的红宝书，都会有“词根联想记忆法”这种的，也就是说have，has，had，having这些他们的关系比较临近，也就是结点间的连接会比较多，同样take，takes，took，taking也是一样的，但是最后分社团的时候会将(have,take) (has,takes) (had, took) (having, taking)这样分社团，因为是根据他们的过去分词、现在分词等这种“词性”去分社团的。所以可以说英语单词构成的网络是异构网络。而下图的聚类结果也说明了本文的模型很好的处理了异构网络。</p>
+<div class="figure">
+<img src="http://7xkxqa.com1.z0.glb.clouddn.com/pnas07_2.png" alt="图2">
+<p class="caption">图2</p>
+</div>
+<p>总结：总结上述两图，也恰恰证明了本文的贡献，在不更改模型的情况下，也不知道训练的网络的类型情况下，本文模型能同时处理好同配网络和异配网络。</p>
+<p>3、下图是再GN人工网络上做的实验，网络一共有128个结点。横坐标代表的是<span class="math inline">\(p_{out} / p_{in}\)</span>。在横坐标等于1的情况下，表示网络完全没有社团结构，本模型也处理不出来社团。此图中的黑线就是本论文的模型，在1之前是同配结构（社团内部连接紧密，外部连接稀疏），在1之后是异配网络（社团内部连接稀疏，外部连接紧密），模型在两种情况下都能处理得很好。</p>
+<div class="figure">
+<img src="http://7xkxqa.com1.z0.glb.clouddn.com/pnas07_3.png" alt="图3">
+<p class="caption">图3</p>
+</div>
+<p>4、下图也是计算机生成的网络，相对上面的GN网络稍微复杂一些。这个图是在A和B之间用高概率的链接连接在一起（连接紧密），C和D之间也同样高概率的连接在一起。其他的链接都是低概率的连接在一起（连接稀疏）。所以，如果是AB/CD这样划分的话，就是同配的情况，AC/BD这样划分的话就是异配情况。而本文的模型能同时处理这两种情况，能很好的分成四个社团，从而证明了模型的有效性和鲁棒性。</p>
+<div class="figure">
+<img src="http://7xkxqa.com1.z0.glb.clouddn.com/pnas07_4.png" alt="图4">
+<p class="caption">图4</p>
+</div>
 
       
     </div>
