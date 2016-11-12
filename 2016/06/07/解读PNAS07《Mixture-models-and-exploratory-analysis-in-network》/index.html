@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://7xkxqa.com1.z0.glb.clouddn.com/pnas07_2.png">
 <meta property="og:image" content="http://7xkxqa.com1.z0.glb.clouddn.com/pnas07_3.png">
 <meta property="og:image" content="http://7xkxqa.com1.z0.glb.clouddn.com/pnas07_4.png">
-<meta property="og:updated_time" content="2016-11-12T14:08:51.000Z">
+<meta property="og:updated_time" content="2016-11-12T15:02:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="解读PNAS07《Mixture models and exploratory analysis in network》">
 <meta name="twitter:description" content="之前我们有比较详细地讲解了高斯混合模型和EM算法，从感性的角度去理解它，到理性地用公式一步步去推导它。我们对EM算法有了更进一步的理解。但是如何将EM算法和实际问题相结合，又可能有点不太熟知。我们就来剖析Newman的一篇经典论文，发表再PNAS07上的《Mixture models and exploratory analysis in network》。这篇文章运用EM算法解决Communit">
@@ -280,10 +280,10 @@
 <p>所以得到隐变量的后验概率为：</p>
 <p><span class="math display">\[q_{ir} = \frac{\pi_{r} \prod_{j} \theta_{rj}^{\mathrm{A}_{ij}}}{\sum_{s} \pi_{s} \prod_{j} \theta_{sj}^{\mathrm{A}_{ij}}}\]</span></p>
 <p>（2）<span class="math inline">\(M\)</span>步：</p>
-<p>根据Json不等式可以得到<span class="math inline">\(\mathcal{L}\)</span>:</p>
+<p>根据Jackson不等式可以得到<span class="math inline">\(\mathcal{L}\)</span>:</p>
 <p><span class="math inline">\(\ln P(\mathrm{A} | \pi, \theta) \\ = \ln \sum_g P(\mathrm{A}, g | \pi, \theta) \\ = \ln \sum_g q(g) \frac{P(\mathrm{A,g} | \pi, \theta)}{q(g)} \\ \ge \sum_g q(g) \ln \frac{P(\mathrm{A,g} | \pi, \theta)}{q(g)} = \mathcal{L}\)</span></p>
 <p>要达到<span class="math inline">\(\ln P(\mathrm{A} | \pi, \theta) = \mathcal{L}\)</span>，当且仅当<span class="math inline">\(q(g) = P(g|\mathrm{A}, \pi, \theta)\)</span>，其中</p>
-<p><span class="math inline">\(\mathcal{L} = \sum_g q(g) \ln \frac{P(\mathrm{A,g} | \pi, \theta)}{q(g)} = \sum_g q(g) \ln P(\mathrm{A},g | \pi,\theta) - \sum_g q(g) \ln q(g) = \mathcal{Q} + const\)</span></p>
+<p><span class="math display">\[\mathcal{L} = \sum_g q(g) \ln \frac{P(\mathrm{A,g} | \pi, \theta)}{q(g)} = \sum_g q(g) \ln P(\mathrm{A},g | \pi,\theta) - \sum_g q(g) \ln q(g) = \mathcal{Q} + const\]</span></p>
 <p>所以</p>
 <p><span class="math inline">\(\mathcal{Q} = \sum_g q(g) \ln P(\mathrm{A},g | \pi,\theta) \\ = \sum \limits_{g_1 = 1}^{c} \dots \sum \limits_{g_n=1}^{c} P(g | \mathrm{A}, \pi, \theta) \ln P(\mathrm{A},g | \pi,\theta) \\ = \sum \limits_{g_1 = 1}^{c} \dots \sum \limits_{g_n=1}^{c} P(g_1,g_2,\dots, g_n | \mathrm{A}, \pi, \theta) \ln \prod \limits_{i} \left[ \pi_{g_i} \prod \limits_{j} \theta_{g_i,j}^{\mathrm{A}_{ij}} \right] \\ = \sum \limits_{g_1 = 1}^{c} \dots \sum \limits_{g_n=1}^{c} P(g_1,g_2,\dots, g_n | \mathrm{A}, \pi, \theta) \sum \limits_{i} \left[ \ln \pi_{g_i} + \sum \limits_{j} \mathrm{A}_{ij} \ln \theta_{g_i,j} \right] \\ = \sum \limits_{ir} P(g_i = r | \mathrm{A}, \pi, \theta) \left[ \ln \pi_{r} + \sum \limits_{j} \mathrm{A}_{ij} \ln \theta_{r,j} \right] \\ = \sum \limits_{ir} q_{ir} \left[ \ln \pi_{r} + \sum \limits_{j} \mathrm{A}_{ij} \ln \theta_{r,j} \right]\)</span></p>
 <p>在<span class="math inline">\(M\)</span>步中就是固定<span class="math inline">\(q_{ir}\)</span>的值，最大化<span class="math inline">\(\mathcal{Q}\)</span>来更新参数<span class="math inline">\(\pi\)</span>和<span class="math inline">\(\theta\)</span>（可以用求偏导的方式求得），最后得到参数更新公式如下：<span class="math display">\[\pi_r = \frac{1}{n} \sum \limits_{i} q_{ir},  \theta_{rj} = \frac{\sum_{i} \mathrm{A}_{ij}q_{ir}}{\sum_{i} k_i q_{ir}}\]</span></p>
@@ -292,11 +292,10 @@
 <p>之前我们讲述的都是有向图情况下，对于有向图我们对<span class="math inline">\(link\)</span>的定义是社团<span class="math inline">\(r\)</span>里的一个顶点选择一个顶点<span class="math inline">\(i\)</span>的概率，我们表示为<span class="math inline">\(\theta_{ri}\)</span>。那么对于无向图而言，我们将在顶点<span class="math inline">\(i\)</span>（属于社团<span class="math inline">\(s\)</span>）和顶点<span class="math inline">\(j\)</span>（属于社团<span class="math inline">\(r\)</span>）之间产生，我们可以表示为<span class="math inline">\(\theta_{ri} \theta_{sj}\)</span>。其中<span class="math inline">\(\sum_{ij} \theta_{ri} \theta_{sj} = 1\)</span>。</p>
 <p>如果我们设置<span class="math inline">\(r=s\)</span>，则</p>
 <p><span class="math display">\[\sum \limits_{ij} \theta_{ri} \theta_{sj} = \left[ \sum \limits_i  \theta_{ri} \right]^{2} = 1\]</span></p>
-<p>其中，<span class="math inline">\(\sum_i \theta_{ri} = 1\)</span>。</p>
-<p>所以，概率<span class="math inline">\(P(\mathrm{A}|g,\pi,\theta)\)</span>为</p>
+<p>其中，<span class="math inline">\(\sum_i \theta_{ri} = 1\)</span>。所以，概率<span class="math inline">\(P(\mathrm{A}|g,\pi,\theta)\)</span>为</p>
 <p><span class="math display">\[P(\mathrm{A}|g,\pi,\theta)=\prod \limits_{i &gt; j} \left[ \theta_{g_i,j} \theta_{g_j,i} \right]^{\mathrm{A}_{ij}} = \prod \limits_{ij} \theta_{g_i,j}^{\mathrm{A}_{ij}}\]</span></p>
 <p>观察公式，跟有向图的情况一对比一模一样，所以也就说明了此模型有向图和无向图都适用。</p>
-<h1 id="四举例">四、举例</h1>
+<h1 id="四实验">四、实验</h1>
 <p>1、下图（图1）是karate club网络，是个同配的小网络。它只有两个社团，即<span class="math inline">\(c=2\)</span>，并且对每个结点<span class="math inline">\(i\)</span>都应该满足<span class="math inline">\(q_{i1}+q_{i2}=1\)</span>。同时，因为我们的模型参数中有<span class="math inline">\(\theta_{ri}\)</span>，可以通过模型优化求得，也就是说我们可以用这个参数的值来知道哪些结点的中心度比较大（就是度比较大），在图中的表现就是结点的圆圈比较大。</p>
 <div class="figure">
 <img src="http://7xkxqa.com1.z0.glb.clouddn.com/pnas07_1.png" alt="图1">
