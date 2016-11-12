@@ -7,12 +7,14 @@
   
   <title>定时备份Mysql（windows） | Demon&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、  环境Windows 64bitMysql安装目录: D:\mysql-5.6.20-win32\mysql-5.6.20-win32\数据库名称bada_db数据文件备份目录：D:\mysql_bak\badaSql文件备份目录：D:\mysql_bak\bada_sql_bak二、  步骤1.新建bat文件backup_db_sql.bat和db_bak.batbackup_db_sql">
+  <meta name="description" content="一、 环境 Windows 64bit Mysql安装目录: D:-5.6.20-win32-5.6.20-win32
+数据库名称bada_db 数据文件备份目录：D:_bakSql文件备份目录：D:_bak_sql_bak 二、 步骤 1.新建bat文件backup_db_sql.bat和db_bak.bat backup_db_sql.bat ： 1234@echo offset &quot;Ymd=%">
 <meta property="og:type" content="article">
 <meta property="og:title" content="定时备份Mysql（windows）">
 <meta property="og:url" content="http://blog.demons.top/2015/07/27/定时备份Mysql（windows）/index.html">
 <meta property="og:site_name" content="Demon's Blog">
-<meta property="og:description" content="一、  环境Windows 64bitMysql安装目录: D:\mysql-5.6.20-win32\mysql-5.6.20-win32\数据库名称bada_db数据文件备份目录：D:\mysql_bak\badaSql文件备份目录：D:\mysql_bak\bada_sql_bak二、  步骤1.新建bat文件backup_db_sql.bat和db_bak.batbackup_db_sql">
+<meta property="og:description" content="一、 环境 Windows 64bit Mysql安装目录: D:-5.6.20-win32-5.6.20-win32
+数据库名称bada_db 数据文件备份目录：D:_bakSql文件备份目录：D:_bak_sql_bak 二、 步骤 1.新建bat文件backup_db_sql.bat和db_bak.bat backup_db_sql.bat ： 1234@echo offset &quot;Ymd=%">
 <meta property="og:image" content="http://blog.demons.top/img/mysql/1.jpg">
 <meta property="og:image" content="http://blog.demons.top/img/mysql/2.jpg">
 <meta property="og:image" content="http://blog.demons.top/img/mysql/3.jpg">
@@ -22,7 +24,8 @@
 <meta property="og:updated_time" content="2015-07-31T13:53:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="定时备份Mysql（windows）">
-<meta name="twitter:description" content="一、  环境Windows 64bitMysql安装目录: D:\mysql-5.6.20-win32\mysql-5.6.20-win32\数据库名称bada_db数据文件备份目录：D:\mysql_bak\badaSql文件备份目录：D:\mysql_bak\bada_sql_bak二、  步骤1.新建bat文件backup_db_sql.bat和db_bak.batbackup_db_sql">
+<meta name="twitter:description" content="一、 环境 Windows 64bit Mysql安装目录: D:-5.6.20-win32-5.6.20-win32
+数据库名称bada_db 数据文件备份目录：D:_bakSql文件备份目录：D:_bak_sql_bak 二、 步骤 1.新建bat文件backup_db_sql.bat和db_bak.bat backup_db_sql.bat ： 1234@echo offset &quot;Ymd=%">
   
     <link rel="alternative" href="/atom.xml" title="Demon&#39;s Blog" type="application/atom+xml">
   
@@ -249,10 +252,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一、  环境<br>Windows 64bit<br>Mysql安装目录: D:\mysql-5.6.20-win32\mysql-5.6.20-win32\<br>数据库名称bada_db<br>数据文件备份目录：D:\mysql_bak\bada<br>Sql文件备份目录：D:\mysql_bak\bada_sql_bak<br>二、  步骤<br>1.新建bat文件backup_db_sql.bat和db_bak.bat<br>backup_db_sql.bat ：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">set</span> <span class="string">"Ymd=%date:~,4%%date:~5,2%%date:~8,2%"</span></span><br><span class="line">D:\mysql-<span class="number">5.6</span>.<span class="number">20</span>-win32\mysql-<span class="number">5.6</span>.<span class="number">20</span>-win32\bin\mysqldump --opt -u root --password=Jiuru2014bada bada_db &gt; D:\mysql_bak\bada_sql_bak\bada_%Ymd%.sql</span><br><span class="line">@<span class="built_in">echo</span> on</span><br></pre></td></tr></table></figure></p>
+        <p>一、 环境 Windows 64bit Mysql安装目录: D:-5.6.20-win32-5.6.20-win32<br>
+数据库名称bada_db 数据文件备份目录：D:_bakSql文件备份目录：D:_bak_sql_bak 二、 步骤 1.新建bat文件backup_db_sql.bat和db_bak.bat backup_db_sql.bat ： <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">set</span> <span class="string">"Ymd=%date:~,4%%date:~5,2%%date:~8,2%"</span></span><br><span class="line">D:\mysql-<span class="number">5.6</span>.<span class="number">20</span>-win32\mysql-<span class="number">5.6</span>.<span class="number">20</span>-win32\bin\mysqldump --opt -u root --password=Jiuru2014bada bada_db &gt; D:\mysql_bak\bada_sql_bak\bada_%Ymd%.sql</span><br><span class="line">@<span class="built_in">echo</span> on</span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
-<p>db_bak.bat ：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">net stop mysql</span><br><span class="line">xcopy D:\mysql-<span class="number">5.6</span>.<span class="number">20</span>-win32\mysql-<span class="number">5.6</span>.<span class="number">20</span>-win32\data\bada_db\*.* D:\mysql_bak\bada\%date:~<span class="number">0</span>,<span class="number">10</span>%\ /y</span><br><span class="line">net start mysql</span><br></pre></td></tr></table></figure></p>
-<p>2.附件—&gt;系统工具—&gt;任务计划程序<br> <img src="/img/mysql/1.jpg" alt="第1步"><br> <img src="/img/mysql/2.jpg" alt="第2步"><br> <img src="/img/mysql/3.jpg" alt="第3步"><br> <img src="/img/mysql/4.jpg" alt="第4步"><br> <img src="/img/mysql/5.jpg" alt="第5步"><br> <img src="/img/mysql/6.jpg" alt="第6步"></p>
+<p>db_bak.bat ： <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">net stop mysql</span><br><span class="line">xcopy D:\mysql-<span class="number">5.6</span>.<span class="number">20</span>-win32\mysql-<span class="number">5.6</span>.<span class="number">20</span>-win32\data\bada_db\*.* D:\mysql_bak\bada\%date:~<span class="number">0</span>,<span class="number">10</span>%\ /y</span><br><span class="line">net start mysql</span><br></pre></td></tr></table></figure></p>
+<p>2.附件—&gt;系统工具—&gt;任务计划程序 <img src="/img/mysql/1.jpg" alt="第1步"> <img src="/img/mysql/2.jpg" alt="第2步"> <img src="/img/mysql/3.jpg" alt="第3步"> <img src="/img/mysql/4.jpg" alt="第4步"> <img src="/img/mysql/5.jpg" alt="第5步"> <img src="/img/mysql/6.jpg" alt="第6步"></p>
 <p>另外一个文件也是一样操作，这样就Finish了~</p>
 
       
@@ -388,6 +392,7 @@ MathJax.Hub.Queue(function() {
 
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
+
 
 
 

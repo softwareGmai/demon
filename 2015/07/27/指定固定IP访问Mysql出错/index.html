@@ -7,16 +7,16 @@
   
   <title>指定固定IP访问Mysql出错 | Demon&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、Mysql权限管理1、允许root用户在任何地方进行远程登录，并具有所有库任何操作权限，具体操作如下：在本机先使用root用户登录mysql： mysql -u root -p”youpassword” 进行授权操作：1mysql&amp;gt;GRANT ALL PRIVILEGES ON *.* TO &apos;root&apos;@&apos;%&apos; IDENTIFIED BY &apos;youpassword&apos; WITH GRAN">
+  <meta name="description" content="一、Mysql权限管理 1、允许root用户在任何地方进行远程登录，并具有所有库任何操作权限， 具体操作如下： 在本机先使用root用户登录mysql： mysql -u root -p“youpassword” 进行授权操作： 1mysql&amp;gt;GRANT ALL PRIVILEGES ON *.* TO &apos;root&apos;@&apos;%&apos; IDENTIFIED BY &apos;youpassword&apos; WITH">
 <meta property="og:type" content="article">
 <meta property="og:title" content="指定固定IP访问Mysql出错">
 <meta property="og:url" content="http://blog.demons.top/2015/07/27/指定固定IP访问Mysql出错/index.html">
 <meta property="og:site_name" content="Demon's Blog">
-<meta property="og:description" content="一、Mysql权限管理1、允许root用户在任何地方进行远程登录，并具有所有库任何操作权限，具体操作如下：在本机先使用root用户登录mysql： mysql -u root -p”youpassword” 进行授权操作：1mysql&amp;gt;GRANT ALL PRIVILEGES ON *.* TO &apos;root&apos;@&apos;%&apos; IDENTIFIED BY &apos;youpassword&apos; WITH GRAN">
+<meta property="og:description" content="一、Mysql权限管理 1、允许root用户在任何地方进行远程登录，并具有所有库任何操作权限， 具体操作如下： 在本机先使用root用户登录mysql： mysql -u root -p“youpassword” 进行授权操作： 1mysql&amp;gt;GRANT ALL PRIVILEGES ON *.* TO &apos;root&apos;@&apos;%&apos; IDENTIFIED BY &apos;youpassword&apos; WITH">
 <meta property="og:updated_time" content="2015-07-31T13:53:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="指定固定IP访问Mysql出错">
-<meta name="twitter:description" content="一、Mysql权限管理1、允许root用户在任何地方进行远程登录，并具有所有库任何操作权限，具体操作如下：在本机先使用root用户登录mysql： mysql -u root -p”youpassword” 进行授权操作：1mysql&amp;gt;GRANT ALL PRIVILEGES ON *.* TO &apos;root&apos;@&apos;%&apos; IDENTIFIED BY &apos;youpassword&apos; WITH GRAN">
+<meta name="twitter:description" content="一、Mysql权限管理 1、允许root用户在任何地方进行远程登录，并具有所有库任何操作权限， 具体操作如下： 在本机先使用root用户登录mysql： mysql -u root -p“youpassword” 进行授权操作： 1mysql&amp;gt;GRANT ALL PRIVILEGES ON *.* TO &apos;root&apos;@&apos;%&apos; IDENTIFIED BY &apos;youpassword&apos; WITH">
   
     <link rel="alternative" href="/atom.xml" title="Demon&#39;s Blog" type="application/atom+xml">
   
@@ -243,19 +243,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一、Mysql权限管理<br>1、允许root用户在任何地方进行远程登录，并具有所有库任何操作权限，<br>具体操作如下：<br>在本机先使用root用户登录mysql： mysql -u root -p”youpassword” 进行授权操作：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'youpassword' WITH GRANT OPTION;</span><br></pre></td></tr></table></figure></p>
-<p>重载授权表：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure></p>
-<p>退出mysql数据库：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;exit</span><br></pre></td></tr></table></figure></p>
+        <p>一、Mysql权限管理 1、允许root用户在任何地方进行远程登录，并具有所有库任何操作权限， 具体操作如下： 在本机先使用root用户登录mysql： mysql -u root -p“youpassword” 进行授权操作： <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'youpassword' WITH GRANT OPTION;</span><br></pre></td></tr></table></figure></p>
+<p>重载授权表： <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure></p>
+<p>退出mysql数据库： <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;exit</span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
-<p>2、允许root用户在一个特定的IP进行远程登录，并具有所有库任何操作权限，<br>具体操作如下：<br>在本机先使用root用户登录mysql： mysql -u root -p”youpassword” 进行授权操作：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;GRANT ALL PRIVILEGES ON *.* TO root@"115.26.4.153" IDENTIFIED BY "youpassword" WITH GRANT OPTION;</span><br></pre></td></tr></table></figure></p>
-<p>重载授权表：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure></p>
-<p>退出mysql数据库：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;exit</span><br></pre></td></tr></table></figure></p>
-<p>3、允许root用户在一个特定的IP进行远程登录，并具有所有库特定操作权限，<br>具体操作如下：<br>在本机先使用root用户登录mysql： mysql -u root -p”youpassword” 进行授权操作：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;GRANT select，insert，update，delete ON *.* TO root@"115.26.4.153" IDENTIFIED BY "youpassword";</span><br></pre></td></tr></table></figure></p>
-<p>重载授权表：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure></p>
-<p>退出mysql数据库：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;exit</span><br></pre></td></tr></table></figure></p>
-<p>二、提出问题<br>服务器能正常启动，但是项目已启动，访问主页面就报错，报错信息如图所示：</p>
-<p>三、分析原因<br>因为创建视图使用的是root@%用户(目前已经被我删除)，然后登录用户使用的是root@ip用户，导致mysql认为现在的用户无权限访问该视图</p>
-<p>四、解决方案<br>在服务器端登陆Mysql，重新建立视图，则问题解决</p>
+<p>2、允许root用户在一个特定的IP进行远程登录，并具有所有库任何操作权限， 具体操作如下： 在本机先使用root用户登录mysql： mysql -u root -p“youpassword” 进行授权操作： <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;GRANT ALL PRIVILEGES ON *.* TO root@"115.26.4.153" IDENTIFIED BY "youpassword" WITH GRANT OPTION;</span><br></pre></td></tr></table></figure></p>
+<p>重载授权表： <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure></p>
+<p>退出mysql数据库： <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;exit</span><br></pre></td></tr></table></figure></p>
+<p>3、允许root用户在一个特定的IP进行远程登录，并具有所有库特定操作权限， 具体操作如下： 在本机先使用root用户登录mysql： mysql -u root -p“youpassword” 进行授权操作： <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;GRANT select，insert，update，delete ON *.* TO root@"115.26.4.153" IDENTIFIED BY "youpassword";</span><br></pre></td></tr></table></figure></p>
+<p>重载授权表： <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure></p>
+<p>退出mysql数据库： <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;exit</span><br></pre></td></tr></table></figure></p>
+<p>二、提出问题 服务器能正常启动，但是项目已启动，访问主页面就报错，报错信息如图所示：</p>
+<p>三、分析原因 因为创建视图使用的是root@%用户(目前已经被我删除)，然后登录用户使用的是root@ip用户，导致mysql认为现在的用户无权限访问该视图</p>
+<p>四、解决方案 在服务器端登陆Mysql，重新建立视图，则问题解决</p>
 
       
     </div>
@@ -395,6 +395,7 @@ MathJax.Hub.Queue(function() {
 
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
+
 
 
 

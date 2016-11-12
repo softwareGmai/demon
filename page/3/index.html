@@ -233,8 +233,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>&#160; &#160; &#160; &#160;大家好，我叫Demon，92年生，现在是天津大学的准研究生，本科就读于天津工业大学。期间和朋友有过一次一年多的创业经历，从2014年3月至2015年6月。现在也正在和朋友合伙开公司，有兴趣的朋友也可以和我联系，欢迎交流。</p>
-<h2 id="兴趣爱好">兴趣爱好</h2><ul>
+        <p>       大家好，我叫Demon，92年生，现在是天津大学的准研究生，本科就读于天津工业大学。期间和朋友有过一次一年多的创业经历，从2014年3月至2015年6月。现在也正在和朋友合伙开公司，有兴趣的朋友也可以和我联系，欢迎交流。</p>
+<h2 id="兴趣爱好">兴趣爱好</h2>
+<ul>
 <li>篮球：狂热的“麦蜜”，crazy的球风，随时恭候约球</li>
 <li>编程：我不会告诉你敲键盘的感觉会如此有成就感</li>
 <li>文学：喜欢文字的东西，喜欢珍藏经典的书籍</li>
@@ -298,7 +299,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>如果 catalina.out 日志达到 2GB 大小的时候，Tomcat 因为缓存问题，便没有办法继续输出日志了。<br>为了避免这种情况，你需要及时对 catalina.out  进行归档。<br>实际上 Tomcat 自身也会对日志内容进行归档，但是归档后，Tomcat 不会清理 catalina.out 的内容，这将会导致 catalina.out 越来越大。<br>
+        <p>如果 catalina.out 日志达到 2GB 大小的时候，Tomcat 因为缓存问题，便没有办法继续输出日志了。<br />
+为了避免这种情况，你需要及时对 catalina.out 进行归档。<br />
+实际上 Tomcat 自身也会对日志内容进行归档，但是归档后，Tomcat 不会清理 catalina.out 的内容，这将会导致 catalina.out 越来越大。
       
     </div>
     
@@ -356,9 +359,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一、Mysql权限管理<br>1、允许root用户在任何地方进行远程登录，并具有所有库任何操作权限，<br>具体操作如下：<br>在本机先使用root用户登录mysql： mysql -u root -p”youpassword” 进行授权操作：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'youpassword' WITH GRANT OPTION;</span><br></pre></td></tr></table></figure></p>
-<p>重载授权表：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure></p>
-<p>退出mysql数据库：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;exit</span><br></pre></td></tr></table></figure></p>
+        <p>一、Mysql权限管理 1、允许root用户在任何地方进行远程登录，并具有所有库任何操作权限， 具体操作如下： 在本机先使用root用户登录mysql： mysql -u root -p“youpassword” 进行授权操作： <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'youpassword' WITH GRANT OPTION;</span><br></pre></td></tr></table></figure></p>
+<p>重载授权表： <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure></p>
+<p>退出mysql数据库： <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;exit</span><br></pre></td></tr></table></figure></p>
       
     </div>
     
@@ -416,8 +419,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一、提出问题<br>重装Mysql时，已经很干净地卸载了Mysql（包括清理注册表等），但是重装时最后还是出现了问题，最后一步的“start server”一直启动不了，<br>我取消以后，手动启动mysql还是启动不了，报错信息如下图所示：</p>
-<p>之后，我再去Mysql的安装目录  D:\software\project\tool\mysql\mysql_data\data  下找到GM-PC.err文件，发现了比较准确的报错信息：<br>
+        <p>一、提出问题 重装Mysql时，已经很干净地卸载了Mysql（包括清理注册表等），但是重装时最后还是出现了问题，最后一步的“start server”一直启动不了， 我取消以后，手动启动mysql还是启动不了，报错信息如下图所示：</p>
+<p>之后，我再去Mysql的安装目录 D:_data下找到GM-PC.err文件，发现了比较准确的报错信息：
       
     </div>
     
@@ -475,8 +478,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一、环境：<br>主服务器：10.9.110.24<br>从服务器：10.9.110.20<br>Mysql：mysql_installer_community_V5.6.21.1_setup.1418020972.msi</p>
-<p>二、主服务器（master）配置<br>1、修改MySQL配置文件my.ini  （D:/mysql/mysql_data/my.ini）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line"><span class="built_in">log</span>-bin=mysql-bin</span><br><span class="line"><span class="built_in">log</span>-bin-index=mysql-bin.index</span><br><span class="line">server-id=<span class="number">24</span></span><br><span class="line">sync_binlog=<span class="number">1</span></span><br><span class="line">binlog_format=mixed</span><br><span class="line">binlog-do-db=<span class="built_in">test</span></span><br><span class="line">binlog-ignore-db=mysql</span><br><span class="line">binlog-ignore-db=performance_schema</span><br><span class="line">binlog-ignore-db=information_schema</span><br></pre></td></tr></table></figure></p>
+        <p>一、环境： 主服务器：10.9.110.24 从服务器：10.9.110.20 Mysql：mysql_installer_community_V5.6.21.1_setup.1418020972.msi</p>
+<p>二、主服务器（master）配置 1、修改MySQL配置文件my.ini （D:/mysql/mysql_data/my.ini） <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line"><span class="built_in">log</span>-bin=mysql-bin</span><br><span class="line"><span class="built_in">log</span>-bin-index=mysql-bin.index</span><br><span class="line">server-id=<span class="number">24</span></span><br><span class="line">sync_binlog=<span class="number">1</span></span><br><span class="line">binlog_format=mixed</span><br><span class="line">binlog-do-db=<span class="built_in">test</span></span><br><span class="line">binlog-ignore-db=mysql</span><br><span class="line">binlog-ignore-db=performance_schema</span><br><span class="line">binlog-ignore-db=information_schema</span><br></pre></td></tr></table></figure></p>
       
     </div>
     
@@ -534,7 +537,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一、环境<br>Linux<br>Mysql安装目录：/var/lib/mysql<br>Mysql备份目录：/bada_sql_backup （开始没有此目录）<br>二、  步骤<br>1、创建保存备份文件的路径/ bada_sql_backup<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># mkdir / bada_sql_backup</span></span><br></pre></td></tr></table></figure></p>
+        <p>一、环境 Linux Mysql安装目录：/var/lib/mysql Mysql备份目录：/bada_sql_backup （开始没有此目录） 二、 步骤 1、创建保存备份文件的路径/ bada_sql_backup <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># mkdir / bada_sql_backup</span></span><br></pre></td></tr></table></figure></p>
       
     </div>
     
@@ -592,7 +595,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一、  环境<br>Windows 64bit<br>Mysql安装目录: D:\mysql-5.6.20-win32\mysql-5.6.20-win32\<br>数据库名称bada_db<br>数据文件备份目录：D:\mysql_bak\bada<br>Sql文件备份目录：D:\mysql_bak\bada_sql_bak<br>二、  步骤<br>1.新建bat文件backup_db_sql.bat和db_bak.bat<br>backup_db_sql.bat ：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">set</span> <span class="string">"Ymd=%date:~,4%%date:~5,2%%date:~8,2%"</span></span><br><span class="line">D:\mysql-<span class="number">5.6</span>.<span class="number">20</span>-win32\mysql-<span class="number">5.6</span>.<span class="number">20</span>-win32\bin\mysqldump --opt -u root --password=Jiuru2014bada bada_db &gt; D:\mysql_bak\bada_sql_bak\bada_%Ymd%.sql</span><br><span class="line">@<span class="built_in">echo</span> on</span><br></pre></td></tr></table></figure></p>
+        <p>一、 环境 Windows 64bit Mysql安装目录: D:-5.6.20-win32-5.6.20-win32<br />
+数据库名称bada_db 数据文件备份目录：D:_bakSql文件备份目录：D:_bak_sql_bak 二、 步骤 1.新建bat文件backup_db_sql.bat和db_bak.bat backup_db_sql.bat ： <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">set</span> <span class="string">"Ymd=%date:~,4%%date:~5,2%%date:~8,2%"</span></span><br><span class="line">D:\mysql-<span class="number">5.6</span>.<span class="number">20</span>-win32\mysql-<span class="number">5.6</span>.<span class="number">20</span>-win32\bin\mysqldump --opt -u root --password=Jiuru2014bada bada_db &gt; D:\mysql_bak\bada_sql_bak\bada_%Ymd%.sql</span><br><span class="line">@<span class="built_in">echo</span> on</span><br></pre></td></tr></table></figure></p>
       
     </div>
     
@@ -699,6 +703,7 @@ MathJax.Hub.Queue(function() {
 
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
+
 
 
 

@@ -7,19 +7,19 @@
   
   <title>pip安装PIL | Demon&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="今天学习python时安装PIL遇到了一些问题，就记录下来了。首先需要先安装pip1# sudo apt-get install python-pip
-我直接使用 pip install PIL安装不了根据报错信息，我执行如下pip install PIL —allow-external PIL —allow-unverified PIL还是不行，报错信息是：UnicodeDecodeError:">
+  <meta name="description" content="今天学习python时安装PIL遇到了一些问题，就记录下来了。 首先需要先安装pip 1# sudo apt-get install python-pip
+我直接使用 pip install PIL安装不了 根据报错信息，我执行如下 pip install PIL –allow-external PIL –allow-unverified PIL 还是不行，报错信息是：UnicodeDecodeE">
 <meta property="og:type" content="article">
 <meta property="og:title" content="pip安装PIL">
 <meta property="og:url" content="http://blog.demons.top/2015/09/05/pip安装PIL/index.html">
 <meta property="og:site_name" content="Demon's Blog">
-<meta property="og:description" content="今天学习python时安装PIL遇到了一些问题，就记录下来了。首先需要先安装pip1# sudo apt-get install python-pip
-我直接使用 pip install PIL安装不了根据报错信息，我执行如下pip install PIL —allow-external PIL —allow-unverified PIL还是不行，报错信息是：UnicodeDecodeError:">
+<meta property="og:description" content="今天学习python时安装PIL遇到了一些问题，就记录下来了。 首先需要先安装pip 1# sudo apt-get install python-pip
+我直接使用 pip install PIL安装不了 根据报错信息，我执行如下 pip install PIL –allow-external PIL –allow-unverified PIL 还是不行，报错信息是：UnicodeDecodeE">
 <meta property="og:updated_time" content="2015-09-05T14:38:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="pip安装PIL">
-<meta name="twitter:description" content="今天学习python时安装PIL遇到了一些问题，就记录下来了。首先需要先安装pip1# sudo apt-get install python-pip
-我直接使用 pip install PIL安装不了根据报错信息，我执行如下pip install PIL —allow-external PIL —allow-unverified PIL还是不行，报错信息是：UnicodeDecodeError:">
+<meta name="twitter:description" content="今天学习python时安装PIL遇到了一些问题，就记录下来了。 首先需要先安装pip 1# sudo apt-get install python-pip
+我直接使用 pip install PIL安装不了 根据报错信息，我执行如下 pip install PIL –allow-external PIL –allow-unverified PIL 还是不行，报错信息是：UnicodeDecodeE">
   
     <link rel="alternative" href="/atom.xml" title="Demon&#39;s Blog" type="application/atom+xml">
   
@@ -246,11 +246,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>今天学习python时安装PIL遇到了一些问题，就记录下来了。<br>首先需要先安装pip<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sudo apt-get install python-pip</span></span><br></pre></td></tr></table></figure></p>
-<p>我直接使用 pip install PIL安装不了<br>根据报错信息，我执行如下<br>pip install PIL —allow-external PIL —allow-unverified PIL<br>还是不行，报错信息是：UnicodeDecodeError: ‘ascii’ codec can’t decode byte 0x?? in position 1: ordinal not in range(128)</p>
-<p>之后，我就只能通过源码安装了，安装步骤如下：<br>wget <a href="http://effbot.org/downloads/Imaging-1.1.7.tar.gz" target="_blank" rel="external">http://effbot.org/downloads/Imaging-1.1.7.tar.gz</a><br>tar xvfz Imaging-1.1.7.tar.gz</p>
-<p>修改setup.py<br>TCL_ROOT = “/usr/lib64/“<br>JPEG_ROOT = “/usr/lib64/“<br>ZLIB_ROOT = “/usr/lib64/“<br>TIFF_ROOT = “/usr/lib64/“<br>FREETYPE_ROOT = “/usr/lib64/“<br>LCMS_ROOT = “/usr/lib64/“</p>
-<p>安装检查<br>python /root/nowamagic_venv/Imaging-1.1.7/setup.py build_ext -i<br>安装<br>python /root/nowamagic_venv/Imaging-1.1.7/setup.py install</p>
+        <p>今天学习python时安装PIL遇到了一些问题，就记录下来了。 首先需要先安装pip <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sudo apt-get install python-pip</span></span><br></pre></td></tr></table></figure></p>
+<p>我直接使用 pip install PIL安装不了 根据报错信息，我执行如下 pip install PIL –allow-external PIL –allow-unverified PIL 还是不行，报错信息是：UnicodeDecodeError: ‘ascii’ codec can’t decode byte 0x?? in position 1: ordinal not in range(128)</p>
+<p>之后，我就只能通过源码安装了，安装步骤如下： wget http://effbot.org/downloads/Imaging-1.1.7.tar.gz tar xvfz Imaging-1.1.7.tar.gz</p>
+<p>修改setup.py TCL_ROOT = “/usr/lib64/” JPEG_ROOT = “/usr/lib64/” ZLIB_ROOT = “/usr/lib64/” TIFF_ROOT = “/usr/lib64/” FREETYPE_ROOT = “/usr/lib64/” LCMS_ROOT = “/usr/lib64/”</p>
+<p>安装检查 python /root/nowamagic_venv/Imaging-1.1.7/setup.py build_ext -i 安装 python /root/nowamagic_venv/Imaging-1.1.7/setup.py install</p>
 
       
     </div>
@@ -390,6 +390,7 @@ MathJax.Hub.Queue(function() {
 
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
+
 
 
 

@@ -233,8 +233,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近利用深度学习对社团发现的问题尝试去寻找思路，大概看了七八篇文章，启发挺大，就想写博客来总结总结。<br>这几篇文章分别是：<br>《Multi-view Clustering via Deep Matrix Factorization》<br>《Modularity based Community Detection with Deep Learning》<br>《Learning Deep Representations for Graph Clustering》<br>《Image Representation Learning Using Graph Regularized Auto-Encoders》<br>《Utilizing Deep Learning for Content-based Community Detection》<br>《Deep Linear Coding for Fast Graph Clustering》<br>《Deep Learning with K-Means Applied to Community Detection in Networks》<br>《Greedy Deep Dictionary Learning》</p>
-<p>以下是自己总结的ppt截图：<br><img src="/img/research/1.png" alt="1"><br><img src="/img/research/2.png" alt="2"><br><img src="/img/research/3.png" alt="3"><br><img src="/img/research/4.png" alt="4"><br><img src="/img/research/5.png" alt="5"><br><img src="/img/research/6.png" alt="6"><br><img src="/img/research/7.png" alt="7"><br><img src="/img/research/8.png" alt="8"><br><img src="/img/research/9.png" alt="9"><br><img src="/img/research/10.png" alt="10"><br><img src="/img/research/11.png" alt="11"></p>
+        <p>最近利用深度学习对社团发现的问题尝试去寻找思路，大概看了七八篇文章，启发挺大，就想写博客来总结总结。 这几篇文章分别是： 《Multi-view Clustering via Deep Matrix Factorization》 《Modularity based Community Detection with Deep Learning》 《Learning Deep Representations for Graph Clustering》 《Image Representation Learning Using Graph Regularized Auto-Encoders》 《Utilizing Deep Learning for Content-based Community Detection》 《Deep Linear Coding for Fast Graph Clustering》 《Deep Learning with K-Means Applied to Community Detection in Networks》 《Greedy Deep Dictionary Learning》</p>
+<p>以下是自己总结的ppt截图： <img src="/img/research/1.png" alt="1"> <img src="/img/research/2.png" alt="2"> <img src="/img/research/3.png" alt="3"> <img src="/img/research/4.png" alt="4"> <img src="/img/research/5.png" alt="5"> <img src="/img/research/6.png" alt="6"> <img src="/img/research/7.png" alt="7"> <img src="/img/research/8.png" alt="8"> <img src="/img/research/9.png" alt="9"> <img src="/img/research/10.png" alt="10"> <img src="/img/research/11.png" alt="11"></p>
 
       
     </div>
@@ -289,15 +289,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>好久没有写博客了，最近科研整理了些思路，要准备做实验了，就打算用python的框架Theano来实现。今天就开始看起来了，所以就过来写写，加深理解。<br>一、Theano安装<br>先查看一下我的本机环境，ok，我的是Ubuntu 14.04.2<br><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># cat /etc/issue</span></span><br></pre></td></tr></table></figure></p>
-<p>接着就安装吧，宝宝们，（本机自带python2.7版本，所以python不用安装了）<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># sudo apt-<span class="built_in">get</span> install <span class="keyword">python</span>-numpy <span class="keyword">python</span>-scipy <span class="keyword">python</span>-dev <span class="keyword">python</span>-pip <span class="keyword">python</span>-nose <span class="keyword">g</span>++  libopenblas git</span><br><span class="line"># sudo pip install Theano</span><br></pre></td></tr></table></figure></p>
-<p>然后，我们来测试一下Theano是否安装成功。在python命令行下操作（# python）<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">import</span> theano</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>theano.test()</span><br></pre></td></tr></table></figure></p>
+        <p>好久没有写博客了，最近科研整理了些思路，要准备做实验了，就打算用python的框架Theano来实现。今天就开始看起来了，所以就过来写写，加深理解。 一、Theano安装 先查看一下我的本机环境，ok，我的是Ubuntu 14.04.2 <figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># cat /etc/issue</span></span><br></pre></td></tr></table></figure></p>
+<p>接着就安装吧，宝宝们，（本机自带python2.7版本，所以python不用安装了） <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># sudo apt-<span class="built_in">get</span> install <span class="keyword">python</span>-numpy <span class="keyword">python</span>-scipy <span class="keyword">python</span>-dev <span class="keyword">python</span>-pip <span class="keyword">python</span>-nose <span class="keyword">g</span>++  libopenblas git</span><br><span class="line"># sudo pip install Theano</span><br></pre></td></tr></table></figure></p>
+<p>然后，我们来测试一下Theano是否安装成功。在python命令行下操作（# python） <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">import</span> theano</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>theano.test()</span><br></pre></td></tr></table></figure></p>
 <p>此时，会显示Theano版本号等相关信息，如果显示，则表示安装成功。</p>
-<p>二、Theano学起来<br>1、标量（Scalar）<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy</span><br><span class="line"><span class="keyword">import</span> theano.tensor <span class="keyword">as</span> T</span><br><span class="line"><span class="keyword">from</span> theano <span class="keyword">import</span> function</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义两个变量</span></span><br><span class="line">x = T.dscalar(<span class="string">'x'</span>)</span><br><span class="line">y = T.dscalar(<span class="string">'y'</span>)</span><br><span class="line"></span><br><span class="line">z = x + y</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义函数，[x, y]是输入， z是输出</span></span><br><span class="line">f = function([x, y], z)</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> f(<span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line"><span class="keyword">print</span> numpy.allclose(f(<span class="number">16.3</span>, <span class="number">12.1</span>), <span class="number">28.4</span>)</span><br><span class="line"><span class="keyword">print</span> numpy.allclose(z.eval(&#123;x: <span class="number">16.3</span>, y: <span class="number">12.1</span>&#125;), <span class="number">28.4</span>)</span><br></pre></td></tr></table></figure></p>
-<p>2、矩阵（Matrix）<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy</span><br><span class="line"><span class="keyword">import</span> theano.tensor <span class="keyword">as</span> T</span><br><span class="line"><span class="keyword">from</span> theano <span class="keyword">import</span> function</span><br><span class="line">x = T.dmatrix(<span class="string">'x'</span>)</span><br><span class="line">y = T.dmatrix(<span class="string">'y'</span>)</span><br><span class="line"></span><br><span class="line">z = x + y</span><br><span class="line">f = function([x, y], z)</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> f([[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>]], [[<span class="number">10</span>, <span class="number">20</span>], [<span class="number">30</span>, <span class="number">40</span>]])</span><br></pre></td></tr></table></figure></p>
-<p>三、尝试计算Logistic function<br>Logistic函数是我们在学习机器学习的时候经常用到的函数，特别是在神经网络或者深度学习的学习方面，常常用做激活函数。它的图像如下：<br><img src="/img/theano/logistic.png" alt="Logistic函数图像"><br>我们尝试使用Theano计算一下Logistic函数：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> theano</span><br><span class="line"><span class="keyword">import</span> theano.tensor <span class="keyword">as</span> T</span><br><span class="line"></span><br><span class="line">x = T.dmatrix(<span class="string">'x'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Logistic Funtion</span></span><br><span class="line">s = <span class="number">1</span> / (<span class="number">1</span> + T.exp(-x))</span><br><span class="line"></span><br><span class="line">logistic = theano.function([x], s)</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> logistic([[<span class="number">0</span>, <span class="number">1</span>], [-<span class="number">1</span>, -<span class="number">2</span>]])</span><br><span class="line"></span><br><span class="line">s2 = (<span class="number">1</span> + T.tanh(x / <span class="number">2</span>)) / <span class="number">2</span></span><br><span class="line"></span><br><span class="line">logistic2 = theano.function([x], s2)</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> logistic2([[<span class="number">0</span>, <span class="number">1</span>], [-<span class="number">1</span>, -<span class="number">2</span>]])</span><br></pre></td></tr></table></figure></p>
-<p>四、使用共享变量（Using Shared Variables）<br>这里所谓的“共享变量”，在我的理解里就相当于全局变量。我们用累加器的例子来帮助理解。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">from</span> theano <span class="keyword">import</span> shared</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>state = shared(<span class="number">0</span>)</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>inc = T.iscalar(<span class="string">'inc'</span>)</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>accumulator = function([inc], state, updates=[(state, state+inc)])</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>print(state.get_value())</span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>accumulator(<span class="number">1</span>)</span><br><span class="line">array(<span class="number">0</span>)</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>print(state.get_value())</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>accumulator(<span class="number">300</span>)</span><br><span class="line">array(<span class="number">1</span>)</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>print(state.get_value())</span><br><span class="line"><span class="number">301</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>state.set_value(-<span class="number">1</span>)</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>accumulator(<span class="number">3</span>)</span><br><span class="line">array(-<span class="number">1</span>)</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>print(state.get_value())</span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>decrementor = function([inc], state, updates=[(state, state-inc)])</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>decrementor(<span class="number">2</span>)</span><br><span class="line">array(<span class="number">2</span>)</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>print(state.get_value())</span><br><span class="line"><span class="number">0</span></span><br></pre></td></tr></table></figure></p>
-<p>五、条件语句<br>条件语句大致有两种一种是IfElse，还有一种是Switch，举例如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> theano <span class="keyword">import</span> tensor <span class="keyword">as</span> T</span><br><span class="line"><span class="keyword">from</span> theano.ifelse <span class="keyword">import</span> ifelse</span><br><span class="line"><span class="keyword">import</span> theano, time, numpy</span><br><span class="line"></span><br><span class="line">a,b = T.scalars(<span class="string">'a'</span>, <span class="string">'b'</span>)</span><br><span class="line">x,y = T.matrices(<span class="string">'x'</span>, <span class="string">'y'</span>)</span><br><span class="line"></span><br><span class="line">z_switch = T.switch(T.lt(a, b), T.mean(x), T.mean(y))</span><br><span class="line">z_lazy = ifelse(T.lt(a, b), T.mean(x), T.mean(y))</span><br><span class="line"></span><br><span class="line">f_switch = theano.function([a, b, x, y], z_switch,</span><br><span class="line">                           mode=theano.Mode(linker=<span class="string">'vm'</span>))</span><br><span class="line">f_lazyifelse = theano.function([a, b, x, y], z_lazy,</span><br><span class="line">                               mode=theano.Mode(linker=<span class="string">'vm'</span>))</span><br><span class="line"></span><br><span class="line">val1 = <span class="number">0.</span></span><br><span class="line">val2 = <span class="number">1.</span></span><br><span class="line">big_mat1 = numpy.ones((<span class="number">10000</span>, <span class="number">1000</span>))</span><br><span class="line">big_mat2 = numpy.ones((<span class="number">10000</span>, <span class="number">1000</span>))</span><br><span class="line"></span><br><span class="line">n_times = <span class="number">10</span></span><br><span class="line"></span><br><span class="line">tic = time.clock()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(n_times):</span><br><span class="line">    f_switch(val1, val2, big_mat1, big_mat2)</span><br><span class="line">print(<span class="string">'time spent evaluating both values %f sec'</span> % (time.clock() - tic))</span><br><span class="line"></span><br><span class="line">tic = time.clock()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(n_times):</span><br><span class="line">    f_lazyifelse(val1, val2, big_mat1, big_mat2)</span><br><span class="line">print(<span class="string">'time spent evaluating one value %f sec'</span> % (time.clock() - tic))</span><br></pre></td></tr></table></figure></p>
+<p>二、Theano学起来 1、标量（Scalar） <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy</span><br><span class="line"><span class="keyword">import</span> theano.tensor <span class="keyword">as</span> T</span><br><span class="line"><span class="keyword">from</span> theano <span class="keyword">import</span> function</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义两个变量</span></span><br><span class="line">x = T.dscalar(<span class="string">'x'</span>)</span><br><span class="line">y = T.dscalar(<span class="string">'y'</span>)</span><br><span class="line"></span><br><span class="line">z = x + y</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义函数，[x, y]是输入， z是输出</span></span><br><span class="line">f = function([x, y], z)</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> f(<span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line"><span class="keyword">print</span> numpy.allclose(f(<span class="number">16.3</span>, <span class="number">12.1</span>), <span class="number">28.4</span>)</span><br><span class="line"><span class="keyword">print</span> numpy.allclose(z.eval(&#123;x: <span class="number">16.3</span>, y: <span class="number">12.1</span>&#125;), <span class="number">28.4</span>)</span><br></pre></td></tr></table></figure></p>
+<p>2、矩阵（Matrix） <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy</span><br><span class="line"><span class="keyword">import</span> theano.tensor <span class="keyword">as</span> T</span><br><span class="line"><span class="keyword">from</span> theano <span class="keyword">import</span> function</span><br><span class="line">x = T.dmatrix(<span class="string">'x'</span>)</span><br><span class="line">y = T.dmatrix(<span class="string">'y'</span>)</span><br><span class="line"></span><br><span class="line">z = x + y</span><br><span class="line">f = function([x, y], z)</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> f([[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>]], [[<span class="number">10</span>, <span class="number">20</span>], [<span class="number">30</span>, <span class="number">40</span>]])</span><br></pre></td></tr></table></figure></p>
+<p>三、尝试计算Logistic function Logistic函数是我们在学习机器学习的时候经常用到的函数，特别是在神经网络或者深度学习的学习方面，常常用做激活函数。它的图像如下： <img src="/img/theano/logistic.png" alt="Logistic函数图像"> 我们尝试使用Theano计算一下Logistic函数： <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> theano</span><br><span class="line"><span class="keyword">import</span> theano.tensor <span class="keyword">as</span> T</span><br><span class="line"></span><br><span class="line">x = T.dmatrix(<span class="string">'x'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Logistic Funtion</span></span><br><span class="line">s = <span class="number">1</span> / (<span class="number">1</span> + T.exp(-x))</span><br><span class="line"></span><br><span class="line">logistic = theano.function([x], s)</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> logistic([[<span class="number">0</span>, <span class="number">1</span>], [-<span class="number">1</span>, -<span class="number">2</span>]])</span><br><span class="line"></span><br><span class="line">s2 = (<span class="number">1</span> + T.tanh(x / <span class="number">2</span>)) / <span class="number">2</span></span><br><span class="line"></span><br><span class="line">logistic2 = theano.function([x], s2)</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> logistic2([[<span class="number">0</span>, <span class="number">1</span>], [-<span class="number">1</span>, -<span class="number">2</span>]])</span><br></pre></td></tr></table></figure></p>
+<p>四、使用共享变量（Using Shared Variables） 这里所谓的“共享变量”，在我的理解里就相当于全局变量。我们用累加器的例子来帮助理解。 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="keyword">from</span> theano <span class="keyword">import</span> shared</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>state = shared(<span class="number">0</span>)</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>inc = T.iscalar(<span class="string">'inc'</span>)</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>accumulator = function([inc], state, updates=[(state, state+inc)])</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>print(state.get_value())</span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>accumulator(<span class="number">1</span>)</span><br><span class="line">array(<span class="number">0</span>)</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>print(state.get_value())</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>accumulator(<span class="number">300</span>)</span><br><span class="line">array(<span class="number">1</span>)</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>print(state.get_value())</span><br><span class="line"><span class="number">301</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>state.set_value(-<span class="number">1</span>)</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>accumulator(<span class="number">3</span>)</span><br><span class="line">array(-<span class="number">1</span>)</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>print(state.get_value())</span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>decrementor = function([inc], state, updates=[(state, state-inc)])</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>decrementor(<span class="number">2</span>)</span><br><span class="line">array(<span class="number">2</span>)</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>print(state.get_value())</span><br><span class="line"><span class="number">0</span></span><br></pre></td></tr></table></figure></p>
+<p>五、条件语句 条件语句大致有两种一种是IfElse，还有一种是Switch，举例如下： <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> theano <span class="keyword">import</span> tensor <span class="keyword">as</span> T</span><br><span class="line"><span class="keyword">from</span> theano.ifelse <span class="keyword">import</span> ifelse</span><br><span class="line"><span class="keyword">import</span> theano, time, numpy</span><br><span class="line"></span><br><span class="line">a,b = T.scalars(<span class="string">'a'</span>, <span class="string">'b'</span>)</span><br><span class="line">x,y = T.matrices(<span class="string">'x'</span>, <span class="string">'y'</span>)</span><br><span class="line"></span><br><span class="line">z_switch = T.switch(T.lt(a, b), T.mean(x), T.mean(y))</span><br><span class="line">z_lazy = ifelse(T.lt(a, b), T.mean(x), T.mean(y))</span><br><span class="line"></span><br><span class="line">f_switch = theano.function([a, b, x, y], z_switch,</span><br><span class="line">                           mode=theano.Mode(linker=<span class="string">'vm'</span>))</span><br><span class="line">f_lazyifelse = theano.function([a, b, x, y], z_lazy,</span><br><span class="line">                               mode=theano.Mode(linker=<span class="string">'vm'</span>))</span><br><span class="line"></span><br><span class="line">val1 = <span class="number">0.</span></span><br><span class="line">val2 = <span class="number">1.</span></span><br><span class="line">big_mat1 = numpy.ones((<span class="number">10000</span>, <span class="number">1000</span>))</span><br><span class="line">big_mat2 = numpy.ones((<span class="number">10000</span>, <span class="number">1000</span>))</span><br><span class="line"></span><br><span class="line">n_times = <span class="number">10</span></span><br><span class="line"></span><br><span class="line">tic = time.clock()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(n_times):</span><br><span class="line">    f_switch(val1, val2, big_mat1, big_mat2)</span><br><span class="line">print(<span class="string">'time spent evaluating both values %f sec'</span> % (time.clock() - tic))</span><br><span class="line"></span><br><span class="line">tic = time.clock()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(n_times):</span><br><span class="line">    f_lazyifelse(val1, val2, big_mat1, big_mat2)</span><br><span class="line">print(<span class="string">'time spent evaluating one value %f sec'</span> % (time.clock() - tic))</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -352,225 +352,228 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近看论文，经常接触一些聚类算法，其中就有提到k-means算法，所以就自己归纳整理了一下。<br>首先搞清楚“聚类”（Clustering）和“分类”（Classfication）是不一样的。<br>分类是事先知道了有N类，你要把样本数据归类到这N类里面。比方说，有两个类别，苹果和梨，我们有一堆苹果和梨乱混合在那里，需要我们归类。这个就是分类问题。<br>而聚类呢，是你根本不知道样本数据是能分成什么类别的，只有通过自己学习自动归类，统一类别的样本数据就更相似。</p>
-<p>聚类的第一步呢，往往是将原始数据映射成N维的空间向量，然后做处理的。<br>怎么映射呢？<br>假设有m个样本集合，每个样本为(X1,X2,…,Xn)，即每个样本有n个特征。这样的话，每个Xi都是m维的向量。</p>
-<p>接下来，正式介绍下K-means算法。<br>K-means算法是一种聚类方法，主要的目的是将再给定分类组数k（k &lt; n）的情况下，将原始数据分成k类，表示为S={S1,S2,…,Sk}，即对以下表达式求最小值：</p>
-<p><img src="/img/latex/CodeCogsEqn.gif" alt="公式"></p>
+        <p>最近看论文，经常接触一些聚类算法，其中就有提到k-means算法，所以就自己归纳整理了一下。 首先搞清楚“聚类”（Clustering）和“分类”（Classfication）是不一样的。 分类是事先知道了有N类，你要把样本数据归类到这N类里面。比方说，有两个类别，苹果和梨，我们有一堆苹果和梨乱混合在那里，需要我们归类。这个就是分类问题。 而聚类呢，是你根本不知道样本数据是能分成什么类别的，只有通过自己学习自动归类，统一类别的样本数据就更相似。</p>
+<p>聚类的第一步呢，往往是将原始数据映射成N维的空间向量，然后做处理的。 怎么映射呢？ 假设有m个样本集合，每个样本为(X1,X2,…,Xn)，即每个样本有n个特征。这样的话，每个Xi都是m维的向量。</p>
+<p>接下来，正式介绍下K-means算法。 K-means算法是一种聚类方法，主要的目的是将再给定分类组数k（k &lt; n）的情况下，将原始数据分成k类，表示为S={S1,S2,…,Sk}，即对以下表达式求最小值：</p>
+<div class="figure">
+<img src="/img/latex/CodeCogsEqn.gif" alt="公式">
+<p class="caption">公式</p>
+</div>
 <p>其中ui是Si的平均值。</p>
-<p>具体算法步骤如下：<br>1、随机在图中取k个种子点（k是给定的分类组数）<br>2、计算图中所有点到k个种子点的距离。如果点A离种子点Si的距离最近，则点A属于点群Si。<br>3、根据聚类的结果，重新计算每个点群的中心<br>4、将图中所有点根据新的中心重新聚类<br>5、重复3、4两个步骤，知道中心点不再变化</p>
-<p>Example:<br>现有如下一些原始数据。A，B是数据的两个特征，请用k-means算法聚类。（设k=2）</p>
+<p>具体算法步骤如下： 1、随机在图中取k个种子点（k是给定的分类组数） 2、计算图中所有点到k个种子点的距离。如果点A离种子点Si的距离最近，则点A属于点群Si。 3、根据聚类的结果，重新计算每个点群的中心 4、将图中所有点根据新的中心重新聚类 5、重复3、4两个步骤，知道中心点不再变化</p>
+<p>Example: 现有如下一些原始数据。A，B是数据的两个特征，请用k-means算法聚类。（设k=2）</p>
 <table>
 <thead>
-<tr>
-<th style="text-align:center">Subject</th>
-<th style="text-align:center">A</th>
-<th style="text-align:center">B</th>
+<tr class="header">
+<th align="center">Subject</th>
+<th align="center">A</th>
+<th align="center">B</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1.0</td>
-<td style="text-align:center">1.0</td>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">1.0</td>
+<td align="center">1.0</td>
 </tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">1.5</td>
-<td style="text-align:center">2.0</td>
+<tr class="even">
+<td align="center">2</td>
+<td align="center">1.5</td>
+<td align="center">2.0</td>
 </tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">3.0</td>
-<td style="text-align:center">4.0</td>
+<tr class="odd">
+<td align="center">3</td>
+<td align="center">3.0</td>
+<td align="center">4.0</td>
 </tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">5.0</td>
-<td style="text-align:center">7.0</td>
+<tr class="even">
+<td align="center">4</td>
+<td align="center">5.0</td>
+<td align="center">7.0</td>
 </tr>
-<tr>
-<td style="text-align:center">5</td>
-<td style="text-align:center">3.5</td>
-<td style="text-align:center">5.0</td>
+<tr class="odd">
+<td align="center">5</td>
+<td align="center">3.5</td>
+<td align="center">5.0</td>
 </tr>
-<tr>
-<td style="text-align:center">6</td>
-<td style="text-align:center">4.5</td>
-<td style="text-align:center">5.0</td>
+<tr class="even">
+<td align="center">6</td>
+<td align="center">4.5</td>
+<td align="center">5.0</td>
 </tr>
-<tr>
-<td style="text-align:center">7</td>
-<td style="text-align:center">3.5</td>
-<td style="text-align:center">4.5</td>
+<tr class="odd">
+<td align="center">7</td>
+<td align="center">3.5</td>
+<td align="center">4.5</td>
 </tr>
 </tbody>
 </table>
 <p>1、我们随机取2个种子点</p>
 <table>
 <thead>
-<tr>
-<th style="text-align:center"></th>
-<th style="text-align:center">样本</th>
-<th style="text-align:center">中心点向量</th>
+<tr class="header">
+<th align="center"></th>
+<th align="center">样本</th>
+<th align="center">中心点向量</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:center">Group 1</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">(1.0,1.0)</td>
+<tr class="odd">
+<td align="center">Group 1</td>
+<td align="center">1</td>
+<td align="center">(1.0,1.0)</td>
 </tr>
-<tr>
-<td style="text-align:center">Group 2</td>
-<td style="text-align:center">4</td>
-<td style="text-align:center">(5.0,7.0)</td>
+<tr class="even">
+<td align="center">Group 2</td>
+<td align="center">4</td>
+<td align="center">(5.0,7.0)</td>
 </tr>
 </tbody>
 </table>
 <p>2、计算其他点到中心点的距离，进行聚类</p>
 <table>
 <thead>
-<tr>
-<th style="text-align:center">步骤</th>
-<th style="text-align:center">样本</th>
-<th style="text-align:center">中心点向量</th>
-<th style="text-align:center">样本</th>
-<th style="text-align:center">中心点向量</th>
+<tr class="header">
+<th align="center">步骤</th>
+<th align="center">样本</th>
+<th align="center">中心点向量</th>
+<th align="center">样本</th>
+<th align="center">中心点向量</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">(1.0,1.0)</td>
-<td style="text-align:center">4</td>
-<td style="text-align:center">(1.0,1.0)</td>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">(1.0,1.0)</td>
+<td align="center">4</td>
+<td align="center">(1.0,1.0)</td>
 </tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">1,2</td>
-<td style="text-align:center">(1.2,1.5)</td>
-<td style="text-align:center">4</td>
-<td style="text-align:center">(5.0,7.0)</td>
+<tr class="even">
+<td align="center">2</td>
+<td align="center">1,2</td>
+<td align="center">(1.2,1.5)</td>
+<td align="center">4</td>
+<td align="center">(5.0,7.0)</td>
 </tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">1,2,3</td>
-<td style="text-align:center">(1.8,2.3)</td>
-<td style="text-align:center">4</td>
-<td style="text-align:center">(1.0,1.0)</td>
+<tr class="odd">
+<td align="center">3</td>
+<td align="center">1,2,3</td>
+<td align="center">(1.8,2.3)</td>
+<td align="center">4</td>
+<td align="center">(1.0,1.0)</td>
 </tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">1,2,3</td>
-<td style="text-align:center">(1.8,2.3)</td>
-<td style="text-align:center">4，5</td>
-<td style="text-align:center">(5.0,7.0)</td>
+<tr class="even">
+<td align="center">4</td>
+<td align="center">1,2,3</td>
+<td align="center">(1.8,2.3)</td>
+<td align="center">4，5</td>
+<td align="center">(5.0,7.0)</td>
 </tr>
-<tr>
-<td style="text-align:center">5</td>
-<td style="text-align:center">1,2,3</td>
-<td style="text-align:center">(1.8,2.3)</td>
-<td style="text-align:center">4,5,6</td>
-<td style="text-align:center">(1.0,1.0)</td>
+<tr class="odd">
+<td align="center">5</td>
+<td align="center">1,2,3</td>
+<td align="center">(1.8,2.3)</td>
+<td align="center">4,5,6</td>
+<td align="center">(1.0,1.0)</td>
 </tr>
-<tr>
-<td style="text-align:center">6</td>
-<td style="text-align:center">1,2,3</td>
-<td style="text-align:center">(1.8,2.3)</td>
-<td style="text-align:center">4,5,6,7</td>
-<td style="text-align:center">(5.0,7.0)</td>
+<tr class="even">
+<td align="center">6</td>
+<td align="center">1,2,3</td>
+<td align="center">(1.8,2.3)</td>
+<td align="center">4,5,6,7</td>
+<td align="center">(5.0,7.0)</td>
 </tr>
 </tbody>
 </table>
 <p>3、重新计算中心</p>
 <table>
 <thead>
-<tr>
-<th style="text-align:center"></th>
-<th style="text-align:center">样本</th>
-<th style="text-align:center">中心点向量</th>
+<tr class="header">
+<th align="center"></th>
+<th align="center">样本</th>
+<th align="center">中心点向量</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:center">Cluster 1</td>
-<td style="text-align:center">1,2,3</td>
-<td style="text-align:center">(1.8,2.3)</td>
+<tr class="odd">
+<td align="center">Cluster 1</td>
+<td align="center">1,2,3</td>
+<td align="center">(1.8,2.3)</td>
 </tr>
-<tr>
-<td style="text-align:center">Cluster 2</td>
-<td style="text-align:center">4,5,6,7</td>
-<td style="text-align:center">(4.1,5.4)</td>
+<tr class="even">
+<td align="center">Cluster 2</td>
+<td align="center">4,5,6,7</td>
+<td align="center">(4.1,5.4)</td>
 </tr>
 </tbody>
 </table>
 <p>4、计算各点距离</p>
 <table>
 <thead>
-<tr>
-<th style="text-align:center">样本</th>
-<th style="text-align:center">中心到Cluster1的距离</th>
-<th style="text-align:center">中心到Cluster2的距离</th>
+<tr class="header">
+<th align="center">样本</th>
+<th align="center">中心到Cluster1的距离</th>
+<th align="center">中心到Cluster2的距离</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1.0</td>
-<td style="text-align:center">1.0</td>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">1.0</td>
+<td align="center">1.0</td>
 </tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">1.5</td>
-<td style="text-align:center">2.0</td>
+<tr class="even">
+<td align="center">2</td>
+<td align="center">1.5</td>
+<td align="center">2.0</td>
 </tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">3.0</td>
-<td style="text-align:center">4.0</td>
+<tr class="odd">
+<td align="center">3</td>
+<td align="center">3.0</td>
+<td align="center">4.0</td>
 </tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">5.0</td>
-<td style="text-align:center">7.0</td>
+<tr class="even">
+<td align="center">4</td>
+<td align="center">5.0</td>
+<td align="center">7.0</td>
 </tr>
-<tr>
-<td style="text-align:center">5</td>
-<td style="text-align:center">3.5</td>
-<td style="text-align:center">5.0</td>
+<tr class="odd">
+<td align="center">5</td>
+<td align="center">3.5</td>
+<td align="center">5.0</td>
 </tr>
-<tr>
-<td style="text-align:center">6</td>
-<td style="text-align:center">4.5</td>
-<td style="text-align:center">5.0</td>
+<tr class="even">
+<td align="center">6</td>
+<td align="center">4.5</td>
+<td align="center">5.0</td>
 </tr>
-<tr>
-<td style="text-align:center">7</td>
-<td style="text-align:center">3.5</td>
-<td style="text-align:center">4.5</td>
+<tr class="odd">
+<td align="center">7</td>
+<td align="center">3.5</td>
+<td align="center">4.5</td>
 </tr>
 </tbody>
 </table>
 <p>5、重新聚类</p>
 <table>
 <thead>
-<tr>
-<th style="text-align:center"></th>
-<th style="text-align:center">样本</th>
-<th style="text-align:center">中心点向量</th>
+<tr class="header">
+<th align="center"></th>
+<th align="center">样本</th>
+<th align="center">中心点向量</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:center">Cluster 1</td>
-<td style="text-align:center">1,2</td>
-<td style="text-align:center">(1.3,1.5)</td>
+<tr class="odd">
+<td align="center">Cluster 1</td>
+<td align="center">1,2</td>
+<td align="center">(1.3,1.5)</td>
 </tr>
-<tr>
-<td style="text-align:center">Cluster 2</td>
-<td style="text-align:center">3,4,5,6,7</td>
-<td style="text-align:center">(3.9,5.1)</td>
+<tr class="even">
+<td align="center">Cluster 2</td>
+<td align="center">3,4,5,6,7</td>
+<td align="center">(3.9,5.1)</td>
 </tr>
 </tbody>
 </table>
@@ -629,9 +632,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>参考官方文档安装方法，安装步骤如下：<br>1、Ctrl + Alt + T 打开Terminal，增加源：<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo <span class="keyword">sh</span> -c 'echo <span class="string">"deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib"</span> &gt;&gt; /etc/apt/sources.<span class="keyword">list</span>.<span class="keyword">d</span>/virtualbox.<span class="keyword">list</span>'</span><br></pre></td></tr></table></figure></p>
-<p>2、Download &amp; import the keyring：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget -<span class="tag">q</span> https:<span class="comment">//www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -</span></span><br></pre></td></tr></table></figure></p>
-<p>3、Install the package：<br><figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-<span class="built_in">get</span> <span class="keyword">update</span></span><br><span class="line">$ sudo apt-<span class="built_in">get</span> install virtualbox-<span class="number">4.3</span></span><br></pre></td></tr></table></figure></p>
+        <p>参考官方文档安装方法，安装步骤如下： 1、Ctrl + Alt + T 打开Terminal，增加源： <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo <span class="keyword">sh</span> -c 'echo <span class="string">"deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib"</span> &gt;&gt; /etc/apt/sources.<span class="keyword">list</span>.<span class="keyword">d</span>/virtualbox.<span class="keyword">list</span>'</span><br></pre></td></tr></table></figure></p>
+<p>2、Download &amp; import the keyring： <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget -<span class="tag">q</span> https:<span class="comment">//www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -</span></span><br></pre></td></tr></table></figure></p>
+<p>3、Install the package： <figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-<span class="built_in">get</span> <span class="keyword">update</span></span><br><span class="line">$ sudo apt-<span class="built_in">get</span> install virtualbox-<span class="number">4.3</span></span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -686,20 +689,51 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>&#160; &#160; &#160; &#160;作为研究僧，自然会混在实验室搞研究。然而，我认为研究不能瞎研究。研究的目的，我个人认为，一方面是在对方法论的学习和总结；另一方面，则是对生活的观察和创新。所以，再研究生期间，我希望自己能将系统的学习方法论，并合理归纳总结，自己消化的同时也能分享给别人。初步概括如下：</p>
-<table><thead><tr><th>列1</th><th>列2</th></tr></thead><tbody><tr><td>生活需求</td><td>观察 + 创新</td></tr><tr><td>工具</td><td>方法论</td></tr></tbody></table>
-
-<h2 id="基础学科">基础学科</h2><ul>
+               作为研究僧，自然会混在实验室搞研究。然而，我认为研究不能瞎研究。研究的目的，我个人认为，一方面是在对方法论的学习和总结；另一方面，则是对生活的观察和创新。所以，再研究生期间，我希望自己能将系统的学习方法论，并合理归纳总结，自己消化的同时也能分享给别人。初步概括如下：
+<table>
+<thead>
+<tr>
+<th>
+列1
+</th>
+<th>
+列2
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+生活需求
+</td>
+<td>
+观察 + 创新
+</td>
+</tr>
+<tr>
+<td>
+工具
+</td>
+<td>
+方法论
+</td>
+</tr>
+</tbody>
+</table>
+<h2 id="基础学科">基础学科</h2>
+<ul>
 <li>线性代数</li>
 <li>高等数学</li>
 <li>离散数学</li>
 </ul>
-<h2 id="程序语言">程序语言</h2><ul>
+<h2 id="程序语言">程序语言</h2>
+<ul>
 <li>Java</li>
 <li>Python</li>
 <li>C/C++</li>
 </ul>
-<h2 id="计算机原理">计算机原理</h2><ul>
+<h2 id="计算机原理">计算机原理</h2>
+<ul>
 <li>Linux</li>
 <li>计算机网络</li>
 </ul>
@@ -757,13 +791,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;打开手机，深夜时刻03:27，不是起得太早，而是久久没有睡去。耳朵里塞着何洁的《你一定要幸福》，感觉到这样的心，曾经寂寞过，也曾如此委屈过。每当听到这首歌，总会想起一个不错的朋友，看朋友圈的说说，这个时候估计应该是在台湾和妈妈在开心的旅游吧。真心为她高兴，因为我知道，微笑的她才是真的她。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;今天是10月3日，昨天是我校天津大学的120周年的校庆，盛大而又隆重。早上去老校区转悠了一会儿，又赶回新校区感受一下氛围，很可惜的是没有吃到校庆丰盛的免费午餐，也没有领到只属于天大校友的纪念品，然而心里还是很欢喜，很兴奋，因为这是一个普天同庆的日子。因为我知道，今天的天很蓝，蓝得怎么这么不合逻辑……</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;左手Ctrl和S的组合键习惯的保存了一下，眼神稍微走了下光，看到了金老师前几天给我的研究僧第一篇论文，叫《Learning Deep Representations for Graph Clustering》。这对于大学不曾跟老师做过学术研究，只是倒弄JavaEE项目的我来说，可能有点吃力，因为连翻译过来的一些专业名词我都不懂。然而，不管怎样，和伙伴们从1895咖啡厅玩完桌游回来，便静下心来看了Introduction部分。<br>满纸的注释和翻译，应该连鬼都能看出我的英语有多烂吧。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;桌上的钥匙，其中有两把是自己公司的钥匙。在我看来，这是我未来的事业，一个希望和曹共同经营的事业。我们约定过的，5年天津的打拼和经营，经营属于我们自己的事业。<br>只能说，在我们自己看来，我们还很稚嫩，不懂的东西太多，现在的我们最好的就是沉淀自己，保持一个永远好奇的心，掌握好自己的技能。总结为一句话就是，“人笨多读书，我们还是太年轻”。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;很喜欢曹曾经写给团队的一句话，他是这样说的：<br>    公司注册只是介绍词，拉开帷幕之前，我们必须编造一段美丽的故事结局，创业期间铭记故事结局，故事主人公都可以换，结局不能换，沉醉在故事插曲不可怕，可怕插曲过后咱们忘了故事美好的结局。<br>这句话是我们自我分析性格时，他思考出来的一句话。这句话很触动我，我感觉说得很实在，也说得很理性。我是经历过创业的，虽然我的年龄在别人眼里还是个一无用处的小屁孩。然而，不可否认的事，之前一年零三个月的创业经历让我兴奋过，失望过，绝望过……让我饱受了抉择的艰难和痛苦，也从中让我备受触动。<br>它教会了我什么叫浮躁，什么叫迷茫，什么叫诚信……一切的一切，刻在我的心里，只能说，感谢曾经遇到的你们，教会我成长，教会我自强，教会我在社会上摸爬滚打。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;看着到哪里都带着的照片，忽然感慨，一年半了，怎么能受得了我，怎么受得了坏毛病一身的我呢！嘿嘿，真的很感谢宝贝竟然还跟我这个在你眼里不大靠谱的小屁孩在一起。还记得，大约是年前团购的艺术照，收到之后就被我直接都“收藏”了，钱包里，桌面里…..随处看到了你的身影，把周围的狗狗们虐得嗷嗷叫，嘿嘿，应该说我感到了一种夫妻的感觉，现在的我，感到很幸福，因为现在的我，有你陪伴 O(∩_∩)O</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;2015年10月，研究僧生涯的开始。<br>&nbsp;&nbsp;&nbsp;&nbsp;为了家人的幸福，我，一直在努力……</p>
+        <p>    打开手机，深夜时刻03:27，不是起得太早，而是久久没有睡去。耳朵里塞着何洁的《你一定要幸福》，感觉到这样的心，曾经寂寞过，也曾如此委屈过。每当听到这首歌，总会想起一个不错的朋友，看朋友圈的说说，这个时候估计应该是在台湾和妈妈在开心的旅游吧。真心为她高兴，因为我知道，微笑的她才是真的她。</p>
+<p>    今天是10月3日，昨天是我校天津大学的120周年的校庆，盛大而又隆重。早上去老校区转悠了一会儿，又赶回新校区感受一下氛围，很可惜的是没有吃到校庆丰盛的免费午餐，也没有领到只属于天大校友的纪念品，然而心里还是很欢喜，很兴奋，因为这是一个普天同庆的日子。因为我知道，今天的天很蓝，蓝得怎么这么不合逻辑……</p>
+<p>    左手Ctrl和S的组合键习惯的保存了一下，眼神稍微走了下光，看到了金老师前几天给我的研究僧第一篇论文，叫《Learning Deep Representations for Graph Clustering》。这对于大学不曾跟老师做过学术研究，只是倒弄JavaEE项目的我来说，可能有点吃力，因为连翻译过来的一些专业名词我都不懂。然而，不管怎样，和伙伴们从1895咖啡厅玩完桌游回来，便静下心来看了Introduction部分。 满纸的注释和翻译，应该连鬼都能看出我的英语有多烂吧。</p>
+<p>    桌上的钥匙，其中有两把是自己公司的钥匙。在我看来，这是我未来的事业，一个希望和曹共同经营的事业。我们约定过的，5年天津的打拼和经营，经营属于我们自己的事业。 只能说，在我们自己看来，我们还很稚嫩，不懂的东西太多，现在的我们最好的就是沉淀自己，保持一个永远好奇的心，掌握好自己的技能。总结为一句话就是，“人笨多读书，我们还是太年轻”。</p>
+<p>    很喜欢曹曾经写给团队的一句话，他是这样说的： 公司注册只是介绍词，拉开帷幕之前，我们必须编造一段美丽的故事结局，创业期间铭记故事结局，故事主人公都可以换，结局不能换，沉醉在故事插曲不可怕，可怕插曲过后咱们忘了故事美好的结局。 这句话是我们自我分析性格时，他思考出来的一句话。这句话很触动我，我感觉说得很实在，也说得很理性。我是经历过创业的，虽然我的年龄在别人眼里还是个一无用处的小屁孩。然而，不可否认的事，之前一年零三个月的创业经历让我兴奋过，失望过，绝望过……让我饱受了抉择的艰难和痛苦，也从中让我备受触动。 它教会了我什么叫浮躁，什么叫迷茫，什么叫诚信……一切的一切，刻在我的心里，只能说，感谢曾经遇到的你们，教会我成长，教会我自强，教会我在社会上摸爬滚打。</p>
+<p>    看着到哪里都带着的照片，忽然感慨，一年半了，怎么能受得了我，怎么受得了坏毛病一身的我呢！嘿嘿，真的很感谢宝贝竟然还跟我这个在你眼里不大靠谱的小屁孩在一起。还记得，大约是年前团购的艺术照，收到之后就被我直接都“收藏”了，钱包里，桌面里…..随处看到了你的身影，把周围的狗狗们虐得嗷嗷叫，嘿嘿，应该说我感到了一种夫妻的感觉，现在的我，感到很幸福，因为现在的我，有你陪伴 O(∩_∩)O</p>
+<p>    2015年10月，研究僧生涯的开始。     为了家人的幸福，我，一直在努力……</p>
 
       
     </div>
@@ -818,12 +852,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一、环境准备<br>1、Ubuntu 14.04<br>2、JDK 7：从Oracle官网下载，所有历史版本链接<a href="http://www.oracle.com/technetwork/java/javase/archive-139210.html" target="_blank" rel="external">http://www.oracle.com/technetwork/java/javase/archive-139210.html</a></p>
-<p>二、安装<br>1、解压。将下载的jdk-7u80-linux-x64.tar.gz移动到/usr/lib/jvm下（jvm目录要自己创建），并用tar命令解压<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sudo mkdir /usr/lib/jvm</span></span><br><span class="line"><span class="comment"># cd /usr/lib/jvm</span></span><br><span class="line"><span class="comment"># mv ~/Download/jdk-7u80-linux-x64.tar.gz .</span></span><br><span class="line"><span class="comment"># tar zxvf jdk-7u80-linux-x64.tar.gz</span></span><br></pre></td></tr></table></figure></p>
-<p>2、配置环境变量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># vim ~/.bashrc</span></span><br></pre></td></tr></table></figure></p>
-<p>在文件最后添加<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/lib/jvm/jdk1.<span class="number">7.0</span>_80</span><br><span class="line"><span class="built_in">export</span> JRE_HOME=<span class="variable">$&#123;JAVA_HOME&#125;</span>/jre</span><br><span class="line"><span class="built_in">export</span> CLASSPATH=.:<span class="variable">$&#123;JAVA_HOME&#125;</span>/lib:<span class="variable">$&#123;JRE_HOME&#125;</span>/lib</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$&#123;JAVA_HOME&#125;</span>/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure></p>
-<p>保存文件，退出，并使修改生效<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># source ~/.bashrc</span></span><br></pre></td></tr></table></figure></p>
-<p>3、测试验证<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">demon@Demon-WorkPad:~$ java -version</span><br><span class="line">java version <span class="string">"1.7.0_80"</span></span><br><span class="line">Java(TM) SE Runtime Environment (build <span class="number">1.7</span>.<span class="number">0</span>_80-b15)</span><br><span class="line">Java HotSpot(TM) <span class="number">64</span>-Bit Server VM (build <span class="number">24.80</span>-b11, mixed mode)</span><br></pre></td></tr></table></figure></p>
+        <p>一、环境准备 1、Ubuntu 14.04 2、JDK 7：从Oracle官网下载，所有历史版本链接http://www.oracle.com/technetwork/java/javase/archive-139210.html</p>
+<p>二、安装 1、解压。将下载的jdk-7u80-linux-x64.tar.gz移动到/usr/lib/jvm下（jvm目录要自己创建），并用tar命令解压 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sudo mkdir /usr/lib/jvm</span></span><br><span class="line"><span class="comment"># cd /usr/lib/jvm</span></span><br><span class="line"><span class="comment"># mv ~/Download/jdk-7u80-linux-x64.tar.gz .</span></span><br><span class="line"><span class="comment"># tar zxvf jdk-7u80-linux-x64.tar.gz</span></span><br></pre></td></tr></table></figure></p>
+<p>2、配置环境变量 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># vim ~/.bashrc</span></span><br></pre></td></tr></table></figure></p>
+<p>在文件最后添加 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/lib/jvm/jdk1.<span class="number">7.0</span>_80</span><br><span class="line"><span class="built_in">export</span> JRE_HOME=<span class="variable">$&#123;JAVA_HOME&#125;</span>/jre</span><br><span class="line"><span class="built_in">export</span> CLASSPATH=.:<span class="variable">$&#123;JAVA_HOME&#125;</span>/lib:<span class="variable">$&#123;JRE_HOME&#125;</span>/lib</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$&#123;JAVA_HOME&#125;</span>/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure></p>
+<p>保存文件，退出，并使修改生效 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># source ~/.bashrc</span></span><br></pre></td></tr></table></figure></p>
+<p>3、测试验证 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">demon@Demon-WorkPad:~$ java -version</span><br><span class="line">java version <span class="string">"1.7.0_80"</span></span><br><span class="line">Java(TM) SE Runtime Environment (build <span class="number">1.7</span>.<span class="number">0</span>_80-b15)</span><br><span class="line">Java HotSpot(TM) <span class="number">64</span>-Bit Server VM (build <span class="number">24.80</span>-b11, mixed mode)</span><br></pre></td></tr></table></figure></p>
 <p>备注：如果还没有上述测试成功的结果，先退出当前窗口（Ctrl + D），再打开窗口重新测试一下即可。</p>
 
       
@@ -879,11 +913,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>今天学习python时安装PIL遇到了一些问题，就记录下来了。<br>首先需要先安装pip<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sudo apt-get install python-pip</span></span><br></pre></td></tr></table></figure></p>
-<p>我直接使用 pip install PIL安装不了<br>根据报错信息，我执行如下<br>pip install PIL —allow-external PIL —allow-unverified PIL<br>还是不行，报错信息是：UnicodeDecodeError: ‘ascii’ codec can’t decode byte 0x?? in position 1: ordinal not in range(128)</p>
-<p>之后，我就只能通过源码安装了，安装步骤如下：<br>wget <a href="http://effbot.org/downloads/Imaging-1.1.7.tar.gz" target="_blank" rel="external">http://effbot.org/downloads/Imaging-1.1.7.tar.gz</a><br>tar xvfz Imaging-1.1.7.tar.gz</p>
-<p>修改setup.py<br>TCL_ROOT = “/usr/lib64/“<br>JPEG_ROOT = “/usr/lib64/“<br>ZLIB_ROOT = “/usr/lib64/“<br>TIFF_ROOT = “/usr/lib64/“<br>FREETYPE_ROOT = “/usr/lib64/“<br>LCMS_ROOT = “/usr/lib64/“</p>
-<p>安装检查<br>python /root/nowamagic_venv/Imaging-1.1.7/setup.py build_ext -i<br>安装<br>python /root/nowamagic_venv/Imaging-1.1.7/setup.py install</p>
+        <p>今天学习python时安装PIL遇到了一些问题，就记录下来了。 首先需要先安装pip <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sudo apt-get install python-pip</span></span><br></pre></td></tr></table></figure></p>
+<p>我直接使用 pip install PIL安装不了 根据报错信息，我执行如下 pip install PIL –allow-external PIL –allow-unverified PIL 还是不行，报错信息是：UnicodeDecodeError: ‘ascii’ codec can’t decode byte 0x?? in position 1: ordinal not in range(128)</p>
+<p>之后，我就只能通过源码安装了，安装步骤如下： wget http://effbot.org/downloads/Imaging-1.1.7.tar.gz tar xvfz Imaging-1.1.7.tar.gz</p>
+<p>修改setup.py TCL_ROOT = “/usr/lib64/” JPEG_ROOT = “/usr/lib64/” ZLIB_ROOT = “/usr/lib64/” TIFF_ROOT = “/usr/lib64/” FREETYPE_ROOT = “/usr/lib64/” LCMS_ROOT = “/usr/lib64/”</p>
+<p>安装检查 python /root/nowamagic_venv/Imaging-1.1.7/setup.py build_ext -i 安装 python /root/nowamagic_venv/Imaging-1.1.7/setup.py install</p>
 
       
     </div>
@@ -938,11 +972,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>今天我们讨论的是关于TCP/IP网络中两个进程之间相互作用的主机模式，即Client/Server Model。<br>CLient和Server端典型场景如下：<br>    1、Server Startup<br>    2、Client Startup,then connects to the Server<br>    3、Client send a request to Server<br>    4、Server process the request,and sends a reply back to the Client<br>    5、Loop 3 and 4 steps…(data transmit)<br>    6、Client close its end of the connection,send a end-of-file notification to Server<br>    7、Server close its end of the connection (Terminate or Wait for a new Client connection)</p>
+        <p>今天我们讨论的是关于TCP/IP网络中两个进程之间相互作用的主机模式，即Client/Server Model。 CLient和Server端典型场景如下： 1、Server Startup 2、Client Startup,then connects to the Server 3、Client send a request to Server 4、Server process the request,and sends a reply back to the Client 5、Loop 3 and 4 steps…(data transmit) 6、Client close its end of the connection,send a end-of-file notification to Server 7、Server close its end of the connection (Terminate or Wait for a new Client connection)</p>
 <p>那么上述场景下，socket是怎么工作的呢？</p>
-<p>总体交互图示：<br><img src="/img/network/tcp_socket_process.png" alt="TCP总体交互图示"></p>
-<p><h2>1、socket()函数</h2><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;sys/socket.h&gt;</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">socket</span> <span class="params">(<span class="keyword">int</span> family, <span class="keyword">int</span> type, <span class="keyword">int</span> protocol)</span></span>;</span><br><span class="line">                        Returns: non-negative descriptor <span class="keyword">if</span> OK,-<span class="number">1</span> on error</span><br></pre></td></tr></table></figure></p>
-<p>作用：用于创建一个socket descriptor，唯一标识一个socket（这是active socket）。关于socket具体内容可以参考XXXXXX<br>描述：socket执行成功后，会返回一个socket descriptor，里面包含了protocal family(such as IPv4,IPv6)和socket type(such as stream,datagram)。socket descriptor存在于address family（AF_XXX）中，没有一个具体的地址，即没有protocol address，所以必须要调用bind()函数赋值地址，或者当调用connect()或者listen()函数时，kernel自动随机分配一个ephemeral port。</p>
+<p>总体交互图示： <img src="/img/network/tcp_socket_process.png" alt="TCP总体交互图示" /></p>
+<h2>
+1、socket()函数
+</h2>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;sys/socket.h&gt;</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">socket</span> <span class="params">(<span class="keyword">int</span> family, <span class="keyword">int</span> type, <span class="keyword">int</span> protocol)</span></span>;</span><br><span class="line">                        Returns: non-negative descriptor <span class="keyword">if</span> OK,-<span class="number">1</span> on error</span><br></pre></td></tr></table></figure>
+<p>作用：用于创建一个socket descriptor，唯一标识一个socket（这是active socket）。关于socket具体内容可以参考XXXXXX 描述：socket执行成功后，会返回一个socket descriptor，里面包含了protocal family(such as IPv4,IPv6)和socket type(such as stream,datagram)。socket descriptor存在于address family（AF_XXX）中，没有一个具体的地址，即没有protocol address，所以必须要调用bind()函数赋值地址，或者当调用connect()或者listen()函数时，kernel自动随机分配一个ephemeral port。</p>
       
     </div>
     
@@ -1000,7 +1037,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>  安装ubuntu后，总有一些事是要做的，你不看视频吗？感觉有些扯淡，必须要看呀…<br>但是过这个坎之前，就必须要掉几个坑才能爬过来，我也是，什么网上的安装flashplugin-installer啥的，在我看来就是个坑，我尝试了很多次还是没有搞定。<br>
+        <p>安装ubuntu后，总有一些事是要做的，你不看视频吗？感觉有些扯淡，必须要看呀… 但是过这个坎之前，就必须要掉几个坑才能爬过来，我也是，什么网上的安装flashplugin-installer啥的，在我看来就是个坑，我尝试了很多次还是没有搞定。
       
     </div>
     
@@ -1107,6 +1144,7 @@ MathJax.Hub.Queue(function() {
 
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
+
 
 
 

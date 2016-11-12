@@ -7,16 +7,16 @@
   
   <title>ubuntu安装virtualbox | Demon&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="参考官方文档安装方法，安装步骤如下：1、Ctrl + Alt + T 打开Terminal，增加源：1$ sudo sh -c &apos;echo &quot;deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib&quot; &amp;gt;&amp;gt; /etc/apt/sources.list.d/virtualbox.list">
+  <meta name="description" content="参考官方文档安装方法，安装步骤如下： 1、Ctrl + Alt + T 打开Terminal，增加源： 1$ sudo sh -c &apos;echo &quot;deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib&quot; &amp;gt;&amp;gt; /etc/apt/sources.list.d/virtualbox.li">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ubuntu安装virtualbox">
 <meta property="og:url" content="http://blog.demons.top/2015/10/26/ubuntu安装virtualbox/index.html">
 <meta property="og:site_name" content="Demon's Blog">
-<meta property="og:description" content="参考官方文档安装方法，安装步骤如下：1、Ctrl + Alt + T 打开Terminal，增加源：1$ sudo sh -c &apos;echo &quot;deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib&quot; &amp;gt;&amp;gt; /etc/apt/sources.list.d/virtualbox.list">
+<meta property="og:description" content="参考官方文档安装方法，安装步骤如下： 1、Ctrl + Alt + T 打开Terminal，增加源： 1$ sudo sh -c &apos;echo &quot;deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib&quot; &amp;gt;&amp;gt; /etc/apt/sources.list.d/virtualbox.li">
 <meta property="og:updated_time" content="2015-10-26T13:20:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ubuntu安装virtualbox">
-<meta name="twitter:description" content="参考官方文档安装方法，安装步骤如下：1、Ctrl + Alt + T 打开Terminal，增加源：1$ sudo sh -c &apos;echo &quot;deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib&quot; &amp;gt;&amp;gt; /etc/apt/sources.list.d/virtualbox.list">
+<meta name="twitter:description" content="参考官方文档安装方法，安装步骤如下： 1、Ctrl + Alt + T 打开Terminal，增加源： 1$ sudo sh -c &apos;echo &quot;deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib&quot; &amp;gt;&amp;gt; /etc/apt/sources.list.d/virtualbox.li">
   
     <link rel="alternative" href="/atom.xml" title="Demon&#39;s Blog" type="application/atom+xml">
   
@@ -243,9 +243,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>参考官方文档安装方法，安装步骤如下：<br>1、Ctrl + Alt + T 打开Terminal，增加源：<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo <span class="keyword">sh</span> -c 'echo <span class="string">"deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib"</span> &gt;&gt; /etc/apt/sources.<span class="keyword">list</span>.<span class="keyword">d</span>/virtualbox.<span class="keyword">list</span>'</span><br></pre></td></tr></table></figure></p>
-<p>2、Download &amp; import the keyring：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget -<span class="tag">q</span> https:<span class="comment">//www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -</span></span><br></pre></td></tr></table></figure></p>
-<p>3、Install the package：<br><figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-<span class="built_in">get</span> <span class="keyword">update</span></span><br><span class="line">$ sudo apt-<span class="built_in">get</span> install virtualbox-<span class="number">4.3</span></span><br></pre></td></tr></table></figure></p>
+        <p>参考官方文档安装方法，安装步骤如下： 1、Ctrl + Alt + T 打开Terminal，增加源： <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo <span class="keyword">sh</span> -c 'echo <span class="string">"deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib"</span> &gt;&gt; /etc/apt/sources.<span class="keyword">list</span>.<span class="keyword">d</span>/virtualbox.<span class="keyword">list</span>'</span><br></pre></td></tr></table></figure></p>
+<p>2、Download &amp; import the keyring： <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget -<span class="tag">q</span> https:<span class="comment">//www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -</span></span><br></pre></td></tr></table></figure></p>
+<p>3、Install the package： <figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-<span class="built_in">get</span> <span class="keyword">update</span></span><br><span class="line">$ sudo apt-<span class="built_in">get</span> install virtualbox-<span class="number">4.3</span></span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -385,6 +385,7 @@ MathJax.Hub.Queue(function() {
 
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
+
 
 
 

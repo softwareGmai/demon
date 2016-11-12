@@ -7,19 +7,19 @@
   
   <title>Theano来搭建AutoEncoder用于社团发现（一） | Demon&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="研究生阶段的我，尝试使用深度学习的方式，去解决社团发现的问题。为什么会有这个想法，想法的动机什么等之后再说。对于深度学习，我尝试使用Theano来搭建，现在我们先来搭建Ubuntu下的Theano环境。
-一、基本环境1、操作系统：Ubuntu 14.042、Python版本：2.7.612345678demon@Demon-WorkPad:~$ lsb_release -aNo LSB modul">
+  <meta name="description" content="研究生阶段的我，尝试使用深度学习的方式，去解决社团发现的问题。 为什么会有这个想法，想法的动机什么等之后再说。对于深度学习，我尝试使用Theano来搭建，现在我们先来搭建Ubuntu下的Theano环境。
+一、基本环境 1、操作系统：Ubuntu 14.04 2、Python版本：2.7.6 12345678demon@Demon-WorkPad:~$ lsb_release -aNo LSB m">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Theano来搭建AutoEncoder用于社团发现（一）">
 <meta property="og:url" content="http://blog.demons.top/2016/07/07/Theano来搭建AutoEncoder用于社团发现（一）/index.html">
 <meta property="og:site_name" content="Demon's Blog">
-<meta property="og:description" content="研究生阶段的我，尝试使用深度学习的方式，去解决社团发现的问题。为什么会有这个想法，想法的动机什么等之后再说。对于深度学习，我尝试使用Theano来搭建，现在我们先来搭建Ubuntu下的Theano环境。
-一、基本环境1、操作系统：Ubuntu 14.042、Python版本：2.7.612345678demon@Demon-WorkPad:~$ lsb_release -aNo LSB modul">
+<meta property="og:description" content="研究生阶段的我，尝试使用深度学习的方式，去解决社团发现的问题。 为什么会有这个想法，想法的动机什么等之后再说。对于深度学习，我尝试使用Theano来搭建，现在我们先来搭建Ubuntu下的Theano环境。
+一、基本环境 1、操作系统：Ubuntu 14.04 2、Python版本：2.7.6 12345678demon@Demon-WorkPad:~$ lsb_release -aNo LSB m">
 <meta property="og:updated_time" content="2016-07-07T13:50:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Theano来搭建AutoEncoder用于社团发现（一）">
-<meta name="twitter:description" content="研究生阶段的我，尝试使用深度学习的方式，去解决社团发现的问题。为什么会有这个想法，想法的动机什么等之后再说。对于深度学习，我尝试使用Theano来搭建，现在我们先来搭建Ubuntu下的Theano环境。
-一、基本环境1、操作系统：Ubuntu 14.042、Python版本：2.7.612345678demon@Demon-WorkPad:~$ lsb_release -aNo LSB modul">
+<meta name="twitter:description" content="研究生阶段的我，尝试使用深度学习的方式，去解决社团发现的问题。 为什么会有这个想法，想法的动机什么等之后再说。对于深度学习，我尝试使用Theano来搭建，现在我们先来搭建Ubuntu下的Theano环境。
+一、基本环境 1、操作系统：Ubuntu 14.04 2、Python版本：2.7.6 12345678demon@Demon-WorkPad:~$ lsb_release -aNo LSB m">
   
     <link rel="alternative" href="/atom.xml" title="Demon&#39;s Blog" type="application/atom+xml">
   
@@ -246,15 +246,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>研究生阶段的我，尝试使用深度学习的方式，去解决社团发现的问题。<br>为什么会有这个想法，想法的动机什么等之后再说。对于深度学习，我尝试使用Theano来搭建，现在我们先来搭建Ubuntu下的Theano环境。</p>
-<p>一、基本环境<br>1、操作系统：Ubuntu 14.04<br>2、Python版本：2.7.6<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">demon@Demon-WorkPad:~$ lsb_release <span class="operator">-a</span></span><br><span class="line">No LSB modules are available.</span><br><span class="line">Distributor ID: Ubuntu</span><br><span class="line">Description:    Ubuntu <span class="number">14.04</span>.<span class="number">2</span> LTS</span><br><span class="line">Release:    <span class="number">14.04</span></span><br><span class="line">Codename:   trusty</span><br><span class="line">demon@Demon-WorkPad:~$ python -V</span><br><span class="line">Python <span class="number">2.7</span>.<span class="number">6</span></span><br></pre></td></tr></table></figure></p>
-<p>二、安装顺序<br>BLAS —&gt; LAPACK —&gt; ATLAS —&gt; numpy —&gt; scipy —&gt; Theano<br>备注：<br>1、要安装Theano，就需要先安装numpy和scipy<br>2、要安装numpy和scipy，就需要ATLAS（python下的一个线性代数库）<br>3、要安装ATLAS，就需要安装BLAS和LAPACK<br>三、安装必要的包<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gfortran</span><br><span class="line">sudo apt-get install libopenblas-dev</span><br><span class="line">sudo apt-get install liblapack-dev</span><br><span class="line">sudo apt-get install libatlas-base-dev</span><br></pre></td></tr></table></figure></p>
-<p>四、安装numpy、scipy和Theano<br>1、首先需要安装一些库<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python-dev</span><br><span class="line">sudo apt-get install python-pip</span><br><span class="line">sudo apt-get install python-nose</span><br><span class="line">sudo apt-get install git</span><br></pre></td></tr></table></figure></p>
-<p>2、安装numpy和scipy<br>一开始我是使用pip来安装的，即<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install numpy</span><br><span class="line">sudo pip install scipy</span><br></pre></td></tr></table></figure></p>
+        <p>研究生阶段的我，尝试使用深度学习的方式，去解决社团发现的问题。 为什么会有这个想法，想法的动机什么等之后再说。对于深度学习，我尝试使用Theano来搭建，现在我们先来搭建Ubuntu下的Theano环境。</p>
+<p>一、基本环境 1、操作系统：Ubuntu 14.04 2、Python版本：2.7.6 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">demon@Demon-WorkPad:~$ lsb_release <span class="operator">-a</span></span><br><span class="line">No LSB modules are available.</span><br><span class="line">Distributor ID: Ubuntu</span><br><span class="line">Description:    Ubuntu <span class="number">14.04</span>.<span class="number">2</span> LTS</span><br><span class="line">Release:    <span class="number">14.04</span></span><br><span class="line">Codename:   trusty</span><br><span class="line">demon@Demon-WorkPad:~$ python -V</span><br><span class="line">Python <span class="number">2.7</span>.<span class="number">6</span></span><br></pre></td></tr></table></figure></p>
+<p>二、安装顺序 BLAS –&gt; LAPACK –&gt; ATLAS –&gt; numpy –&gt; scipy –&gt; Theano 备注： 1、要安装Theano，就需要先安装numpy和scipy 2、要安装numpy和scipy，就需要ATLAS（python下的一个线性代数库） 3、要安装ATLAS，就需要安装BLAS和LAPACK 三、安装必要的包 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gfortran</span><br><span class="line">sudo apt-get install libopenblas-dev</span><br><span class="line">sudo apt-get install liblapack-dev</span><br><span class="line">sudo apt-get install libatlas-base-dev</span><br></pre></td></tr></table></figure></p>
+<p>四、安装numpy、scipy和Theano 1、首先需要安装一些库 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python-dev</span><br><span class="line">sudo apt-get install python-pip</span><br><span class="line">sudo apt-get install python-nose</span><br><span class="line">sudo apt-get install git</span><br></pre></td></tr></table></figure></p>
+<p>2、安装numpy和scipy 一开始我是使用pip来安装的，即 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install numpy</span><br><span class="line">sudo pip install scipy</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python-numpy python-scipy</span><br></pre></td></tr></table></figure>
-<p>安装完成后，需要对numpy和scipy测试，是否真的安装成功<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># test numpy</span></span><br><span class="line">python -c <span class="string">"import numpy;numpy.test()"</span></span><br><span class="line"><span class="comment"># test scipy</span></span><br><span class="line">python -c <span class="string">"import scipy;scipy.test()"</span></span><br></pre></td></tr></table></figure></p>
-<p>【备注】我在安装中出现了E：could not get lock /var/lib/dpkg/lock -open等报错，<br>这个报错的原因可能是有另外一个程序正在运行，导致资源被锁不可用。而导致资源被锁的原因，可能是上次安装时没正常完成，而导致出现此状况。<br>解决办法：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo rm /var/cache/apt/archives/lock</span><br><span class="line">sudo rm /var/lib/dpkg/lock</span><br></pre></td></tr></table></figure></p>
-<p>之后再安装想要安装的就行了。<br>3、安装Theano<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install theano</span><br></pre></td></tr></table></figure></p>
+<p>安装完成后，需要对numpy和scipy测试，是否真的安装成功 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># test numpy</span></span><br><span class="line">python -c <span class="string">"import numpy;numpy.test()"</span></span><br><span class="line"><span class="comment"># test scipy</span></span><br><span class="line">python -c <span class="string">"import scipy;scipy.test()"</span></span><br></pre></td></tr></table></figure></p>
+<p>【备注】我在安装中出现了E：could not get lock /var/lib/dpkg/lock -open等报错， 这个报错的原因可能是有另外一个程序正在运行，导致资源被锁不可用。而导致资源被锁的原因，可能是上次安装时没正常完成，而导致出现此状况。 解决办法： <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo rm /var/cache/apt/archives/lock</span><br><span class="line">sudo rm /var/lib/dpkg/lock</span><br></pre></td></tr></table></figure></p>
+<p>之后再安装想要安装的就行了。 3、安装Theano <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install theano</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -394,6 +394,7 @@ MathJax.Hub.Queue(function() {
 
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
+
 
 
 

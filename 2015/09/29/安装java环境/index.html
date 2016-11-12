@@ -7,19 +7,19 @@
   
   <title>安装java环境 | Demon&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、环境准备1、Ubuntu 14.042、JDK 7：从Oracle官网下载，所有历史版本链接http://www.oracle.com/technetwork/java/javase/archive-139210.html
-二、安装1、解压。将下载的jdk-7u80-linux-x64.tar.gz移动到/usr/lib/jvm下（jvm目录要自己创建），并用tar命令解压1234# sudo">
+  <meta name="description" content="一、环境准备 1、Ubuntu 14.04 2、JDK 7：从Oracle官网下载，所有历史版本链接http://www.oracle.com/technetwork/java/javase/archive-139210.html
+二、安装 1、解压。将下载的jdk-7u80-linux-x64.tar.gz移动到/usr/lib/jvm下（jvm目录要自己创建），并用tar命令解压 1234#">
 <meta property="og:type" content="article">
 <meta property="og:title" content="安装java环境">
 <meta property="og:url" content="http://blog.demons.top/2015/09/29/安装java环境/index.html">
 <meta property="og:site_name" content="Demon's Blog">
-<meta property="og:description" content="一、环境准备1、Ubuntu 14.042、JDK 7：从Oracle官网下载，所有历史版本链接http://www.oracle.com/technetwork/java/javase/archive-139210.html
-二、安装1、解压。将下载的jdk-7u80-linux-x64.tar.gz移动到/usr/lib/jvm下（jvm目录要自己创建），并用tar命令解压1234# sudo">
+<meta property="og:description" content="一、环境准备 1、Ubuntu 14.04 2、JDK 7：从Oracle官网下载，所有历史版本链接http://www.oracle.com/technetwork/java/javase/archive-139210.html
+二、安装 1、解压。将下载的jdk-7u80-linux-x64.tar.gz移动到/usr/lib/jvm下（jvm目录要自己创建），并用tar命令解压 1234#">
 <meta property="og:updated_time" content="2015-09-29T11:26:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="安装java环境">
-<meta name="twitter:description" content="一、环境准备1、Ubuntu 14.042、JDK 7：从Oracle官网下载，所有历史版本链接http://www.oracle.com/technetwork/java/javase/archive-139210.html
-二、安装1、解压。将下载的jdk-7u80-linux-x64.tar.gz移动到/usr/lib/jvm下（jvm目录要自己创建），并用tar命令解压1234# sudo">
+<meta name="twitter:description" content="一、环境准备 1、Ubuntu 14.04 2、JDK 7：从Oracle官网下载，所有历史版本链接http://www.oracle.com/technetwork/java/javase/archive-139210.html
+二、安装 1、解压。将下载的jdk-7u80-linux-x64.tar.gz移动到/usr/lib/jvm下（jvm目录要自己创建），并用tar命令解压 1234#">
   
     <link rel="alternative" href="/atom.xml" title="Demon&#39;s Blog" type="application/atom+xml">
   
@@ -246,12 +246,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一、环境准备<br>1、Ubuntu 14.04<br>2、JDK 7：从Oracle官网下载，所有历史版本链接<a href="http://www.oracle.com/technetwork/java/javase/archive-139210.html" target="_blank" rel="external">http://www.oracle.com/technetwork/java/javase/archive-139210.html</a></p>
-<p>二、安装<br>1、解压。将下载的jdk-7u80-linux-x64.tar.gz移动到/usr/lib/jvm下（jvm目录要自己创建），并用tar命令解压<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sudo mkdir /usr/lib/jvm</span></span><br><span class="line"><span class="comment"># cd /usr/lib/jvm</span></span><br><span class="line"><span class="comment"># mv ~/Download/jdk-7u80-linux-x64.tar.gz .</span></span><br><span class="line"><span class="comment"># tar zxvf jdk-7u80-linux-x64.tar.gz</span></span><br></pre></td></tr></table></figure></p>
-<p>2、配置环境变量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># vim ~/.bashrc</span></span><br></pre></td></tr></table></figure></p>
-<p>在文件最后添加<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/lib/jvm/jdk1.<span class="number">7.0</span>_80</span><br><span class="line"><span class="built_in">export</span> JRE_HOME=<span class="variable">$&#123;JAVA_HOME&#125;</span>/jre</span><br><span class="line"><span class="built_in">export</span> CLASSPATH=.:<span class="variable">$&#123;JAVA_HOME&#125;</span>/lib:<span class="variable">$&#123;JRE_HOME&#125;</span>/lib</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$&#123;JAVA_HOME&#125;</span>/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure></p>
-<p>保存文件，退出，并使修改生效<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># source ~/.bashrc</span></span><br></pre></td></tr></table></figure></p>
-<p>3、测试验证<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">demon@Demon-WorkPad:~$ java -version</span><br><span class="line">java version <span class="string">"1.7.0_80"</span></span><br><span class="line">Java(TM) SE Runtime Environment (build <span class="number">1.7</span>.<span class="number">0</span>_80-b15)</span><br><span class="line">Java HotSpot(TM) <span class="number">64</span>-Bit Server VM (build <span class="number">24.80</span>-b11, mixed mode)</span><br></pre></td></tr></table></figure></p>
+        <p>一、环境准备 1、Ubuntu 14.04 2、JDK 7：从Oracle官网下载，所有历史版本链接http://www.oracle.com/technetwork/java/javase/archive-139210.html</p>
+<p>二、安装 1、解压。将下载的jdk-7u80-linux-x64.tar.gz移动到/usr/lib/jvm下（jvm目录要自己创建），并用tar命令解压 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sudo mkdir /usr/lib/jvm</span></span><br><span class="line"><span class="comment"># cd /usr/lib/jvm</span></span><br><span class="line"><span class="comment"># mv ~/Download/jdk-7u80-linux-x64.tar.gz .</span></span><br><span class="line"><span class="comment"># tar zxvf jdk-7u80-linux-x64.tar.gz</span></span><br></pre></td></tr></table></figure></p>
+<p>2、配置环境变量 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># vim ~/.bashrc</span></span><br></pre></td></tr></table></figure></p>
+<p>在文件最后添加 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/lib/jvm/jdk1.<span class="number">7.0</span>_80</span><br><span class="line"><span class="built_in">export</span> JRE_HOME=<span class="variable">$&#123;JAVA_HOME&#125;</span>/jre</span><br><span class="line"><span class="built_in">export</span> CLASSPATH=.:<span class="variable">$&#123;JAVA_HOME&#125;</span>/lib:<span class="variable">$&#123;JRE_HOME&#125;</span>/lib</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$&#123;JAVA_HOME&#125;</span>/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure></p>
+<p>保存文件，退出，并使修改生效 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># source ~/.bashrc</span></span><br></pre></td></tr></table></figure></p>
+<p>3、测试验证 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">demon@Demon-WorkPad:~$ java -version</span><br><span class="line">java version <span class="string">"1.7.0_80"</span></span><br><span class="line">Java(TM) SE Runtime Environment (build <span class="number">1.7</span>.<span class="number">0</span>_80-b15)</span><br><span class="line">Java HotSpot(TM) <span class="number">64</span>-Bit Server VM (build <span class="number">24.80</span>-b11, mixed mode)</span><br></pre></td></tr></table></figure></p>
 <p>备注：如果还没有上述测试成功的结果，先退出当前窗口（Ctrl + D），再打开窗口重新测试一下即可。</p>
 
       
@@ -392,6 +392,7 @@ MathJax.Hub.Queue(function() {
 
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
+
 
 
 
